@@ -49,6 +49,7 @@ const SERVICES = [
     desc: "3D-стенд Technovector. Точность до 0.01°. Все марки авто.",
     price: "от 2 500 ₽",
     tag: "ПОПУЛЯРНОЕ",
+    path: "/razvalskhozhdenie",
   },
   {
     id: 2,
@@ -58,6 +59,7 @@ const SERVICES = [
     desc: "Диагностика, замена амортизаторов, шаровых, сайлентблоков.",
     price: "от 1 500 ₽",
     tag: "",
+    path: "/remont-hodovoy",
   },
   {
     id: 3,
@@ -67,6 +69,7 @@ const SERVICES = [
     desc: "Заправка фреоном R134a / R1234yf. Проверка герметичности системы.",
     price: "от 3 000 ₽",
     tag: "СЕЗОН",
+    path: "/zapravka-kondicionera",
   },
   {
     id: 4,
@@ -76,6 +79,7 @@ const SERVICES = [
     desc: "Восстановление без замены. Гарантия 12 месяцев.",
     price: "от 5 000 ₽",
     tag: "",
+    path: "/remont-rulevyh-reek",
   },
 ];
 
@@ -180,7 +184,8 @@ export default function Index() {
           {SERVICES.map((s, i) => (
             <button
               key={s.id}
-              onClick={() => setActiveService(i)}
+              onClick={() => navigate(s.path)}
+              onMouseEnter={() => setActiveService(i)}
               className={`flex-none flex items-center gap-1.5 sm:gap-3 px-3 sm:px-5 lg:px-6 py-2 sm:py-3 border-r border-border/40 transition-all duration-200 group relative ${
                 activeService === i
                   ? "bg-amber-400/10 text-amber-400"
@@ -519,6 +524,7 @@ export default function Index() {
           {SERVICES.map((s, i) => (
             <div
               key={s.id}
+              onClick={() => navigate(s.path)}
               className="group relative border border-border/60 bg-card hover:border-amber-400/40 transition-all duration-300 p-5 sm:p-6 lg:p-8 cursor-pointer"
               onMouseEnter={() => setActiveService(i)}
             >
