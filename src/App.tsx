@@ -11,6 +11,7 @@ import RemontHodovoy from "./pages/RemontHodovoy";
 import ZapravkaKondicionera from "./pages/ZapravkaKondicionera";
 import RemontRulevyhReek from "./pages/RemontRulevyhReek";
 import NotFound from "./pages/NotFound";
+import SubliminalFlash from "./components/SubliminalFlash";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <SubliminalFlash />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
