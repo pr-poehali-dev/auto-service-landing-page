@@ -404,8 +404,11 @@ export default function Index() {
             </button>
           </div>
 
-          {/* RIGHT: слоган + панель услуг */}
-          <div className="flex-1 flex flex-col justify-center gap-6 order-3 lg:order-3 w-full lg:max-w-[400px] xl:max-w-[480px] 2xl:max-w-[560px]">
+          {/* RIGHT: слоган + панель услуг — слегка не в фокусе */}
+          <div
+            className="flex-1 flex flex-col justify-center gap-6 order-3 lg:order-3 w-full lg:max-w-[400px] xl:max-w-[480px] 2xl:max-w-[560px]"
+            style={{ opacity: 0.72, filter: "blur(0.4px)" }}
+          >
 
             {/* Слоган "Точность на каждом миллиметре" — меньше, чем было слева */}
             <div className="animate-fade-in-up">
@@ -429,13 +432,10 @@ export default function Index() {
             {/* Панель активной услуги */}
             <div className="relative border border-border/60 bg-background/60 backdrop-blur p-5 sm:p-6 lg:p-8 corner-bracket">
               {/* Panel header */}
-              <div className="flex items-center justify-between mb-4 sm:mb-6 pb-3 sm:pb-4 border-b border-border/40">
-                <div className="font-mono text-[10px] sm:text-xs text-muted-foreground tracking-widest">
-                  MODULE: {SERVICES[activeService].code}
-                </div>
+              <div className="flex items-center justify-end mb-4 sm:mb-6 pb-3 sm:pb-4 border-b border-border/40">
                 <div className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-green-400 animate-pulse" />
-                  <span className="font-mono text-[10px] sm:text-xs text-green-400">АКТИВНО</span>
+                  <span className="font-mono text-[10px] sm:text-xs text-green-400/70 tracking-widest">ОНЛАЙН</span>
                 </div>
               </div>
 
@@ -456,7 +456,6 @@ export default function Index() {
 
               <div className="flex items-end justify-between pt-3 sm:pt-4 border-t border-border/40">
                 <div>
-                  <div className="font-mono text-[9px] sm:text-xs text-muted-foreground mb-1">СТОИМОСТЬ</div>
                   <div className="font-['Oswald'] text-xl sm:text-2xl font-bold text-amber-400">
                     {SERVICES[activeService].price}
                   </div>
