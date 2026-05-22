@@ -7,438 +7,479 @@ export default function TireIllustration({ type }: TireIllustrationProps) {
   const isOuter = type === "outer";
   const isNormal = type === "normal";
 
-  // Цвет стёртых зон протектора
-  const wornColor = "#ef4444";
-  const wornGlow = "rgba(239,68,68,0.35)";
-  const normalTreadColor = "#4b5563";
-  const goodTreadColor = "#6b7280";
-
-  // Параметры протектора (вид спереди)
-  // Шина: прямоугольник с закруглёнными углами, вид спереди (боковина + протектор)
-  // Ширина шины 320, высота 200
-  // Протектор — верхняя полоса высотой ~56px
-  // Сноски — линии с кружком и подписью
+  const red = "#ef4444";
+  const green = "#22c55e";
+  const amber = "#f59e0b";
+  const accent = isNormal ? green : red;
 
   return (
     <svg
-      viewBox="0 0 360 260"
+      viewBox="0 0 400 320"
       xmlns="http://www.w3.org/2000/svg"
       className="w-full h-full"
       style={{ display: "block" }}
     >
       <defs>
-        <radialGradient id={`bg-${type}`} cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#1a1a1a" />
-          <stop offset="100%" stopColor="#0a0a0a" />
+        <radialGradient id={`bg-${type}`} cx="35%" cy="55%" r="65%">
+          <stop offset="0%" stopColor="#151a1e" />
+          <stop offset="100%" stopColor="#080b0d" />
         </radialGradient>
 
-        {/* Текстура резины */}
-        <pattern id={`rubber-${type}`} x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
-          <rect width="6" height="6" fill="#1c1c1c" />
-          <rect x="0" y="0" width="3" height="3" fill="#181818" />
-          <rect x="3" y="3" width="3" height="3" fill="#181818" />
-        </pattern>
+        {/* Резина — тёмная */}
+        <radialGradient id={`tire-body-${type}`} cx="40%" cy="40%" r="60%">
+          <stop offset="0%" stopColor="#2a2a2a" />
+          <stop offset="60%" stopColor="#1a1a1a" />
+          <stop offset="100%" stopColor="#111" />
+        </radialGradient>
 
-        {/* Стёртая резина — красноватый оттенок */}
-        <pattern id={`worn-${type}`} x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
-          <rect width="6" height="6" fill="#2a1212" />
-          <rect x="0" y="0" width="3" height="3" fill="#241010" />
-          <rect x="3" y="3" width="3" height="3" fill="#241010" />
-        </pattern>
+        {/* Стёртая зона */}
+        <radialGradient id={`worn-${type}`} cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#3a1010" />
+          <stop offset="100%" stopColor="#1a0808" />
+        </radialGradient>
 
-        <filter id={`glow-red-${type}`} x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur stdDeviation="3" result="blur" />
+        <filter id={`glow-${type}`} x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="4" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+
+        <filter id={`glow-sm-${type}`} x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="2" result="blur" />
           <feComposite in="SourceGraphic" in2="blur" operator="over" />
         </filter>
 
         <filter id={`shadow-${type}`}>
-          <feDropShadow dx="0" dy="4" stdDeviation="8" floodColor="#000" floodOpacity="0.6" />
+          <feDropShadow dx="6" dy="6" stdDeviation="12" floodColor="#000" floodOpacity="0.7" />
         </filter>
 
-        <linearGradient id={`sidewall-${type}`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#2a2a2a" />
-          <stop offset="40%" stopColor="#1a1a1a" />
-          <stop offset="100%" stopColor="#111" />
+        {/* Металл подвески */}
+        <linearGradient id={`metal-${type}`} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#4a5568" />
+          <stop offset="40%" stopColor="#2d3748" />
+          <stop offset="100%" stopColor="#1a202c" />
         </linearGradient>
 
-        <linearGradient id={`tread-top-${type}`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#333" />
-          <stop offset="100%" stopColor="#1a1a1a" />
+        <linearGradient id={`metal2-${type}`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#5a6478" />
+          <stop offset="100%" stopColor="#2a3040" />
         </linearGradient>
 
-        <linearGradient id={`highlight-${type}`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="rgba(255,255,255,0.08)" />
-          <stop offset="100%" stopColor="rgba(255,255,255,0)" />
+        <linearGradient id={`spring-${type}`} x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="#3a4455" />
+          <stop offset="50%" stopColor="#6a7a90" />
+          <stop offset="100%" stopColor="#3a4455" />
         </linearGradient>
+
+        {/* Протектор — текстура */}
+        <pattern id={`tread-${type}`} x="0" y="0" width="8" height="14" patternUnits="userSpaceOnUse">
+          <rect width="8" height="14" fill="#252525" />
+          <rect x="1" y="1" width="6" height="5" rx="1" fill="#2e2e2e" />
+          <rect x="1" y="8" width="6" height="5" rx="1" fill="#2e2e2e" />
+        </pattern>
+
+        {/* Стёртый протектор */}
+        <pattern id={`tread-worn-${type}`} x="0" y="0" width="8" height="14" patternUnits="userSpaceOnUse">
+          <rect width="8" height="14" fill="#1e0f0f" />
+          <rect x="1" y="1" width="6" height="5" rx="1" fill="#261414" />
+          <rect x="1" y="8" width="6" height="5" rx="1" fill="#261414" />
+        </pattern>
+
+        <clipPath id={`tire-clip-${type}`}>
+          <circle cx="145" cy="185" r="108" />
+        </clipPath>
       </defs>
 
-      {/* Фон */}
-      <rect width="360" height="260" fill={`url(#bg-${type})`} />
+      {/* ═══════════════════════════════
+          ФОН
+      ═══════════════════════════════ */}
+      <rect width="400" height="320" fill={`url(#bg-${type})`} />
 
-      {/* ══ ШИНА — вид спереди ══
-          Шина занимает центр: x=30, y=70, ширина=300, высота=130
-          Структура:
-            - Боковина (sidewall): вся форма, тёмная резина
-            - Протектор: верхняя полоса шириной 300, высотой 54
-            - Беговая дорожка с канавками
-      */}
+      {/* Сетка-фон (технический стиль) */}
+      {Array.from({ length: 20 }, (_, i) => (
+        <line key={`h${i}`} x1="0" y1={i * 17} x2="400" y2={i * 17}
+          stroke="rgba(255,255,255,0.02)" strokeWidth="0.5" />
+      ))}
+      {Array.from({ length: 24 }, (_, i) => (
+        <line key={`v${i}`} x1={i * 17} y1="0" x2={i * 17} y2="320"
+          stroke="rgba(255,255,255,0.02)" strokeWidth="0.5" />
+      ))}
 
-      {/* Тень шины */}
-      <rect
-        x="30" y="74" width="300" height="128"
-        rx="14" ry="14"
-        fill="rgba(0,0,0,0.5)"
+      {/* ═══════════════════════════════
+          ЭЛЕМЕНТЫ ПОДВЕСКИ (МакФерсон)
+          Правая сторона от шины
+      ═══════════════════════════════ */}
+
+      {/* Амортизаторная стойка — труба */}
+      <rect x="270" y="40" width="14" height="110" rx="3"
+        fill={`url(#metal-${type})`} stroke="#5a6478" strokeWidth="0.8" />
+      {/* Внутренний шток */}
+      <rect x="274" y="30" width="6" height="75" rx="2"
+        fill={`url(#metal2-${type})`} stroke="#7a8898" strokeWidth="0.5" />
+      {/* Поршень (верхний крепёж) */}
+      <ellipse cx="277" cy="30" rx="10" ry="5"
+        fill="#3a4455" stroke="#6a7a90" strokeWidth="1" />
+      <ellipse cx="277" cy="27" rx="8" ry="4"
+        fill="#4a5568" stroke="#8a9aaa" strokeWidth="1" />
+      {/* Болты крепления верх */}
+      <circle cx="270" cy="27" r="2.5" fill="#1a202c" stroke="#6a7a90" strokeWidth="0.8" />
+      <circle cx="284" cy="27" r="2.5" fill="#1a202c" stroke="#6a7a90" strokeWidth="0.8" />
+
+      {/* Пружина */}
+      {Array.from({ length: 9 }, (_, i) => {
+        const y = 68 + i * 10;
+        const flip = i % 2 === 0;
+        return (
+          <path key={i}
+            d={flip
+              ? `M260,${y} Q250,${y + 3} 260,${y + 5} Q270,${y + 7} 280,${y + 5} Q290,${y + 3} 280,${y}`
+              : `M280,${y} Q290,${y + 3} 280,${y + 5} Q270,${y + 7} 260,${y + 5} Q250,${y + 3} 260,${y}`
+            }
+            fill="none"
+            stroke={`url(#spring-${type})`}
+            strokeWidth="3.5"
+            strokeLinecap="round"
+          />
+        );
+      })}
+      {/* Тарелки пружины */}
+      <rect x="254" y="64" width="32" height="5" rx="2" fill="#3a4455" stroke="#5a6478" strokeWidth="0.8" />
+      <rect x="254" y="155" width="32" height="5" rx="2" fill="#3a4455" stroke="#5a6478" strokeWidth="0.8" />
+
+      {/* Корпус амортизатора нижняя часть */}
+      <rect x="268" y="155" width="18" height="55" rx="3"
+        fill={`url(#metal-${type})`} stroke="#5a6478" strokeWidth="0.8" />
+
+      {/* Нижний кронштейн амортизатора */}
+      <path d="M258,205 Q270,215 282,205 L285,220 Q270,228 255,220 Z"
+        fill="#2d3748" stroke="#4a5568" strokeWidth="0.8" />
+
+      {/* Нижний рычаг (А-образный) */}
+      <path d="M240,228 L305,218 L310,235 L240,245 Z"
+        fill={`url(#metal-${type})`} stroke="#5a6478" strokeWidth="0.8" />
+      <path d="M240,228 L190,250 L188,268 L240,245 Z"
+        fill={`url(#metal-${type})`} stroke="#4a5568" strokeWidth="0.8" />
+      {/* Сайлентблок */}
+      <ellipse cx="194" cy="259" rx="8" ry="6"
+        fill="#1a1a1a" stroke="#5a6478" strokeWidth="1.2" />
+      <ellipse cx="194" cy="259" rx="4" ry="3"
+        fill="#2a2a2a" stroke="#8a9aaa" strokeWidth="0.8" />
+
+      {/* Шаровая опора */}
+      <circle cx="237" cy="237" r="7"
+        fill="#2d3748" stroke="#6a7a90" strokeWidth="1.2" />
+      <circle cx="237" cy="237" r="3.5"
+        fill="#3a4455" stroke="#8a9aaa" strokeWidth="0.8" />
+
+      {/* Поворотный кулак */}
+      <path d="M225,195 Q238,188 248,210 Q252,228 237,237 Q222,246 215,230 Q210,212 225,195 Z"
+        fill="#2a3040" stroke="#4a5568" strokeWidth="1" />
+
+      {/* Ступица */}
+      <circle cx="230" cy="215" r="16"
+        fill="#1a2030" stroke="#5a6478" strokeWidth="1.5" />
+      <circle cx="230" cy="215" r="10"
+        fill="#252530" stroke="#6a7a90" strokeWidth="1" />
+      <circle cx="230" cy="215" r="5"
+        fill="#1a1a22" stroke="#8a9aaa" strokeWidth="0.8" />
+      {/* Болты ступицы */}
+      {[0, 72, 144, 216, 288].map((deg, i) => {
+        const rad = (deg * Math.PI) / 180;
+        return (
+          <circle key={i}
+            cx={230 + 12 * Math.cos(rad)} cy={215 + 12 * Math.sin(rad)}
+            r="1.8" fill="#3a4050" stroke="#6a7a90" strokeWidth="0.5" />
+        );
+      })}
+
+      {/* Рулевая тяга */}
+      <line x1="248" y1="210" x2="340" y2="195" stroke="#4a5568" strokeWidth="4" strokeLinecap="round" />
+      <line x1="248" y1="210" x2="340" y2="195" stroke="#6a7a90" strokeWidth="1.5" strokeLinecap="round" />
+      <circle cx="340" cy="195" r="5" fill="#2d3748" stroke="#6a7a90" strokeWidth="1" />
+      <circle cx="248" cy="210" r="4" fill="#2d3748" stroke="#6a7a90" strokeWidth="1" />
+
+      {/* ═══════════════════════════════
+          ШИНА (вид сбоку)
+      ═══════════════════════════════ */}
+
+      {/* Тень */}
+      <ellipse cx="148" cy="310" rx="95" ry="12"
+        fill="rgba(0,0,0,0.6)" filter={`url(#shadow-${type})`} />
+
+      {/* Боковина шины — внешняя */}
+      <circle cx="145" cy="185" r="110"
+        fill={`url(#tire-body-${type})`}
+        stroke="#2a2a2a" strokeWidth="2"
         filter={`url(#shadow-${type})`}
       />
 
-      {/* ── БОКОВИНА (sidewall) ── */}
-      <rect
-        x="30" y="70" width="300" height="130"
-        rx="14" ry="14"
-        fill={`url(#sidewall-${type})`}
-        stroke="#333"
-        strokeWidth="1.5"
-      />
+      {/* Протектор — кольцо */}
+      <circle cx="145" cy="185" r="110" fill="none"
+        stroke={`url(#tread-${type})`} strokeWidth="28" />
 
-      {/* Белая полоса — надпись на боковине (декор) */}
-      <rect x="30" y="116" width="300" height="2" fill="rgba(255,255,255,0.06)" />
-      <rect x="30" y="150" width="300" height="2" fill="rgba(255,255,255,0.04)" />
+      {/* ── ЗОНЫ ИЗНОСА ── */}
 
-      {/* ── ПРОТЕКТОР (верхняя беговая поверхность шины) ── */}
-      {/* Центральная полоса протектора */}
-      <rect
-        x="30" y="70" width="300" height="56"
-        rx="0" ry="0"
-        fill={`url(#tread-top-${type})`}
-      />
-      {/* Скругление только у верхних углов */}
-      <path
-        d="M44,70 H316 Q330,70 330,84 V126 H30 V84 Q30,70 44,70 Z"
-        fill={`url(#tread-top-${type})`}
-      />
-
-      {/* ── ЗОНЫ ПРОТЕКТОРА с износом ──
-          Делим протектор на 3 зоны по горизонтали:
-          Наружная (right): x=240..330
-          Центральная:      x=130..240
-          Внутренняя (left): x=30..130
-      */}
-
-      {/* НАРУЖНАЯ зона (правая) — wear outer */}
+      {/* Износ СНАРУЖИ: правая часть шины (270°→90° по часовой) */}
       {isOuter && (
         <>
-          <clipPath id="clip-outer-worn">
-            <path d="M232,70 H316 Q330,70 330,84 V126 H232 Z" />
-          </clipPath>
-          <rect
-            x="232" y="70" width="98" height="56"
-            fill={`url(#worn-${type})`}
-            clipPath="url(#clip-outer-worn)"
-          />
-          {/* Красная кромка износа */}
+          {/* Стёртая зона — правый сектор */}
           <path
-            d="M232,70 H316 Q330,70 330,84 V126 H232 Z"
-            fill="none"
-            stroke={wornColor}
-            strokeWidth="2"
-            opacity="0.7"
+            d="M145,75 A110,110 0 0,1 255,185 A110,110 0 0,1 145,295 A82,82 0 0,0 145,103 Z"
+            fill={`url(#worn-${type})`}
+            clipPath={`url(#tire-clip-${type})`}
           />
-          {/* Красное свечение */}
-          <rect
-            x="232" y="70" width="98" height="56"
-            fill={wornGlow}
-            clipPath="url(#clip-outer-worn)"
+          <circle cx="145" cy="185" r="110" fill="none"
+            stroke={`url(#tread-worn-${type})`} strokeWidth="28"
+            strokeDasharray="344 344" strokeDashoffset="0"
+            transform="rotate(-90 145 185)"
+          />
+          {/* Красная дуга — правый борт */}
+          <path
+            d="M145,75 A110,110 0 0,1 255,185 A110,110 0 0,1 145,295"
+            fill="none" stroke={red} strokeWidth="3"
+            opacity="0.9" filter={`url(#glow-${type})`}
+          />
+          {/* Красная дуга внутренняя граница */}
+          <path
+            d="M145,103 A82,82 0 0,1 227,185 A82,82 0 0,1 145,267"
+            fill="none" stroke={red} strokeWidth="1.5" opacity="0.4"
           />
         </>
       )}
 
-      {/* ВНУТРЕННЯЯ зона (левая) — wear inner */}
+      {/* Износ ВНУТРИ: левая часть шины (90°→270°) */}
       {isInner && (
         <>
-          <clipPath id="clip-inner-worn">
-            <path d="M44,70 H128 V126 H30 V84 Q30,70 44,70 Z" />
-          </clipPath>
-          <rect
-            x="30" y="70" width="98" height="56"
+          <path
+            d="M145,295 A110,110 0 0,1 35,185 A110,110 0 0,1 145,75 A82,82 0 0,0 145,103 Z"
             fill={`url(#worn-${type})`}
-            clipPath="url(#clip-inner-worn)"
+            clipPath={`url(#tire-clip-${type})`}
+          />
+          <circle cx="145" cy="185" r="110" fill="none"
+            stroke={`url(#tread-worn-${type})`} strokeWidth="28"
+            strokeDasharray="344 344" strokeDashoffset="344"
+            transform="rotate(-90 145 185)"
           />
           <path
-            d="M44,70 H128 V126 H30 V84 Q30,70 44,70 Z"
-            fill="none"
-            stroke={wornColor}
-            strokeWidth="2"
-            opacity="0.7"
+            d="M145,295 A110,110 0 0,1 35,185 A110,110 0 0,1 145,75"
+            fill="none" stroke={red} strokeWidth="3"
+            opacity="0.9" filter={`url(#glow-${type})`}
           />
-          <rect
-            x="30" y="70" width="98" height="56"
-            fill={wornGlow}
-            clipPath="url(#clip-inner-worn)"
+          <path
+            d="M145,267 A82,82 0 0,1 63,185 A82,82 0 0,1 145,103"
+            fill="none" stroke={red} strokeWidth="1.5" opacity="0.4"
           />
         </>
       )}
 
-      {/* ── КАНАВКИ ПРОТЕКТОРА ── */}
-      {/* 2 продольные канавки */}
-      {[130, 180, 230].map((x) => (
-        <rect
-          key={x}
-          x={x - 4} y="70" width="8" height="56"
-          fill="#0d0d0d"
-          opacity="0.9"
-        />
-      ))}
+      {/* Разделяющая канавка (внешний борт протектора) */}
+      <circle cx="145" cy="185" r="110" fill="none" stroke="#111" strokeWidth="2" opacity="0.7" />
+      <circle cx="145" cy="185" r="82" fill="none" stroke="#111" strokeWidth="2" opacity="0.7" />
 
-      {/* Поперечные ламели */}
-      {Array.from({ length: 18 }, (_, i) => {
-        const x = 38 + i * 16.2;
-        if (x > 318) return null;
+      {/* Центральная канавка */}
+      <circle cx="145" cy="185" r="96" fill="none" stroke="#0d0d0d" strokeWidth="4" opacity="0.8" />
+
+      {/* Боковина — надписи */}
+      <text
+        x="145" y="185" textAnchor="middle" dominantBaseline="middle"
+        fill="rgba(255,255,255,0.06)" fontSize="9"
+        fontFamily="monospace" fontWeight="bold" letterSpacing="2"
+        transform="rotate(-60 145 185)"
+      >
+        205/55 R16 91V
+      </text>
+      <circle cx="145" cy="185" r="80"
+        fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5"
+        strokeDasharray="3 6"
+      />
+
+      {/* Диск — обод */}
+      <circle cx="145" cy="185" r="62"
+        fill="#111820"
+        stroke="#3a4455" strokeWidth="2"
+      />
+      {/* Диск — спицы */}
+      {[0, 60, 120, 180, 240, 300].map((deg, i) => {
+        const rad = (deg * Math.PI) / 180;
+        const x1 = 145 + 20 * Math.cos(rad);
+        const y1 = 185 + 20 * Math.sin(rad);
+        const x2 = 145 + 56 * Math.cos(rad);
+        const y2 = 185 + 56 * Math.sin(rad);
         return (
-          <line
-            key={i}
-            x1={x} y1="72"
-            x2={x} y2="124"
-            stroke="#0d0d0d"
-            strokeWidth="1.5"
-            opacity="0.7"
+          <line key={i} x1={x1} y1={y1} x2={x2} y2={y2}
+            stroke="#3a4a5a" strokeWidth="6" strokeLinecap="round" />
+        );
+      })}
+      {/* Диск — обод спиц */}
+      <circle cx="145" cy="185" r="55"
+        fill="none" stroke="#2a3a4a" strokeWidth="4" />
+      <circle cx="145" cy="185" r="20"
+        fill="#0d1420" stroke="#4a5a6a" strokeWidth="1.5" />
+      {/* Центр диска */}
+      <circle cx="145" cy="185" r="10"
+        fill="#1a2030" stroke="#6a7a90" strokeWidth="1" />
+      <circle cx="145" cy="185" r="5"
+        fill="#0d1018" stroke="#8a9aaa" strokeWidth="0.8" />
+
+      {/* ═══════════════════════════════
+          TWI — ИНДИКАТОР ИЗНОСА
+      ═══════════════════════════════ */}
+      {/* Маленькие блоки-индикаторы в канавке */}
+      {[0, 90, 180, 270].map((deg, i) => {
+        const rad = (deg * Math.PI) / 180;
+        const x = 145 + 96 * Math.cos(rad);
+        const y = 185 + 96 * Math.sin(rad);
+        const isWorn = (isOuter && (deg === 0 || deg === 270)) ||
+          (isInner && (deg === 90 || deg === 180));
+        return (
+          <circle key={i} cx={x} cy={y} r="3.5"
+            fill={isWorn ? red : green}
+            opacity="0.85"
           />
         );
       })}
 
-      {/* Центральная продольная канавка (основная) */}
-      <rect x="176" y="70" width="8" height="56" fill="#090909" opacity="1" />
+      {/* ═══════════════════════════════
+          СНОСКИ И ПОДПИСИ
+      ═══════════════════════════════ */}
 
-      {/* ── БЛОКИ ПРОТЕКТОРА детализация ── */}
-      {/* Мелкие насечки внутри блоков */}
-      {Array.from({ length: 36 }, (_, i) => {
-        const x = 34 + i * 8.1;
-        if (x > 322) return null;
-        return (
-          <line
-            key={i}
-            x1={x} y1="80"
-            x2={x + 4} y2="80"
-            stroke="rgba(255,255,255,0.04)"
-            strokeWidth="1"
-          />
-        );
-      })}
-
-      {/* ── ПЛЕЧО ПРОТЕКТОРА (скругления по бокам) ── */}
-      {/* Левое плечо */}
-      <path
-        d="M30,84 Q30,70 44,70 H52 V126 H30 Z"
-        fill={isInner ? `url(#worn-${type})` : "#222"}
-        opacity="0.8"
-      />
-      {/* Правое плечо */}
-      <path
-        d="M308,70 H316 Q330,70 330,84 V126 H308 Z"
-        fill={isOuter ? `url(#worn-${type})` : "#222"}
-        opacity="0.8"
-      />
-
-      {/* ── БЛИКОВЫЙ ХАЙЛАЙТ протектора ── */}
-      <rect
-        x="30" y="70" width="300" height="12"
-        fill={`url(#highlight-${type})`}
-        opacity="0.6"
-      />
-
-      {/* ── ГРАНИЦА ПРОТЕКТОР / БОКОВИНА ── */}
-      <line x1="30" y1="126" x2="330" y2="126" stroke="#444" strokeWidth="1.5" />
-
-      {/* ── СТРЕЛКИ ВРАЩЕНИЯ (на боковине) ── */}
-      <text x="180" y="155" textAnchor="middle" fill="rgba(255,255,255,0.12)" fontSize="9" fontFamily="monospace" letterSpacing="6">
-        ▶ ▶ ▶ ▶ ▶ ▶
-      </text>
-
-      {/* ── МАРКИРОВКА шины (боковина) ── */}
-      <text x="180" y="178" textAnchor="middle" fill="rgba(255,255,255,0.18)" fontSize="8" fontFamily="monospace" fontWeight="bold" letterSpacing="2">
-        205/55 R16
-      </text>
-      <text x="180" y="191" textAnchor="middle" fill="rgba(255,255,255,0.10)" fontSize="7" fontFamily="monospace" letterSpacing="1.5">
-        TUBELESS · RADIAL
-      </text>
-
-      {/* ════════════════════════════════
-          ИНДИКАТОРЫ ИЗНОСА (TWI markers)
-          ════════════════════════════════ */}
-      {[72, 148, 224, 296].map((x, i) => (
-        <rect
-          key={i}
-          x={x - 3} y="118"
-          width="6" height="8"
-          fill={isNormal ? "#22c55e" : (
-            (isOuter && x > 200) || (isInner && x < 150) ? wornColor : "#22c55e"
-          )}
-          opacity="0.8"
-          rx="1"
-        />
-      ))}
-
-      {/* ════════════════════════════════
-          СНОСКИ (выноски)
-          ════════════════════════════════ */}
-
-      {/* ── НОРМАЛЬНЫЙ ИЗНОС ── */}
+      {/* ─── НОРМАЛЬНЫЙ ИЗНОС ─── */}
       {isNormal && (
         <>
-          {/* Сноска 1: Равномерный протектор */}
-          <line x1="90" y1="90" x2="52" y2="38" stroke="#22c55e" strokeWidth="1.2" strokeDasharray="4 2" opacity="0.8" />
-          <circle cx="90" cy="90" r="3.5" fill="#22c55e" opacity="0.9" />
-          <circle cx="52" cy="36" r="5" fill="rgba(34,197,94,0.15)" stroke="#22c55e" strokeWidth="1.2" />
-          <text x="14" y="28" fill="#22c55e" fontSize="8.5" fontFamily="monospace" fontWeight="bold">РАВНОМЕРНЫЙ</text>
-          <text x="14" y="38" fill="rgba(34,197,94,0.7)" fontSize="7.5" fontFamily="monospace">ПРОТЕКТОР</text>
+          {/* Сноска: РАВНОМЕРНЫЙ ПРОТЕКТОР — нижняя правая зона */}
+          <circle cx="220" cy="270" r="5" fill="rgba(34,197,94,0.2)" stroke={green} strokeWidth="1.5" />
+          <circle cx="220" cy="270" r="2.5" fill={green} />
+          <line x1="225" y1="270" x2="310" y2="280" stroke={green} strokeWidth="1.2" strokeDasharray="5 3" />
+          <rect x="308" y="268" width="86" height="26" rx="2" fill="rgba(34,197,94,0.12)" stroke={green} strokeWidth="1" />
+          <text x="314" y="279" fill={green} fontSize="8" fontFamily="monospace" fontWeight="bold">РАВНОМЕРНЫЙ</text>
+          <text x="314" y="290" fill="rgba(34,197,94,0.7)" fontSize="7.5" fontFamily="monospace">ПРОТЕКТОР</text>
 
-          {/* Сноска 2: Центральная канавка */}
-          <line x1="180" y1="70" x2="180" y2="34" stroke="#fbbf24" strokeWidth="1.2" strokeDasharray="4 2" opacity="0.8" />
-          <circle cx="180" cy="70" r="3.5" fill="#fbbf24" opacity="0.9" />
-          <circle cx="180" cy="32" r="5" fill="rgba(251,191,36,0.15)" stroke="#fbbf24" strokeWidth="1.2" />
-          <text x="146" y="24" fill="#fbbf24" fontSize="8.5" fontFamily="monospace" fontWeight="bold">ОСН. КАНАВКА</text>
-          <text x="152" y="34" fill="rgba(251,191,36,0.7)" fontSize="7.5" fontFamily="monospace">В НОРМЕ</text>
+          {/* Сноска: СХОЖДЕНИЕ В НОРМЕ — снизу-слева */}
+          <circle cx="80" cy="278" r="5" fill="rgba(34,197,94,0.2)" stroke={green} strokeWidth="1.5" />
+          <circle cx="80" cy="278" r="2.5" fill={green} />
+          <line x1="75" y1="278" x2="8" y2="290" stroke={green} strokeWidth="1.2" strokeDasharray="5 3" />
+          <rect x="2" y="278" width="72" height="26" rx="2" fill="rgba(34,197,94,0.12)" stroke={green} strokeWidth="1" />
+          <text x="8" y="289" fill={green} fontSize="7.5" fontFamily="monospace" fontWeight="bold">СХОЖДЕНИЕ</text>
+          <text x="8" y="300" fill="rgba(34,197,94,0.7)" fontSize="7.5" fontFamily="monospace">В НОРМЕ</text>
 
-          {/* Сноска 3: TWI индикатор */}
-          <line x1="295" y1="120" x2="334" y2="148" stroke="#22c55e" strokeWidth="1.2" strokeDasharray="4 2" opacity="0.8" />
-          <circle cx="295" cy="120" r="3.5" fill="#22c55e" opacity="0.9" />
-          <circle cx="336" cy="150" r="5" fill="rgba(34,197,94,0.15)" stroke="#22c55e" strokeWidth="1.2" />
-          <text x="316" y="162" fill="#22c55e" fontSize="8.5" fontFamily="monospace" fontWeight="bold">TWI — НОРМА</text>
-          <text x="316" y="172" fill="rgba(34,197,94,0.7)" fontSize="7.5" fontFamily="monospace">ОСТ. ГЛУБ. 6мм</text>
+          {/* Сноска: РАЗВАЛ КОЛЕСА — правая часть */}
+          <circle cx="253" cy="185" r="5" fill="rgba(34,197,94,0.2)" stroke={green} strokeWidth="1.5" />
+          <circle cx="253" cy="185" r="2.5" fill={green} />
+          <line x1="258" y1="185" x2="312" y2="160" stroke={green} strokeWidth="1.2" strokeDasharray="5 3" />
+          <rect x="310" y="148" width="80" height="26" rx="2" fill="rgba(34,197,94,0.12)" stroke={green} strokeWidth="1" />
+          <text x="316" y="159" fill={green} fontSize="7.5" fontFamily="monospace" fontWeight="bold">РАЗВАЛ</text>
+          <text x="316" y="170" fill="rgba(34,197,94,0.7)" fontSize="7.5" fontFamily="monospace">В НОРМЕ 0°</text>
 
-          {/* Сноска 4: Боковина */}
-          <line x1="60" y1="160" x2="26" y2="178" stroke="#6b7280" strokeWidth="1.2" strokeDasharray="4 2" opacity="0.7" />
-          <circle cx="60" cy="160" r="3.5" fill="#6b7280" opacity="0.9" />
-          <text x="4" y="185" fill="#6b7280" fontSize="8" fontFamily="monospace">БОКОВИНА</text>
-          <text x="4" y="195" fill="rgba(107,114,128,0.7)" fontSize="7.5" fontFamily="monospace">БЕЗ ДЕФЕКТОВ</text>
+          {/* TWI маркер */}
+          <circle cx="241" cy="185" r="4" fill="rgba(34,197,94,0.2)" stroke={green} strokeWidth="1.2" />
+          <circle cx="241" cy="185" r="2" fill={green} />
+          <line x1="245" y1="183" x2="312" y2="132" stroke={green} strokeWidth="1.2" strokeDasharray="5 3" />
+          <rect x="310" y="120" width="80" height="26" rx="2" fill="rgba(34,197,94,0.12)" stroke={green} strokeWidth="1" />
+          <text x="316" y="131" fill={green} fontSize="7.5" fontFamily="monospace" fontWeight="bold">TWI — НОРМА</text>
+          <text x="316" y="142" fill="rgba(34,197,94,0.7)" fontSize="7.5" fontFamily="monospace">ОСТАТОК 6мм</text>
 
-          {/* Зелёная рамка — норма */}
-          <rect x="30" y="70" width="300" height="56"
-            fill="none" stroke="rgba(34,197,94,0.2)" strokeWidth="1"
-          />
-          {/* Подпись снизу */}
-          <text x="180" y="248" textAnchor="middle" fill="#22c55e" fontSize="10" fontFamily="monospace" fontWeight="bold" letterSpacing="2">
+          {/* Метка снизу */}
+          <rect x="60" y="302" width="170" height="16" rx="2" fill="rgba(34,197,94,0.1)" />
+          <text x="145" y="313" textAnchor="middle" fill={green} fontSize="9" fontFamily="monospace" fontWeight="bold" letterSpacing="2">
             ◈ РАВНОМЕРНЫЙ ИЗНОС
           </text>
-          <text x="180" y="259" textAnchor="middle" fill="rgba(34,197,94,0.5)" fontSize="8" fontFamily="monospace" letterSpacing="1">
-            ГЕОМЕТРИЯ В НОРМЕ
-          </text>
         </>
       )}
 
-      {/* ── ИЗНОС СНАРУЖИ (outer / right) ── */}
+      {/* ─── ИЗНОС СНАРУЖИ ─── */}
       {isOuter && (
         <>
-          {/* Стёртая зона — красная кромка */}
-          <line x1="280" y1="80" x2="330" y2="38" stroke={wornColor} strokeWidth="1.4" strokeDasharray="4 2" opacity="0.9" />
-          <circle cx="278" cy="82" r="4" fill={wornColor} opacity="0.95" />
-          <circle cx="332" cy="36" r="6" fill="rgba(239,68,68,0.2)" stroke={wornColor} strokeWidth="1.4" />
-          <text x="290" y="26" fill={wornColor} fontSize="9" fontFamily="monospace" fontWeight="bold">СТЁРТАЯ КРОМКА</text>
-          <text x="294" y="36" fill="rgba(239,68,68,0.7)" fontSize="8" fontFamily="monospace">ПЛЕЧО ШИНЫ</text>
+          {/* Сноска: СТЁРТЫЙ БОРТ СНАРУЖИ */}
+          <circle cx="248" cy="220" r="5" fill="rgba(239,68,68,0.2)" stroke={red} strokeWidth="1.5" />
+          <circle cx="248" cy="220" r="2.5" fill={red} />
+          <line x1="253" y1="218" x2="315" y2="238" stroke={red} strokeWidth="1.4" strokeDasharray="5 3" />
+          <rect x="313" y="226" width="84" height="34" rx="2" fill="rgba(239,68,68,0.12)" stroke={red} strokeWidth="1" />
+          <text x="319" y="238" fill={red} fontSize="8" fontFamily="monospace" fontWeight="bold">СТЁРТ БОРТ</text>
+          <text x="319" y="249" fill="rgba(239,68,68,0.7)" fontSize="7.5" fontFamily="monospace">СНАРУЖИ</text>
+          <text x="319" y="258" fill="rgba(239,68,68,0.55)" fontSize="7" fontFamily="monospace">+РАЗВАЛ</text>
 
-          {/* Причина — положительный развал */}
-          <line x1="300" y1="100" x2="338" y2="110" stroke={wornColor} strokeWidth="1.2" strokeDasharray="4 2" opacity="0.8" />
-          <circle cx="299" cy="100" r="3.5" fill={wornColor} opacity="0.9" />
-          <text x="316" y="106" fill={wornColor} fontSize="8.5" fontFamily="monospace" fontWeight="bold">+РАЗВАЛ</text>
-          <text x="316" y="116" fill="rgba(239,68,68,0.7)" fontSize="7.5" fontFamily="monospace">НАКЛОН НАРУЖУ</text>
+          {/* Сноска: ПОЛОЖИТЕЛЬНЫЙ РАЗВАЛ */}
+          <circle cx="255" cy="155" r="5" fill="rgba(239,68,68,0.2)" stroke={red} strokeWidth="1.5" />
+          <circle cx="255" cy="155" r="2.5" fill={red} />
+          <line x1="260" y1="153" x2="318" y2="138" stroke={red} strokeWidth="1.4" strokeDasharray="5 3" />
+          <rect x="316" y="126" width="82" height="34" rx="2" fill="rgba(239,68,68,0.12)" stroke={red} strokeWidth="1" />
+          <text x="322" y="138" fill={red} fontSize="8" fontFamily="monospace" fontWeight="bold">ПОЛОЖИТ.</text>
+          <text x="322" y="149" fill="rgba(239,68,68,0.7)" fontSize="7.5" fontFamily="monospace">РАЗВАЛ</text>
+          <text x="322" y="158" fill="rgba(239,68,68,0.55)" fontSize="7" fontFamily="monospace">КОЛЕСО НАРУЖУ</text>
 
-          {/* Центр — норма */}
-          <line x1="180" y1="70" x2="180" y2="36" stroke="#6b7280" strokeWidth="1.2" strokeDasharray="4 2" opacity="0.6" />
-          <circle cx="180" cy="70" r="3" fill="#6b7280" opacity="0.7" />
-          <text x="140" y="28" fill="#6b7280" fontSize="8" fontFamily="monospace">ЦЕНТР — НОРМА</text>
+          {/* Сноска: TWI критично */}
+          <circle cx="241" cy="185" r="4" fill="rgba(239,68,68,0.2)" stroke={red} strokeWidth="1.2" />
+          <circle cx="241" cy="185" r="2" fill={red} />
+          <line x1="245" y1="183" x2="318" y2="100" stroke={red} strokeWidth="1.2" strokeDasharray="5 3" />
+          <rect x="316" y="88" width="82" height="26" rx="2" fill="rgba(239,68,68,0.12)" stroke={red} strokeWidth="1" />
+          <text x="322" y="99" fill={red} fontSize="7.5" fontFamily="monospace" fontWeight="bold">TWI — КРИТИЧНО</text>
+          <text x="322" y="110" fill="rgba(239,68,68,0.7)" fontSize="7.5" fontFamily="monospace">ЗАМЕНА СРОЧНО</text>
 
-          {/* Внутренняя зона — норма */}
-          <line x1="80" y1="90" x2="24" y2="50" stroke="#22c55e" strokeWidth="1.2" strokeDasharray="4 2" opacity="0.8" />
-          <circle cx="82" cy="88" r="3.5" fill="#22c55e" opacity="0.9" />
-          <circle cx="22" cy="48" r="5" fill="rgba(34,197,94,0.15)" stroke="#22c55e" strokeWidth="1.2" />
-          <text x="2" y="40" fill="#22c55e" fontSize="8.5" fontFamily="monospace" fontWeight="bold">ВНУТР.</text>
-          <text x="2" y="50" fill="rgba(34,197,94,0.7)" fontSize="7.5" fontFamily="monospace">НОРМА</text>
+          {/* Сноска: ВНУТРЕННЯЯ ЗОНА — НОРМА */}
+          <circle cx="80" cy="180" r="4" fill="rgba(34,197,94,0.15)" stroke={green} strokeWidth="1" />
+          <circle cx="80" cy="180" r="2" fill={green} opacity="0.7" />
+          <line x1="76" y1="180" x2="14" y2="165" stroke={green} strokeWidth="1" strokeDasharray="4 3" />
+          <rect x="2" y="153" width="68" height="26" rx="2" fill="rgba(34,197,94,0.1)" stroke={green} strokeWidth="0.8" />
+          <text x="8" y="164" fill={green} fontSize="7.5" fontFamily="monospace" opacity="0.9">ВНУТР. ЗОНА</text>
+          <text x="8" y="175" fill="rgba(34,197,94,0.6)" fontSize="7" fontFamily="monospace">В НОРМЕ</text>
 
-          {/* TWI индикатор наружный */}
-          <line x1="296" y1="120" x2="336" y2="145" stroke={wornColor} strokeWidth="1.2" strokeDasharray="4 2" opacity="0.8" />
-          <circle cx="295" cy="120" r="3.5" fill={wornColor} opacity="0.95" />
-          <text x="314" y="140" fill={wornColor} fontSize="8.5" fontFamily="monospace" fontWeight="bold">TWI — КРИТИЧНО</text>
-          <text x="314" y="150" fill="rgba(239,68,68,0.7)" fontSize="7.5" fontFamily="monospace">ЗАМЕНА СРОЧНО</text>
-
-          {/* Красная рамка только справа */}
-          <path
-            d="M232,70 H316 Q330,70 330,84 V126 H232 Z"
-            fill="none" stroke="rgba(239,68,68,0.4)" strokeWidth="1.5"
-          />
-          {/* Подпись снизу */}
-          <text x="180" y="248" textAnchor="middle" fill={wornColor} fontSize="10" fontFamily="monospace" fontWeight="bold" letterSpacing="2">
+          {/* Метка снизу */}
+          <rect x="60" y="302" width="170" height="16" rx="2" fill="rgba(239,68,68,0.1)" />
+          <text x="145" y="313" textAnchor="middle" fill={red} fontSize="9" fontFamily="monospace" fontWeight="bold" letterSpacing="2">
             ◈ ИЗНОС СНАРУЖИ
           </text>
-          <text x="180" y="259" textAnchor="middle" fill="rgba(239,68,68,0.5)" fontSize="8" fontFamily="monospace" letterSpacing="1">
-            ПОЛОЖИТЕЛЬНЫЙ РАЗВАЛ КОЛЕСА
-          </text>
         </>
       )}
 
-      {/* ── ИЗНОС ВНУТРИ (inner / left) ── */}
+      {/* ─── ИЗНОС ВНУТРИ ─── */}
       {isInner && (
         <>
-          {/* Стёртая зона — левая */}
-          <line x1="78" y1="80" x2="28" y2="38" stroke={wornColor} strokeWidth="1.4" strokeDasharray="4 2" opacity="0.9" />
-          <circle cx="80" cy="82" r="4" fill={wornColor} opacity="0.95" />
-          <circle cx="26" cy="36" r="6" fill="rgba(239,68,68,0.2)" stroke={wornColor} strokeWidth="1.4" />
-          <text x="2" y="26" fill={wornColor} fontSize="9" fontFamily="monospace" fontWeight="bold">СТЁРТАЯ КРОМКА</text>
-          <text x="4" y="36" fill="rgba(239,68,68,0.7)" fontSize="8" fontFamily="monospace">ПЛЕЧО ШИНЫ</text>
+          {/* Сноска: СТЁРТЫЙ БОРТ ВНУТРИ */}
+          <circle cx="42" cy="220" r="5" fill="rgba(239,68,68,0.2)" stroke={red} strokeWidth="1.5" />
+          <circle cx="42" cy="220" r="2.5" fill={red} />
+          <line x1="37" y1="218" x2="2" y2="238" stroke={red} strokeWidth="1.4" strokeDasharray="5 3" />
+          <rect x="0" y="226" width="84" height="34" rx="2" fill="rgba(239,68,68,0.12)" stroke={red} strokeWidth="1" />
+          <text x="6" y="238" fill={red} fontSize="8" fontFamily="monospace" fontWeight="bold">СТЁРТ БОРТ</text>
+          <text x="6" y="249" fill="rgba(239,68,68,0.7)" fontSize="7.5" fontFamily="monospace">ВНУТРИ</text>
+          <text x="6" y="258" fill="rgba(239,68,68,0.55)" fontSize="7" fontFamily="monospace">−РАЗВАЛ</text>
 
-          {/* Причина — отрицательный развал */}
-          <line x1="58" y1="100" x2="20" y2="112" stroke={wornColor} strokeWidth="1.2" strokeDasharray="4 2" opacity="0.8" />
-          <circle cx="60" cy="99" r="3.5" fill={wornColor} opacity="0.9" />
-          <text x="1" y="108" fill={wornColor} fontSize="8.5" fontFamily="monospace" fontWeight="bold">−РАЗВАЛ</text>
-          <text x="1" y="118" fill="rgba(239,68,68,0.7)" fontSize="7.5" fontFamily="monospace">НАКЛОН ВНУТРЬ</text>
+          {/* Сноска: ОТРИЦАТЕЛЬНЫЙ РАЗВАЛ */}
+          <circle cx="40" cy="155" r="5" fill="rgba(239,68,68,0.2)" stroke={red} strokeWidth="1.5" />
+          <circle cx="40" cy="155" r="2.5" fill={red} />
+          <line x1="35" y1="153" x2="2" y2="138" stroke={red} strokeWidth="1.4" strokeDasharray="5 3" />
+          <rect x="0" y="126" width="82" height="34" rx="2" fill="rgba(239,68,68,0.12)" stroke={red} strokeWidth="1" />
+          <text x="6" y="138" fill={red} fontSize="8" fontFamily="monospace" fontWeight="bold">ОТРИЦАТ.</text>
+          <text x="6" y="149" fill="rgba(239,68,68,0.7)" fontSize="7.5" fontFamily="monospace">РАЗВАЛ</text>
+          <text x="6" y="158" fill="rgba(239,68,68,0.55)" fontSize="7" fontFamily="monospace">КОЛЕСО ВНУТРЬ</text>
 
-          {/* Центр — норма */}
-          <line x1="180" y1="70" x2="180" y2="36" stroke="#6b7280" strokeWidth="1.2" strokeDasharray="4 2" opacity="0.6" />
-          <circle cx="180" cy="70" r="3" fill="#6b7280" opacity="0.7" />
-          <text x="144" y="28" fill="#6b7280" fontSize="8" fontFamily="monospace">ЦЕНТР — НОРМА</text>
+          {/* Сноска: TWI критично */}
+          <circle cx="49" cy="185" r="4" fill="rgba(239,68,68,0.2)" stroke={red} strokeWidth="1.2" />
+          <circle cx="49" cy="185" r="2" fill={red} />
+          <line x1="45" y1="183" x2="2" y2="100" stroke={red} strokeWidth="1.2" strokeDasharray="5 3" />
+          <rect x="0" y="88" width="82" height="26" rx="2" fill="rgba(239,68,68,0.12)" stroke={red} strokeWidth="1" />
+          <text x="6" y="99" fill={red} fontSize="7.5" fontFamily="monospace" fontWeight="bold">TWI — КРИТИЧНО</text>
+          <text x="6" y="110" fill="rgba(239,68,68,0.7)" fontSize="7.5" fontFamily="monospace">ЗАМЕНА СРОЧНО</text>
 
-          {/* Наружная зона — норма */}
-          <line x1="278" y1="90" x2="334" y2="50" stroke="#22c55e" strokeWidth="1.2" strokeDasharray="4 2" opacity="0.8" />
-          <circle cx="276" cy="92" r="3.5" fill="#22c55e" opacity="0.9" />
-          <circle cx="336" cy="48" r="5" fill="rgba(34,197,94,0.15)" stroke="#22c55e" strokeWidth="1.2" />
-          <text x="310" y="40" fill="#22c55e" fontSize="8.5" fontFamily="monospace" fontWeight="bold">НАРУЖН.</text>
-          <text x="310" y="50" fill="rgba(34,197,94,0.7)" fontSize="7.5" fontFamily="monospace">НОРМА</text>
+          {/* Сноска: НАРУЖНАЯ ЗОНА — НОРМА */}
+          <circle cx="215" cy="180" r="4" fill="rgba(34,197,94,0.15)" stroke={green} strokeWidth="1" />
+          <circle cx="215" cy="180" r="2" fill={green} opacity="0.7" />
+          <line x1="219" y1="180" x2="328" y2="165" stroke={green} strokeWidth="1" strokeDasharray="4 3" />
+          <rect x="326" y="153" width="70" height="26" rx="2" fill="rgba(34,197,94,0.1)" stroke={green} strokeWidth="0.8" />
+          <text x="332" y="164" fill={green} fontSize="7.5" fontFamily="monospace" opacity="0.9">НАРУЖ. ЗОНА</text>
+          <text x="332" y="175" fill="rgba(34,197,94,0.6)" fontSize="7" fontFamily="monospace">В НОРМЕ</text>
 
-          {/* TWI индикатор внутренний */}
-          <line x1="66" y1="120" x2="26" y2="145" stroke={wornColor} strokeWidth="1.2" strokeDasharray="4 2" opacity="0.8" />
-          <circle cx="67" cy="120" r="3.5" fill={wornColor} opacity="0.95" />
-          <text x="2" y="140" fill={wornColor} fontSize="8.5" fontFamily="monospace" fontWeight="bold">TWI — КРИТИЧНО</text>
-          <text x="4" y="150" fill="rgba(239,68,68,0.7)" fontSize="7.5" fontFamily="monospace">ЗАМЕНА СРОЧНО</text>
-
-          {/* Красная рамка только слева */}
-          <path
-            d="M44,70 H128 V126 H30 V84 Q30,70 44,70 Z"
-            fill="none" stroke="rgba(239,68,68,0.4)" strokeWidth="1.5"
-          />
-          {/* Подпись снизу */}
-          <text x="180" y="248" textAnchor="middle" fill={wornColor} fontSize="10" fontFamily="monospace" fontWeight="bold" letterSpacing="2">
+          {/* Метка снизу */}
+          <rect x="60" y="302" width="170" height="16" rx="2" fill="rgba(239,68,68,0.1)" />
+          <text x="145" y="313" textAnchor="middle" fill={red} fontSize="9" fontFamily="monospace" fontWeight="bold" letterSpacing="2">
             ◈ ИЗНОС ВНУТРИ
-          </text>
-          <text x="180" y="259" textAnchor="middle" fill="rgba(239,68,68,0.5)" fontSize="8" fontFamily="monospace" letterSpacing="1">
-            ОТРИЦАТЕЛЬНЫЙ РАЗВАЛ КОЛЕСА
           </text>
         </>
       )}
 
-      {/* ── Общие декоративные элементы ── */}
-      {/* Угловые маркеры */}
-      <line x1="30" y1="70" x2="14" y2="70" stroke="#333" strokeWidth="1" />
-      <line x1="30" y1="70" x2="30" y2="54" stroke="#333" strokeWidth="1" />
-      <line x1="330" y1="70" x2="346" y2="70" stroke="#333" strokeWidth="1" />
-      <line x1="330" y1="70" x2="330" y2="54" stroke="#333" strokeWidth="1" />
-      <line x1="30" y1="200" x2="14" y2="200" stroke="#333" strokeWidth="1" />
-      <line x1="30" y1="200" x2="30" y2="216" stroke="#333" strokeWidth="1" />
-      <line x1="330" y1="200" x2="346" y2="200" stroke="#333" strokeWidth="1" />
-      <line x1="330" y1="200" x2="330" y2="216" stroke="#333" strokeWidth="1" />
-
-      {/* Линейка ширины */}
-      <line x1="30" y1="222" x2="330" y2="222" stroke="#333" strokeWidth="0.8" />
-      <line x1="30" y1="218" x2="30" y2="226" stroke="#444" strokeWidth="1" />
-      <line x1="330" y1="218" x2="330" y2="226" stroke="#444" strokeWidth="1" />
-      <text x="180" y="234" textAnchor="middle" fill="rgba(255,255,255,0.2)" fontSize="7" fontFamily="monospace">205 mm</text>
+      {/* ═══════════════════════════════
+          СОЕДИНЕНИЕ ДИСК → СТУПИЦА
+      ═══════════════════════════════ */}
+      <line x1="145" y1="185" x2="230" y2="215"
+        stroke="#3a4a5a" strokeWidth="3" opacity="0.6" />
     </svg>
   );
 }

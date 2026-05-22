@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import ContactModal from "@/components/ContactModal";
 import TireIllustration from "@/components/TireIllustration";
+import LeadModal from "@/components/LeadModal";
 
 const TIRE_WEAR = [
   {
@@ -109,19 +110,41 @@ const SUSPENSION_TYPES = [
   },
 ];
 
-function MiniHero({ onContact }: { onContact: () => void }) {
+function AgsLogo() {
+  return (
+    <div className="flex items-center gap-2 flex-none">
+      <div className="flex-none w-[36px] h-[36px] sm:w-[40px] sm:h-[40px] flex items-center justify-center overflow-hidden">
+        <img
+          src="https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/4e9d725c-17d8-4e4d-b482-8ed26c0d71f8.png"
+          alt="AGS"
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="flex flex-col justify-center">
+        <span className="font-['Oswald'] text-amber-400 font-bold tracking-wider uppercase leading-none text-sm sm:text-base">AGS</span>
+        <span className="font-['Oswald'] text-amber-400/70 font-medium tracking-wider uppercase leading-none text-[8px] sm:text-[9px] mt-0.5">Ст. техобслуживания</span>
+      </div>
+    </div>
+  );
+}
+
+function MiniHero({ onContact, onLead }: { onContact: () => void; onLead: () => void }) {
   return (
     <div className="border border-border/60 bg-card/60 backdrop-blur p-4 sm:p-6">
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-        <div>
-          <div className="font-mono text-[9px] sm:text-[10px] text-amber-400 tracking-[0.2em] mb-1.5">◈ SRV-01 / ПОПУЛЯРНОЕ</div>
-          <h3 className="font-['Oswald'] text-xl sm:text-2xl lg:text-3xl font-bold uppercase tracking-wider leading-tight">
-            <span className="text-foreground">Развал-</span>
-            <span className="text-amber-400">Схождение</span>
-          </h3>
-          <p className="text-muted-foreground text-xs sm:text-sm mt-1">
-            3D-стенд Technovector · Точность до 0.01° · от 2 500 ₽
-          </p>
+        <div className="flex items-center gap-4">
+          <AgsLogo />
+          <div className="w-px h-10 bg-border/60 hidden sm:block" />
+          <div>
+            <div className="font-mono text-[9px] sm:text-[10px] text-amber-400 tracking-[0.2em] mb-1">◈ ЗАПИСАТЬСЯ НА СЕРВИС</div>
+            <h3 className="font-['Oswald'] text-xl sm:text-2xl lg:text-3xl font-bold uppercase tracking-wider leading-tight">
+              <span className="text-foreground">Развал-</span>
+              <span className="text-amber-400">Схождение</span>
+            </h3>
+            <p className="text-muted-foreground text-xs sm:text-sm mt-1">
+              3D-стенд Technovector · Точность до 0.01° · от 2 500 ₽
+            </p>
+          </div>
         </div>
         <div className="flex flex-row sm:flex-col lg:flex-row gap-2 w-full sm:w-auto">
           <button
@@ -132,11 +155,11 @@ function MiniHero({ onContact }: { onContact: () => void }) {
             Записаться
           </button>
           <button
-            onClick={onContact}
+            onClick={onLead}
             className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-2.5 border border-amber-400/40 text-amber-400 font-['Oswald'] font-medium text-sm uppercase tracking-widest hover:bg-amber-400/10 transition-colors"
           >
-            <Icon name="MessageCircle" size={14} />
-            Связаться
+            <Icon name="FileText" size={14} />
+            Оставить заявку
           </button>
         </div>
       </div>
@@ -147,10 +170,12 @@ function MiniHero({ onContact }: { onContact: () => void }) {
 export default function TireWear() {
   const navigate = useNavigate();
   const [contactOpen, setContactOpen] = useState(false);
+  const [leadOpen, setLeadOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
+      <LeadModal open={leadOpen} onClose={() => setLeadOpen(false)} />
 
       {/* ── TOP BAR ── */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur border-b border-border">
@@ -197,7 +222,8 @@ export default function TireWear() {
 
         {/* ── MINI HERO TOP ── */}
         <div className="px-4 sm:px-6 lg:px-12 py-6 sm:py-8 max-w-[1920px] mx-auto border-b border-border/40">
-          <MiniHero onContact={() => setContactOpen(true)} />
+
+          <MiniHero onContact={() => setContactOpen(true)} onLead={() => setLeadOpen(true)} />
         </div>
 
         {/* ── PAGE HEADER ── */}
@@ -337,7 +363,7 @@ export default function TireWear() {
 
         {/* ── MINI HERO BOTTOM ── */}
         <div className="px-4 sm:px-6 lg:px-12 py-8 sm:py-10 max-w-[1920px] mx-auto border-t border-border/40">
-          <MiniHero onContact={() => setContactOpen(true)} />
+          <MiniHero onContact={() => setContactOpen(true)} onLead={() => setLeadOpen(true)} />
         </div>
 
         {/* ── FOOTER ── */}
@@ -350,9 +376,9 @@ export default function TireWear() {
               <Icon name="ArrowLeft" size={14} />
               <span className="font-mono text-[10px] tracking-widest">НА ГЛАВНУЮ</span>
             </button>
-            <span className="font-['Oswald'] text-base font-bold tracking-widest text-amber-400">◈ АВТОСЕРВИС</span>
+            <AgsLogo />
             <div className="font-mono text-[10px] text-muted-foreground text-center sm:text-right">
-              © 2024 АВТОСЕРВИС. ALL RIGHTS RESERVED.
+              © 2024 AGS. ALL RIGHTS RESERVED.
             </div>
           </div>
         </footer>
