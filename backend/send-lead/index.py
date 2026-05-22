@@ -6,7 +6,7 @@ from email.mime.multipart import MIMEMultipart
 
 
 def handler(event: dict, context) -> dict:
-    """Отправка заявки с формы на email 55indidi55@gmail.com"""
+    """Отправка заявки с формы на email через zakaz@24razval.ru"""
 
     if event.get("httpMethod") == "OPTIONS":
         return {
@@ -35,9 +35,9 @@ def handler(event: dict, context) -> dict:
 
     smtp_host = "smtp.timeweb.ru"
     smtp_port = 465
-    smtp_user = "zakaz@777.spb0.ru"
+    smtp_user = "zakaz@24razval.ru"
     smtp_password = os.environ.get("SMTP_PASSWORD", "")
-    sender = "zakaz@777.spb0.ru"
+    sender = "zakaz@24razval.ru"
     recipient = "55indidi55@gmail.com"
 
     html_body = f"""
