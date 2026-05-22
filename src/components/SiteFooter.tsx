@@ -1,0 +1,143 @@
+import { useState } from "react";
+import Icon from "@/components/ui/icon";
+
+interface SiteFooterProps {
+  showBackButton?: boolean;
+  onBack?: () => void;
+}
+
+export default function SiteFooter({ showBackButton = false, onBack }: SiteFooterProps) {
+  const [mapOpen, setMapOpen] = useState(false);
+
+  return (
+    <>
+      {/* Карта — попап */}
+      {mapOpen && (
+        <div
+          className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+          onClick={() => setMapOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-3xl bg-background border border-border/80 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between px-4 py-3 border-b border-border/60">
+              <div>
+                <div className="font-mono text-[9px] text-amber-400 tracking-widest mb-0.5">◈ МАРШРУТ</div>
+                <h3 className="font-['Oswald'] text-base font-bold uppercase tracking-wider">
+                  ул. Симонова, 15 — заезд с Суздальского проспекта
+                </h3>
+              </div>
+              <button
+                onClick={() => setMapOpen(false)}
+                className="w-8 h-8 flex items-center justify-center border border-border/40 hover:border-amber-400/40 text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Icon name="X" size={16} />
+              </button>
+            </div>
+            <img
+              src="https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/483b430d-b535-44ab-9ea8-93cfcd600a4c.jpg"
+              alt="Карта проезда AGS Автосервис — ул. Симонова 15, Санкт-Петербург"
+              className="w-full h-auto block"
+            />
+            <div className="px-4 py-3 border-t border-border/60 flex items-center justify-between">
+              <span className="font-mono text-[10px] text-muted-foreground">Санкт-Петербург, ул. Симонова, 15</span>
+              <a
+                href="https://yandex.ru/maps/?text=Санкт-Петербург+улица+Симонова+15"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 font-mono text-[10px] text-amber-400 hover:text-amber-300 transition-colors tracking-wider"
+              >
+                <Icon name="ExternalLink" size={12} />
+                ЯНДЕКС КАРТЫ
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <footer className="border-t border-border/60 bg-background py-6 sm:py-8 px-4 sm:px-6">
+        <div className="max-w-[1920px] mx-auto">
+          {/* Основная строка */}
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-0">
+
+            {/* ЛЕВЫЙ блок — логотип + адрес + кнопка */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 md:flex-1">
+              {/* Логотип */}
+              <div className="flex items-center gap-3 flex-none">
+                <div className="w-[52px] h-[52px] sm:w-[60px] sm:h-[60px] flex-none overflow-hidden">
+                  <img
+                    src="https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/bc9dfc6d-cbbe-4f15-aee8-2576f24256d7.png"
+                    alt="AGS Автосервис — логотип"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div>
+                  <div className="font-['Oswald'] text-amber-400 font-bold tracking-wider uppercase text-lg sm:text-xl leading-none">
+                    AGS
+                  </div>
+                  <div className="font-['Oswald'] text-amber-400/70 font-medium tracking-wider uppercase text-[9px] sm:text-[10px] mt-0.5 leading-none">
+                    Станция техобслуживания
+                  </div>
+                </div>
+              </div>
+
+              {/* Разделитель */}
+              <div className="hidden sm:block w-px h-12 bg-border/40" />
+
+              {/* Адрес + кнопка */}
+              <div className="flex flex-col gap-1.5">
+                <div className="flex items-start gap-2">
+                  <Icon name="MapPin" size={13} className="text-amber-400 flex-none mt-0.5" />
+                  <div>
+                    <div className="font-mono text-[10px] sm:text-xs text-foreground/80 leading-snug">
+                      Санкт-Петербург, ул. Симонова, 15
+                    </div>
+                    <div className="font-mono text-[9px] text-muted-foreground/60 leading-snug">
+                      заезд с Суздальского проспекта
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setMapOpen(true)}
+                  className="inline-flex items-center gap-1.5 px-3 py-1 bg-green-600/90 hover:bg-green-500 text-white font-mono text-[9px] sm:text-[10px] tracking-widest transition-colors rounded-sm w-fit"
+                >
+                  <Icon name="Navigation" size={10} />
+                  КАК ПРОЕХАТЬ
+                </button>
+              </div>
+            </div>
+
+            {/* ЦЕНТРАЛЬНЫЙ блок — режим работы */}
+            <div className="flex flex-col items-start md:items-center gap-1 md:flex-1">
+              <div className="font-mono text-[8px] text-muted-foreground/40 tracking-widest">РЕЖИМ РАБОТЫ</div>
+              <div className="font-mono text-[10px] sm:text-xs text-muted-foreground">
+                ПН–СБ 8:00–20:00
+              </div>
+              <div className="font-mono text-[10px] sm:text-xs text-muted-foreground">
+                ВС 9:00–18:00
+              </div>
+            </div>
+
+            {/* ПРАВЫЙ блок */}
+            <div className="flex flex-col items-start md:items-end gap-2 md:flex-1">
+              {showBackButton && onBack && (
+                <button
+                  onClick={onBack}
+                  className="flex items-center gap-2 text-muted-foreground hover:text-amber-400 transition-colors"
+                >
+                  <Icon name="ArrowLeft" size={13} />
+                  <span className="font-mono text-[10px] tracking-widest">НА ГЛАВНУЮ</span>
+                </button>
+              )}
+              <div className="font-mono text-[9px] sm:text-[10px] text-muted-foreground">
+                © 2024 AGS. ВСЕ ПРАВА ЗАЩИЩЕНЫ.
+              </div>
+              <div className="font-mono text-[9px] text-muted-foreground/40">SYS.VER 1.0.0</div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </>
+  );
+}

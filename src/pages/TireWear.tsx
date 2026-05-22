@@ -4,6 +4,7 @@ import Icon from "@/components/ui/icon";
 import ContactModal from "@/components/ContactModal";
 import TireIllustration from "@/components/TireIllustration";
 import LeadModal from "@/components/LeadModal";
+import SiteFooter from "@/components/SiteFooter";
 
 const TIRE_WEAR = [
   {
@@ -366,22 +367,32 @@ export default function TireWear() {
           <MiniHero onContact={() => setContactOpen(true)} onLead={() => setLeadOpen(true)} />
         </div>
 
-        {/* ── FOOTER ── */}
-        <footer className="border-t border-border/60 bg-background py-5 sm:py-6 px-4 sm:px-6">
-          <div className="max-w-[1920px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-            <button
-              onClick={() => navigate("/")}
-              className="flex items-center gap-2 text-muted-foreground hover:text-amber-400 transition-colors"
-            >
-              <Icon name="ArrowLeft" size={14} />
-              <span className="font-mono text-[10px] tracking-widest">НА ГЛАВНУЮ</span>
-            </button>
-            <AgsLogo />
-            <div className="font-mono text-[10px] text-muted-foreground text-center sm:text-right">
-              © 2024 AGS. ALL RIGHTS RESERVED.
-            </div>
+        {/* ── SEO ПЕРЕЛИНКОВКА ── */}
+        <section className="px-4 sm:px-6 lg:px-12 py-8 sm:py-10 max-w-[1920px] mx-auto border-t border-border/40">
+          <div className="flex items-center gap-4 mb-5">
+            <span className="font-mono text-[10px] text-amber-400 tracking-[0.2em]">/ ДРУГИЕ УСЛУГИ /</span>
+            <span className="flex-1 h-[1px] bg-border" />
           </div>
-        </footer>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <article className="border border-border/40 bg-card/30 p-4 hover:border-amber-400/30 transition-colors">
+              <h3 className="font-['Oswald'] text-sm font-bold uppercase tracking-wider mb-1.5">Развал-Схождение 3D</h3>
+              <p className="text-muted-foreground text-xs leading-relaxed mb-3">Точная регулировка углов колёс на стенде Technovector. Устраняем причину одностороннего износа шин.</p>
+              <button onClick={() => navigate("/")} className="font-mono text-[10px] text-amber-400 tracking-wider hover:underline">На главную →</button>
+            </article>
+            <article className="border border-border/40 bg-card/30 p-4 hover:border-amber-400/30 transition-colors">
+              <h3 className="font-['Oswald'] text-sm font-bold uppercase tracking-wider mb-1.5">Ремонт Ходовой Части</h3>
+              <p className="text-muted-foreground text-xs leading-relaxed mb-3">Замена амортизаторов, шаровых опор, рычагов и сайлентблоков. Диагностика подвески — бесплатно при заказе ремонта.</p>
+              <button onClick={() => navigate("/")} className="font-mono text-[10px] text-amber-400 tracking-wider hover:underline">Узнать подробнее →</button>
+            </article>
+            <article className="border border-border/40 bg-card/30 p-4 hover:border-amber-400/30 transition-colors">
+              <h3 className="font-['Oswald'] text-sm font-bold uppercase tracking-wider mb-1.5">Ремонт Рулевых Реек</h3>
+              <p className="text-muted-foreground text-xs leading-relaxed mb-3">Восстановление рулевой рейки без замены. Гарантия 12 месяцев. AGS — ул. Симонова 15, Санкт-Петербург.</p>
+              <button onClick={() => navigate("/")} className="font-mono text-[10px] text-amber-400 tracking-wider hover:underline">Записаться →</button>
+            </article>
+          </div>
+        </section>
+
+        <SiteFooter showBackButton onBack={() => navigate("/")} />
       </div>
     </div>
   );

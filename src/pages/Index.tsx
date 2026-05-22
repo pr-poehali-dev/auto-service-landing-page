@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import ContactModal from "@/components/ContactModal";
+import SiteFooter from "@/components/SiteFooter";
 
 const TIRE_SLIDES = [
   {
@@ -618,21 +619,104 @@ export default function Index() {
         </div>
       </section>
 
-      {/* ── FOOTER ── */}
-      <footer className="border-t border-border/60 bg-background py-6 sm:py-8 px-4 sm:px-6">
-        <div className="max-w-[1920px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
-          <div className="flex items-center gap-3 sm:gap-4">
-            <span className="font-['Oswald'] text-base sm:text-xl font-bold tracking-widest text-amber-400">◈ АВТОСЕРВИС</span>
-            <span className="font-mono text-[10px] sm:text-xs text-muted-foreground">SYS.VER 1.0.0</span>
+      {/* ── SEO / ПЕРЕЛИНКОВКА ── */}
+      <section className="py-10 sm:py-14 px-4 sm:px-6 lg:px-12 bg-card/30 border-t border-border/60">
+        <div className="max-w-[1920px] mx-auto">
+          <div className="flex items-center gap-4 mb-6">
+            <span className="font-mono text-[10px] sm:text-xs text-amber-400 tracking-[0.2em]">/ ПОЛЕЗНОЕ /</span>
+            <span className="flex-1 h-[1px] bg-border" />
           </div>
-          <div className="font-mono text-[10px] sm:text-xs text-muted-foreground text-center">
-            ПН–СБ 8:00–20:00 · ВС 9:00–18:00
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+
+            {/* Блок 1 — Диагностика износа шин */}
+            <article className="group">
+              <button
+                onClick={() => navigate("/tire-wear")}
+                className="w-full text-left border border-border/50 hover:border-amber-400/40 bg-background/50 hover:bg-amber-400/5 transition-all duration-300 p-4 sm:p-5"
+              >
+                <div className="font-mono text-[9px] text-muted-foreground/40 tracking-widest mb-2">ДИАГНОСТИКА ШИНЫ</div>
+                <h2 className="font-['Oswald'] text-base sm:text-lg font-bold uppercase tracking-wider mb-2 group-hover:text-amber-400 transition-colors">
+                  Виды износа резины
+                </h2>
+                <p className="text-muted-foreground text-xs leading-relaxed mb-3">
+                  По характеру стирания протектора определяем нарушения геометрии подвески: износ с внутренней стороны — признак отрицательного развала, с внешней — положительного. Проверьте свои шины.
+                </p>
+                <span className="font-mono text-[10px] text-amber-400 tracking-wider group-hover:underline">
+                  Смотреть диагностику →
+                </span>
+              </button>
+            </article>
+
+            {/* Блок 2 — Развал-Схождение */}
+            <article className="group">
+              <div className="border border-border/50 bg-background/50 p-4 sm:p-5 h-full">
+                <div className="font-mono text-[9px] text-muted-foreground/40 tracking-widest mb-2">SRV-01</div>
+                <h2 className="font-['Oswald'] text-base sm:text-lg font-bold uppercase tracking-wider mb-2">
+                  Развал-Схождение в СПб
+                </h2>
+                <p className="text-muted-foreground text-xs leading-relaxed mb-3">
+                  3D-стенд Technovector с точностью измерения до 0.01°. Неправильные углы ускоряют износ шин, увеличивают расход топлива и снижают управляемость. Рекомендуем проверку каждые 15 000 км.
+                </p>
+                <button
+                  onClick={() => setContactOpen(true)}
+                  className="font-mono text-[10px] text-amber-400 tracking-wider hover:underline"
+                >
+                  Записаться от 2 500 ₽ →
+                </button>
+              </div>
+            </article>
+
+            {/* Блок 3 — Ремонт ходовой */}
+            <article className="group">
+              <div className="border border-border/50 bg-background/50 p-4 sm:p-5 h-full">
+                <div className="font-mono text-[9px] text-muted-foreground/40 tracking-widest mb-2">SRV-02</div>
+                <h2 className="font-['Oswald'] text-base sm:text-lg font-bold uppercase tracking-wider mb-2">
+                  Ремонт Ходовой Части
+                </h2>
+                <p className="text-muted-foreground text-xs leading-relaxed mb-3">
+                  Диагностика подвески, замена амортизаторов, шаровых опор, рычагов, сайлентблоков и ступичных подшипников. Работаем со всеми марками. Стук, крен, вибрация руля — диагностика бесплатно при заказе ремонта.
+                </p>
+                <button
+                  onClick={() => setContactOpen(true)}
+                  className="font-mono text-[10px] text-amber-400 tracking-wider hover:underline"
+                >
+                  Узнать стоимость →
+                </button>
+              </div>
+            </article>
+
+            {/* Блок 4 — Ремонт рулевых реек + кондиционер */}
+            <article className="group">
+              <div className="border border-border/50 bg-background/50 p-4 sm:p-5 h-full">
+                <div className="font-mono text-[9px] text-muted-foreground/40 tracking-widest mb-2">SRV-03 / SRV-04</div>
+                <h2 className="font-['Oswald'] text-base sm:text-lg font-bold uppercase tracking-wider mb-2">
+                  Кондиционер и Рулевая Рейка
+                </h2>
+                <p className="text-muted-foreground text-xs leading-relaxed mb-3">
+                  Заправка кондиционера фреоном R134a и R1234yf с проверкой герметичности. Ремонт и восстановление рулевых реек без замены с гарантией 12 месяцев — от 5 000 ₽.
+                </p>
+                <button
+                  onClick={() => setContactOpen(true)}
+                  className="font-mono text-[10px] text-amber-400 tracking-wider hover:underline"
+                >
+                  Записаться на сервис →
+                </button>
+              </div>
+            </article>
           </div>
-          <div className="font-mono text-[10px] sm:text-xs text-muted-foreground text-center sm:text-right">
-            © 2024 АВТОСЕРВИС. ALL RIGHTS RESERVED.
+
+          {/* Адрес — SEO-текст */}
+          <div className="mt-8 pt-6 border-t border-border/40">
+            <p className="text-muted-foreground/60 text-[10px] sm:text-xs leading-relaxed font-mono max-w-4xl">
+              <strong className="text-muted-foreground/80">AGS Автосервис</strong> — Санкт-Петербург, ул. Симонова, 15, заезд с Суздальского проспекта.
+              Работаем с легковыми автомобилями всех марок: отечественные, японские, европейские, корейские.
+              Гарантия на все виды работ 12 месяцев. ПН–СБ 8:00–20:00 · ВС 9:00–18:00.
+            </p>
           </div>
         </div>
-      </footer>
+      </section>
+
+      <SiteFooter />
     </div>
   );
 }

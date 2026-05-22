@@ -1,22 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>АвтоСервис — Развал-Схождение, Ремонт Ходовой</title>
-    <meta name="description" content="Профессиональный автосервис: развал-схождение, ремонт ходовой, заправка кондиционеров, ремонт рулевых реек"/>
+    <title>AGS Автосервис СПб — Развал-Схождение, Ремонт Ходовой, Кондиционеры | ул. Симонова 15</title>
+    <meta name="description" content="AGS — профессиональный автосервис в Санкт-Петербурге на ул. Симонова 15 (заезд с Суздальского пр.). Развал-схождение 3D, ремонт ходовой, рулевых реек, заправка кондиционеров. Гарантия 12 мес. Тел: +7 (911) 747-80-57"/>
+    <meta name="keywords" content="автосервис СПб, развал схождение Санкт-Петербург, ремонт ходовой СПб, заправка кондиционера авто, ремонт рулевых реек, AGS автосервис, Симонова 15, Суздальский проспект"/>
+    <meta name="robots" content="index, follow"/>
+    <meta name="author" content="AGS Автосервис, Санкт-Петербург"/>
+    <link rel="canonical" href="https://poehali.dev"/>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website"/>
+    <meta property="og:locale" content="ru_RU"/>
+    <meta property="og:site_name" content="AGS Автосервис"/>
+    <meta property="og:title" content="AGS Автосервис СПб — Развал-Схождение, Ремонт Ходовой | ул. Симонова 15"/>
+    <meta property="og:description" content="Профессиональный автосервис в Санкт-Петербурге. Развал-схождение 3D-стенд, ремонт ходовой, рулевых реек, заправка кондиционеров. Гарантия 12 месяцев."/>
+    <meta property="og:image" content="https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/bc9dfc6d-cbbe-4f15-aee8-2576f24256d7.png"/>
+    <meta property="og:image:width" content="800"/>
+    <meta property="og:image:height" content="800"/>
+    <meta property="og:image:alt" content="AGS Автосервис — логотип"/>
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="AGS Автосервис СПб — Развал-Схождение, Ремонт Ходовой"/>
+    <meta name="twitter:description" content="Профессиональный автосервис в Санкт-Петербурге на ул. Симонова 15."/>
+    <meta name="twitter:image" content="https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/bc9dfc6d-cbbe-4f15-aee8-2576f24256d7.png"/>
+
+    <!-- Structured Data — LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoRepair",
+      "name": "AGS Станция техобслуживания",
+      "image": "https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/bc9dfc6d-cbbe-4f15-aee8-2576f24256d7.png",
+      "url": "https://poehali.dev",
+      "telephone": ["+79117478057", "+79218770797"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ул. Симонова, 15",
+        "addressLocality": "Санкт-Петербург",
+        "addressRegion": "СПб",
+        "postalCode": "194356",
+        "addressCountry": "RU"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 60.042,
+        "longitude": 30.395
+      },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "08:00", "closes": "20:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Sunday"], "opens": "09:00", "closes": "18:00" }
+      ],
+      "priceRange": "₽₽",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Услуги автосервиса",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Развал-Схождение 3D" }, "price": "2500", "priceCurrency": "RUB" },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ремонт ходовой" }, "price": "1500", "priceCurrency": "RUB" },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Заправка кондиционера" }, "price": "3000", "priceCurrency": "RUB" },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ремонт рулевых реек" }, "price": "5000", "priceCurrency": "RUB" }
+        ]
+      }
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <meta name="author" content="poehali.dev"/>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <meta property="og:title" content="Поехали!">
-    <meta property="og:description" content="Ваш личный программист, который делает сайты в 30 раз быстрее обычного.">
-    <meta property="og:image:width" content="4800">
-    <meta property="og:image:height" content="2520">
-    <meta property="og:image:alt" content="Поехали! — сервис разработки сайтов с помощью ИИ">
-    <meta property="og:image" content="https://cdn.poehali.dev/intertnal/img/og.png">
-    <meta name="twitter:image" content="https://cdn.poehali.dev/intertnal/img/og.png">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
 
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS COMMENT! -->
 
