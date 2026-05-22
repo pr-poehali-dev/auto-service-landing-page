@@ -392,7 +392,7 @@ export default function TireWear() {
           </div>
         </section>
 
-        <SiteFooter showBackButton onBack={() => navigate("/")} />
+        <SiteFooter showBackButton onBack={() => navigate("/")} onLeadOpen={() => setLeadOpen(true)} />
       </div>
     </div>
   );

@@ -495,7 +495,7 @@ export default function Index() {
       </section>
 
       {/* ── STATS TICKER ── */}
-      <section className="border-y border-border/60 bg-background/80 overflow-hidden">
+      <section className="border-y border-border/60 bg-background/50 backdrop-blur-sm overflow-hidden">
         <div className="flex animate-marquee whitespace-nowrap py-3 sm:py-4">
           {[...STATS, ...STATS, ...STATS, ...STATS].map((s, i) => (
             <div key={i} className="flex items-center gap-2 sm:gap-3 px-6 sm:px-10">
@@ -508,7 +508,7 @@ export default function Index() {
       </section>
 
       {/* ── SERVICES GRID ── */}
-      <section className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-12 max-w-[1920px] mx-auto">
+      <section className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-12 max-w-[1920px] mx-auto relative z-10">
         <div className="mb-8 sm:mb-12 lg:mb-16">
           <div className="flex items-center gap-4 mb-3 sm:mb-4">
             <span className="font-mono text-[10px] sm:text-xs text-amber-400 tracking-[0.2em] sm:tracking-[0.3em]">/ УСЛУГИ /</span>
@@ -525,7 +525,7 @@ export default function Index() {
             <div
               key={s.id}
               onClick={() => navigate(s.path)}
-              className="group relative border border-border/60 bg-card hover:border-amber-400/40 transition-all duration-300 p-5 sm:p-6 lg:p-8 cursor-pointer"
+              className="group relative border border-border/40 bg-card/40 backdrop-blur-sm hover:border-amber-400/40 hover:bg-card/60 transition-all duration-300 p-5 sm:p-6 lg:p-8 cursor-pointer"
               onMouseEnter={() => setActiveService(i)}
             >
               <div className="flex items-center justify-between mb-4 sm:mb-6">
@@ -562,7 +562,7 @@ export default function Index() {
       </section>
 
       {/* ── WHY US ── */}
-      <section className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-12 bg-card/50 border-y border-border/60">
+      <section className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-12 bg-card/30 backdrop-blur-sm border-y border-border/40">
         <div className="max-w-[1920px] mx-auto">
           <div className="mb-8 sm:mb-12 lg:mb-16">
             <div className="flex items-center gap-4 mb-3 sm:mb-4">
@@ -581,7 +581,7 @@ export default function Index() {
               { icon: "Award", title: "Сертифицированные мастера", desc: "Опыт от 5 лет каждого специалиста" },
               { icon: "BadgeCheck", title: "Оригинальные запчасти", desc: "Только сертифицированные поставщики" },
             ].map((item, i) => (
-              <div key={i} className="group p-5 sm:p-6 border border-border/40 hover:border-amber-400/30 transition-all duration-300 bg-background/50">
+              <div key={i} className="group p-5 sm:p-6 border border-border/40 hover:border-amber-400/30 transition-all duration-300 bg-background/30 backdrop-blur-sm">
                 <div className="mb-3 sm:mb-4 w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center border border-border/60 group-hover:border-amber-400/40 transition-colors duration-300">
                   <Icon name={item.icon} size={18} className="text-amber-400" />
                 </div>
@@ -594,8 +594,8 @@ export default function Index() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-12 relative overflow-hidden">
-        <div className="absolute inset-0 grid-bg opacity-30" />
+      <section className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-12 relative overflow-hidden bg-background/20 backdrop-blur-sm">
+        <div className="absolute inset-0 grid-bg opacity-20" />
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <div className="font-mono text-[10px] sm:text-xs text-amber-400 tracking-[0.2em] sm:tracking-[0.3em] mb-4 sm:mb-6">◈ ЗАПИСЬ ◈</div>
           <h2 className="font-['Oswald'] text-3xl sm:text-4xl lg:text-6xl 2xl:text-7xl font-bold uppercase tracking-tight mb-4 sm:mb-6">
@@ -626,7 +626,7 @@ export default function Index() {
       </section>
 
       {/* ── SEO / ПЕРЕЛИНКОВКА ── */}
-      <section className="py-10 sm:py-14 px-4 sm:px-6 lg:px-12 bg-card/30 border-t border-border/60">
+      <section className="py-10 sm:py-14 px-4 sm:px-6 lg:px-12 bg-card/20 backdrop-blur-sm border-t border-border/40">
         <div className="max-w-[1920px] mx-auto">
           <div className="flex items-center gap-4 mb-6">
             <span className="font-mono text-[10px] sm:text-xs text-amber-400 tracking-[0.2em]">/ ПОЛЕЗНОЕ /</span>
@@ -722,7 +722,7 @@ export default function Index() {
         </div>
       </section>
 
-      <SiteFooter />
+      <SiteFooter onLeadOpen={() => setContactOpen(true)} />
     </div>
   );
 }

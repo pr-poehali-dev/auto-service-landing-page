@@ -51,7 +51,16 @@ export default function ServicePageLayout({
     d.toLocaleTimeString("ru-RU", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground relative">
+      {/* Фоновое изображение — единое для всего сайта */}
+      <div
+        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url(https://cdn.poehali.dev/files/f8dd42f9-4eba-45d2-bf61-2a5ce8e51ca3.jpg)" }}
+      />
+      <div className="fixed inset-0 z-0 bg-background/80" />
+      <div className="fixed inset-0 z-0 grid-bg opacity-30" />
+
+      <div className="relative z-10">
       <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
       <LeadModal open={leadOpen} onClose={() => setLeadOpen(false)} />
 
@@ -206,7 +215,8 @@ export default function ServicePageLayout({
           </section>
         )}
 
-        <SiteFooter showBackButton onBack={() => navigate("/")} />
+        <SiteFooter showBackButton onBack={() => navigate("/")} onLeadOpen={() => setLeadOpen(true)} />
+      </div>
       </div>
     </div>
   );

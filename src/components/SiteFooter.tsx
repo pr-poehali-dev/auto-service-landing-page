@@ -4,14 +4,15 @@ import Icon from "@/components/ui/icon";
 interface SiteFooterProps {
   showBackButton?: boolean;
   onBack?: () => void;
+  onLeadOpen?: () => void;
 }
 
-export default function SiteFooter({ showBackButton = false, onBack }: SiteFooterProps) {
+export default function SiteFooter({ showBackButton = false, onBack, onLeadOpen }: SiteFooterProps) {
   const [mapOpen, setMapOpen] = useState(false);
 
   return (
     <>
-      {/* Карта — попап */}
+      {/* ── КАРТА — ПОПАП ── */}
       {mapOpen && (
         <div
           className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
@@ -56,12 +57,13 @@ export default function SiteFooter({ showBackButton = false, onBack }: SiteFoote
         </div>
       )}
 
-      <footer className="border-t border-border/60 bg-background py-6 sm:py-8 px-4 sm:px-6">
-        <div className="max-w-[1920px] mx-auto">
-          {/* Основная строка */}
+      <footer className="border-t border-border/60 bg-background/80 backdrop-blur-sm py-6 sm:py-8 px-4 sm:px-6">
+        <div className="max-w-[1920px] mx-auto space-y-5">
+
+          {/* ── ОСНОВНАЯ СТРОКА ── */}
           <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-0">
 
-            {/* ЛЕВЫЙ блок — логотип + адрес + кнопка */}
+            {/* ЛЕВЫЙ блок — логотип + адрес + кнопки */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 md:flex-1">
               {/* Логотип */}
               <div className="flex items-center gap-3 flex-none">
@@ -83,10 +85,10 @@ export default function SiteFooter({ showBackButton = false, onBack }: SiteFoote
               </div>
 
               {/* Разделитель */}
-              <div className="hidden sm:block w-px h-12 bg-border/40" />
+              <div className="hidden sm:block w-px h-14 bg-border/40" />
 
-              {/* Адрес + кнопка */}
-              <div className="flex flex-col gap-1.5">
+              {/* Адрес + кнопки */}
+              <div className="flex flex-col gap-2">
                 <div className="flex items-start gap-2">
                   <Icon name="MapPin" size={13} className="text-amber-400 flex-none mt-0.5" />
                   <div>
@@ -98,25 +100,33 @@ export default function SiteFooter({ showBackButton = false, onBack }: SiteFoote
                     </div>
                   </div>
                 </div>
-                <button
-                  onClick={() => setMapOpen(true)}
-                  className="inline-flex items-center gap-1.5 px-3 py-1 bg-green-600/90 hover:bg-green-500 text-white font-mono text-[9px] sm:text-[10px] tracking-widest transition-colors rounded-sm w-fit"
-                >
-                  <Icon name="Navigation" size={10} />
-                  КАК ПРОЕХАТЬ
-                </button>
+                {/* Кнопки под адресом */}
+                <div className="flex flex-wrap gap-2">
+                  <button
+                    onClick={() => setMapOpen(true)}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-green-600/90 hover:bg-green-500 text-white font-mono text-[9px] sm:text-[10px] tracking-widest transition-colors rounded-sm"
+                  >
+                    <Icon name="Navigation" size={10} />
+                    КАК ПРОЕХАТЬ
+                  </button>
+                  {onLeadOpen && (
+                    <button
+                      onClick={onLeadOpen}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-400/90 hover:bg-amber-400 text-background font-mono text-[9px] sm:text-[10px] tracking-widest transition-colors rounded-sm"
+                    >
+                      <Icon name="FileText" size={10} />
+                      ОСТАВИТЬ ЗАЯВКУ
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
 
             {/* ЦЕНТРАЛЬНЫЙ блок — режим работы */}
             <div className="flex flex-col items-start md:items-center gap-1 md:flex-1">
               <div className="font-mono text-[8px] text-muted-foreground/40 tracking-widest">РЕЖИМ РАБОТЫ</div>
-              <div className="font-mono text-[10px] sm:text-xs text-muted-foreground">
-                ПН–СБ 8:00–20:00
-              </div>
-              <div className="font-mono text-[10px] sm:text-xs text-muted-foreground">
-                ВС 9:00–18:00
-              </div>
+              <div className="font-mono text-[10px] sm:text-xs text-muted-foreground">ПН–СБ 8:00–20:00</div>
+              <div className="font-mono text-[10px] sm:text-xs text-muted-foreground">ВС 9:00–18:00</div>
             </div>
 
             {/* ПРАВЫЙ блок */}
@@ -136,6 +146,21 @@ export default function SiteFooter({ showBackButton = false, onBack }: SiteFoote
               <div className="font-mono text-[9px] text-muted-foreground/40">SYS.VER 1.0.0</div>
             </div>
           </div>
+
+          {/* ── НИЖНЯЯ СТРОКА — ДИСКЛЕЙМЕР + ТЕЛЕФОН ── */}
+          <div className="pt-4 border-t border-border/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <p className="font-mono text-[9px] text-muted-foreground/50 leading-relaxed max-w-xl">
+              Информация на сайте не является публичной офертой. Для уточнения цен и условий звоните:
+            </p>
+            <a
+              href="tel:+79218770797"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-amber-400/10 border border-amber-400/40 text-amber-400 hover:bg-amber-400/20 transition-colors rounded-sm flex-none"
+            >
+              <Icon name="Phone" size={13} />
+              <span className="font-mono text-[10px] sm:text-xs tracking-wider">+7 (921) 877-07-97</span>
+            </a>
+          </div>
+
         </div>
       </footer>
     </>
