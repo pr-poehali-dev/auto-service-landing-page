@@ -2,10 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import ContactModal from "@/components/ContactModal";
+import TireIllustration from "@/components/TireIllustration";
 
 const TIRE_WEAR = [
   {
-    img: "https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/files/f9e29c0a-e0ad-4b0c-9e7c-755506705454.jpg",
+    illustration: "inner" as const,
     title: "Износ внутренней части",
     code: "TWR-01",
     status: "КРИТИЧНО",
@@ -22,7 +23,7 @@ const TIRE_WEAR = [
     fix: "Регулировка развала и схождения на 3D-стенде. Возможна замена рычагов или кулака поворотного.",
   },
   {
-    img: "https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/files/57ba25e0-aec3-42f4-98ea-0f89338d2256.jpg",
+    illustration: "normal" as const,
     title: "Нормальный износ",
     code: "TWR-02",
     status: "НОРМА",
@@ -39,7 +40,7 @@ const TIRE_WEAR = [
     fix: "Проверка геометрии рекомендуется каждые 20 000 км или после значительных ударов.",
   },
   {
-    img: "https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/files/0db71407-7694-40d3-9772-53161a6aa51c.jpg",
+    illustration: "outer" as const,
     title: "Износ наружной части",
     code: "TWR-03",
     status: "КРИТИЧНО",
@@ -219,21 +220,18 @@ export default function TireWear() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
             {TIRE_WEAR.map((t) => (
               <div key={t.code} className={`border ${t.borderColor} ${t.bgColor} overflow-hidden`}>
-                {/* Фото */}
-                <div className="relative overflow-hidden aspect-video md:aspect-square lg:aspect-video">
-                  <img
-                    src={t.img}
-                    alt={t.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent" />
+                {/* SVG-иллюстрация шины */}
+                <div className="relative overflow-hidden bg-[#0a0a0a]" style={{ aspectRatio: '360/260' }}>
+                  <TireIllustration type={t.illustration} />
                   <div className={`absolute top-3 right-3 font-mono text-[9px] sm:text-[10px] px-2 py-1 bg-background/80 ${t.statusColor} tracking-wider border border-current/30`}>
                     {t.status}
                   </div>
-                  <div className="absolute bottom-3 left-3 right-3">
-                    <div className="font-mono text-[9px] text-muted-foreground/60 tracking-widest mb-1">{t.code}</div>
-                    <h3 className="font-['Oswald'] text-lg sm:text-xl font-bold uppercase tracking-wider">{t.title}</h3>
+                  <div className="absolute top-3 left-3">
+                    <div className="font-mono text-[9px] text-muted-foreground/50 tracking-widest">{t.code}</div>
                   </div>
+                </div>
+                <div className="px-4 sm:px-5 pt-3 pb-1 border-t border-border/40">
+                  <h3 className="font-['Oswald'] text-lg sm:text-xl font-bold uppercase tracking-wider">{t.title}</h3>
                 </div>
 
                 {/* Info */}
