@@ -66,19 +66,19 @@ export default function ServicePageLayout({
 
       {/* ── TOP BAR ── */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur border-b border-border">
-        <div className="flex items-center justify-between px-3 sm:px-4 lg:px-6" style={{ minHeight: "56px" }}>
-          {/* Логотип */}
-          <button onClick={() => navigate("/")} className="flex items-center gap-2 sm:gap-3 flex-none py-1">
-            <div className="flex-none w-[44px] h-[44px] sm:w-[48px] sm:h-[48px] flex items-center justify-center overflow-hidden">
+        <div className="flex items-center justify-between px-3 sm:px-4 lg:px-6" style={{ minHeight: "76px" }}>
+          {/* Логотип — ссылка на главную */}
+          <button onClick={() => navigate("/")} className="flex items-center gap-2 sm:gap-3 flex-none py-1 hover:opacity-90 transition-opacity">
+            <div className="flex-none w-[62px] h-[62px] sm:w-[68px] sm:h-[68px] lg:w-[74px] lg:h-[74px] flex items-center justify-center overflow-hidden">
               <img
                 src="https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/4e9d725c-17d8-4e4d-b482-8ed26c0d71f8.png"
-                alt="AGS Автосервис"
+                alt="AGS Автосервис — на главную"
                 className="w-full h-full object-contain"
               />
             </div>
             <div className="flex flex-col justify-center">
-              <span className="font-['Oswald'] text-amber-400 font-bold tracking-wider uppercase leading-none text-base sm:text-lg">AGS</span>
-              <span className="font-['Oswald'] text-amber-400/70 font-medium tracking-wider uppercase leading-none text-[8px] sm:text-[10px] mt-0.5 hidden sm:block whitespace-nowrap">Станция техобслуживания</span>
+              <span className="font-['Oswald'] text-amber-400 font-bold tracking-wider uppercase leading-none text-lg sm:text-xl lg:text-2xl">AGS</span>
+              <span className="font-['Oswald'] text-amber-400/70 font-medium tracking-wider uppercase leading-none text-[9px] sm:text-[11px] lg:text-xs mt-0.5 whitespace-nowrap">Станция техобслуживания</span>
             </div>
           </button>
 
@@ -109,7 +109,7 @@ export default function ServicePageLayout({
       </div>
 
       {/* ── SERVICES NAV BAR ── */}
-      <div className="fixed top-[56px] left-0 right-0 z-40 bg-background/95 backdrop-blur border-b border-border/60">
+      <div className="fixed top-[76px] left-0 right-0 z-40 bg-background/95 backdrop-blur border-b border-border/60">
         <div className="flex overflow-x-auto" style={{ scrollbarWidth: "none" }}>
           {ALL_SERVICES.map((s) => {
             const isActive = currentPath === s.path;
@@ -141,7 +141,7 @@ export default function ServicePageLayout({
       </div>
 
       {/* ── MAIN CONTENT ── */}
-      <div className="pt-[108px] sm:pt-[112px]">
+      <div className="pt-[128px] sm:pt-[132px]">
 
         {/* Хлебные крошки */}
         <div className="px-4 sm:px-6 lg:px-12 py-3 border-b border-border/30 bg-card/20">

@@ -9,7 +9,7 @@ export default function ZapravkaKondicionera() {
       price="от 3 000 ₽"
       relatedLinks={[
         { title: "Развал-Схождение", path: "/razvalskhozhdenie", desc: "Регулировка углов колёс на 3D-стенде Technovector. Точность до 0.01°." },
-        { title: "Ремонт Ходовой", path: "/remont-hodovoy", desc: "Диагностика и замена элементов подвески. Гарантия 12 месяцев." },
+        { title: "Ремонт Ходовой", path: "/remont-hodovoy", desc: "Диагностика и замена элементов подвески. Гарантия и качество всех видов работ и запчастей." },
         { title: "Ремонт Рулевых Реек", path: "/remont-rulevyh-reek", desc: "Восстановление рулевой рейки без замены агрегата." },
       ]}
     >

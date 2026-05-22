@@ -76,7 +76,7 @@ const SERVICES = [
     icon: "Wrench",
     title: "Ремонт Рулевых Реек",
     code: "SRV-04",
-    desc: "Восстановление без замены. Гарантия 12 месяцев.",
+    desc: "Восстановление без замены. Гарантия и качество всех видов работ и запчастей.",
     price: "от 5 000 ₽",
     tag: "",
     path: "/remont-rulevyh-reek",
@@ -87,7 +87,7 @@ const STATS = [
   { value: "15+", label: "лет на рынке" },
   { value: "18 000+", label: "выполненных работ" },
   { value: "98%", label: "довольных клиентов" },
-  { value: "12 мес", label: "гарантия на работы" },
+  { value: "★", label: "гарантия и качество работ" },
 ];
 
 export default function Index() {
@@ -123,30 +123,29 @@ export default function Index() {
 
       {/* ── TOP STATUS BAR ── */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur border-b border-border">
-        <div className="flex items-center justify-between px-3 sm:px-4 lg:px-6 text-[10px] sm:text-xs font-mono text-muted-foreground" style={{ minHeight: '56px' }}>
+        <div className="flex items-center justify-between px-3 sm:px-4 lg:px-6 text-[10px] sm:text-xs font-mono text-muted-foreground" style={{ minHeight: '76px' }}>
 
-          {/* LEFT: логотип AGS — увеличенный блок */}
-          <div className="flex items-center gap-3 sm:gap-4 flex-none py-1">
-            {/* Картинка логотипа */}
-            <div className="flex-none w-[48px] h-[48px] sm:w-[52px] sm:h-[52px] lg:w-[56px] lg:h-[56px] flex items-center justify-center overflow-hidden">
+          {/* LEFT: логотип AGS */}
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="flex items-center gap-3 sm:gap-4 flex-none py-1 hover:opacity-90 transition-opacity"
+          >
+            <div className="flex-none w-[68px] h-[68px] sm:w-[74px] sm:h-[74px] lg:w-[80px] lg:h-[80px] flex items-center justify-center overflow-hidden">
               <img
                 src="https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/4e9d725c-17d8-4e4d-b482-8ed26c0d71f8.png"
-                alt="AGS Автосервис"
+                alt="AGS Автосервис — на главную"
                 className="w-full h-full object-contain"
               />
             </div>
-            {/* Текст рядом */}
             <div className="flex flex-col justify-center">
-              <span className="font-['Oswald'] text-amber-400 font-bold tracking-[0.12em] uppercase leading-none text-base sm:text-lg lg:text-xl">
+              <span className="font-['Oswald'] text-amber-400 font-bold tracking-[0.12em] uppercase leading-none text-lg sm:text-xl lg:text-2xl">
                 AGS
               </span>
-              <span className="font-['Oswald'] text-amber-400/80 font-medium tracking-[0.06em] uppercase leading-none text-[9px] sm:text-[10px] lg:text-xs mt-0.5 whitespace-nowrap">
+              <span className="font-['Oswald'] text-amber-400/80 font-medium tracking-[0.06em] uppercase leading-none text-[10px] sm:text-xs lg:text-sm mt-0.5 whitespace-nowrap">
                 Станция техобслуживания
               </span>
             </div>
-
-
-          </div>
+          </button>
 
           {/* CENTER: время — только на md+ */}
           <div className="hidden md:flex items-center gap-2">
@@ -175,7 +174,7 @@ export default function Index() {
       </div>
 
       {/* ── HORIZONTAL SERVICES BAR ── */}
-      <div className="fixed top-[58px] left-0 right-0 z-40 bg-background/95 backdrop-blur border-b border-border/60">
+      <div className="fixed top-[76px] left-0 right-0 z-40 bg-background/95 backdrop-blur border-b border-border/60">
         <div className="flex overflow-x-auto" style={{ scrollbarWidth: 'none' }}>
           {SERVICES.map((s, i) => (
             <button
@@ -207,7 +206,7 @@ export default function Index() {
       </div>
 
       {/* ── HERO SECTION ── */}
-      <section className="relative min-h-screen flex items-center pt-[100px] sm:pt-[108px]">
+      <section className="relative min-h-screen flex items-center pt-[120px] sm:pt-[128px]">
         {/* Background image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"

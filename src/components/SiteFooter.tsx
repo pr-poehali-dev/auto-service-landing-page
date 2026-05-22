@@ -65,24 +65,24 @@ export default function SiteFooter({ showBackButton = false, onBack, onLeadOpen 
 
             {/* ЛЕВЫЙ блок — логотип + адрес + кнопки */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 md:flex-1">
-              {/* Логотип */}
-              <div className="flex items-center gap-3 flex-none">
-                <div className="w-[52px] h-[52px] sm:w-[60px] sm:h-[60px] flex-none overflow-hidden">
+              {/* Логотип — ссылка на главную */}
+              <a href="/" className="flex items-center gap-3 flex-none hover:opacity-90 transition-opacity">
+                <div className="w-[72px] h-[72px] sm:w-[84px] sm:h-[84px] flex-none overflow-hidden">
                   <img
                     src="https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/bc9dfc6d-cbbe-4f15-aee8-2576f24256d7.png"
-                    alt="AGS Автосервис — логотип"
+                    alt="AGS Автосервис — на главную"
                     className="w-full h-full object-contain"
                   />
                 </div>
                 <div>
-                  <div className="font-['Oswald'] text-amber-400 font-bold tracking-wider uppercase text-lg sm:text-xl leading-none">
+                  <div className="font-['Oswald'] text-amber-400 font-bold tracking-wider uppercase text-xl sm:text-2xl leading-none">
                     AGS
                   </div>
-                  <div className="font-['Oswald'] text-amber-400/70 font-medium tracking-wider uppercase text-[9px] sm:text-[10px] mt-0.5 leading-none">
+                  <div className="font-['Oswald'] text-amber-400/70 font-medium tracking-wider uppercase text-[10px] sm:text-xs mt-0.5 leading-none">
                     Станция техобслуживания
                   </div>
                 </div>
-              </div>
+              </a>
 
               {/* Разделитель */}
               <div className="hidden sm:block w-px h-14 bg-border/40" />

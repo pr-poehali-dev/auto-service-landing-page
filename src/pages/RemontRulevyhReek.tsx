@@ -5,11 +5,11 @@ export default function RemontRulevyhReek() {
     <ServicePageLayout
       currentPath="/remont-rulevyh-reek"
       title="Ремонт Рулевых Реек в Санкт-Петербурге"
-      subtitle="Восстановление рулевой рейки без замены агрегата. Экономия до 70% от стоимости новой детали. Гарантия 12 месяцев."
+      subtitle="Восстановление рулевой рейки без замены агрегата. Экономия до 70% от стоимости новой детали. Гарантия и качество всех видов работ и запчастей."
       price="от 5 000 ₽"
       relatedLinks={[
         { title: "Развал-Схождение", path: "/razvalskhozhdenie", desc: "После ремонта рулевой рейки необходима регулировка углов колёс." },
-        { title: "Ремонт Ходовой", path: "/remont-hodovoy", desc: "Диагностика и замена элементов подвески. Гарантия 12 месяцев." },
+        { title: "Ремонт Ходовой", path: "/remont-hodovoy", desc: "Диагностика и замена элементов подвески. Гарантия и качество всех видов работ и запчастей." },
         { title: "Заправка Кондиционеров", path: "/zapravka-kondicionera", desc: "Заправка фреоном R134a / R1234yf с проверкой герметичности." },
       ]}
     >
@@ -79,10 +79,10 @@ export default function RemontRulevyhReek() {
 
       {/* Гарантия */}
       <section className="p-5 border border-amber-400/20 bg-amber-400/5">
-        <h3 className="font-['Oswald'] text-lg font-bold uppercase tracking-wider mb-3 text-amber-400">Гарантия 12 месяцев</h3>
+        <h3 className="font-['Oswald'] text-lg font-bold uppercase tracking-wider mb-3 text-amber-400">Гарантия и качество</h3>
         <ul className="space-y-2">
           {[
-            "Гарантия 12 месяцев на все виды ремонтных работ",
+            "Гарантия и качество всех видов работ и запчастей.",
             "При повторном обращении в гарантийный период — ремонт за наш счёт",
             "Используем только качественные ремонтные комплекты от проверенных поставщиков",
             "После ремонта обязательно рекомендуем сделать развал-схождение",

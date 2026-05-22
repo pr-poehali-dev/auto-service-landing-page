@@ -180,21 +180,21 @@ export default function TireWear() {
 
       {/* ── TOP BAR ── */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur border-b border-border">
-        <div className="flex items-center justify-between px-3 sm:px-6" style={{ minHeight: '58px' }}>
-          {/* Логотип */}
-          <div className="flex items-center gap-2 sm:gap-3">
-            <div className="flex-none w-[44px] h-[44px] sm:w-[48px] sm:h-[48px] flex items-center justify-center overflow-hidden">
+        <div className="flex items-center justify-between px-3 sm:px-6" style={{ minHeight: '76px' }}>
+          {/* Логотип — ссылка на главную */}
+          <button onClick={() => navigate("/")} className="flex items-center gap-2 sm:gap-3 hover:opacity-90 transition-opacity">
+            <div className="flex-none w-[62px] h-[62px] sm:w-[68px] sm:h-[68px] flex items-center justify-center overflow-hidden">
               <img
                 src="https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/4e9d725c-17d8-4e4d-b482-8ed26c0d71f8.png"
-                alt="AGS"
+                alt="AGS Автосервис — на главную"
                 className="w-full h-full object-contain"
               />
             </div>
             <div className="flex flex-col justify-center">
-              <span className="font-['Oswald'] text-amber-400 font-bold tracking-wider uppercase leading-none text-sm sm:text-base">AGS</span>
-              <span className="font-['Oswald'] text-amber-400/70 font-medium tracking-wider uppercase leading-none text-[8px] sm:text-[10px] mt-0.5 hidden sm:block">Ст. техобслуживания</span>
+              <span className="font-['Oswald'] text-amber-400 font-bold tracking-wider uppercase leading-none text-lg sm:text-xl">AGS</span>
+              <span className="font-['Oswald'] text-amber-400/70 font-medium tracking-wider uppercase leading-none text-[9px] sm:text-xs mt-0.5">Станция техобслуживания</span>
             </div>
-          </div>
+          </button>
 
           <span className="font-['Oswald'] text-xs sm:text-sm font-bold tracking-widest text-amber-400">
             ◈ ДИАГНОСТИКА ИЗНОСА
@@ -219,7 +219,7 @@ export default function TireWear() {
         </div>
       </div>
 
-      <div className="pt-[60px]">
+      <div className="pt-[76px]">
 
         {/* ── MINI HERO TOP ── */}
         <div className="px-4 sm:px-6 lg:px-12 py-6 sm:py-8 max-w-[1920px] mx-auto border-b border-border/40">
