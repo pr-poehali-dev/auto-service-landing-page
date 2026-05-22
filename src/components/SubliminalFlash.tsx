@@ -50,15 +50,16 @@ export default function SubliminalFlash() {
     >
       <span
         style={{
-          fontSize: "clamp(2.5rem, 8vw, 7rem)",
+          fontSize: "clamp(1.4rem, 4vw, 3.5rem)",
           fontFamily: "Oswald, sans-serif",
-          fontWeight: 700,
-          letterSpacing: "0.08em",
+          fontWeight: 300,
+          letterSpacing: "0.15em",
           textTransform: "uppercase",
-          color: "rgba(255,255,255,0.12)",
+          color: "rgba(140,120,90,0.04)",
           textAlign: "center",
-          lineHeight: 1.1,
+          lineHeight: 1.3,
           whiteSpace: "nowrap",
+          mixBlendMode: "overlay" as const,
         }}
       >
         Запишись на сервис
