@@ -128,13 +128,13 @@ export default function Index() {
           {/* LEFT: логотип AGS */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center gap-3 sm:gap-4 flex-none py-1 hover:opacity-90 transition-opacity"
+            className="flex items-center gap-3 sm:gap-4 flex-none py-1 hover:opacity-90 transition-all duration-300 group/logo"
           >
-            <div className="flex-none w-[68px] h-[68px] sm:w-[74px] sm:h-[74px] lg:w-[80px] lg:h-[80px] flex items-center justify-center overflow-hidden">
+            <div className="flex-none w-[68px] h-[68px] sm:w-[74px] sm:h-[74px] lg:w-[80px] lg:h-[80px] flex items-center justify-center overflow-hidden rounded-full transition-all duration-300 group-hover/logo:drop-shadow-[0_0_12px_rgba(251,191,36,0.7)]">
               <img
                 src="https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/4e9d725c-17d8-4e4d-b482-8ed26c0d71f8.png"
                 alt="AGS Автосервис — на главную"
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain transition-transform duration-300 group-hover/logo:scale-105"
               />
             </div>
             <div className="flex flex-col justify-center">
@@ -571,7 +571,7 @@ export default function Index() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6">
             {[
-              { icon: "Shield", title: "Гарантия 12 мес", desc: "На все виды выполненных работ" },
+              { icon: "Shield", title: "Гарантия и качество", desc: "Всех видов работ и запчастей" },
               { icon: "Gauge", title: "Диагностика за 30 мин", desc: "Без записи и очередей" },
               { icon: "Award", title: "Сертифицированные мастера", desc: "Опыт от 5 лет каждого специалиста" },
               { icon: "BadgeCheck", title: "Оригинальные запчасти", desc: "Только сертифицированные поставщики" },
