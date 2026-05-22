@@ -152,29 +152,47 @@ export default function TireWear() {
       <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
 
       {/* ── TOP BAR ── */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur border-b border-border">
-        <div className="flex items-center justify-between px-3 sm:px-6 py-2 sm:py-3">
-          <button
-            onClick={() => navigate("/")}
-            className="flex items-center gap-2 text-muted-foreground hover:text-amber-400 transition-colors"
-          >
-            <Icon name="ArrowLeft" size={16} />
-            <span className="font-mono text-[10px] sm:text-xs tracking-widest">НАЗАД</span>
-          </button>
-          <span className="font-['Oswald'] text-sm sm:text-base font-bold tracking-widest text-amber-400">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur border-b border-border">
+        <div className="flex items-center justify-between px-3 sm:px-6" style={{ minHeight: '58px' }}>
+          {/* Логотип */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="flex-none w-[44px] h-[44px] sm:w-[48px] sm:h-[48px] flex items-center justify-center overflow-hidden">
+              <img
+                src="https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/4e9d725c-17d8-4e4d-b482-8ed26c0d71f8.png"
+                alt="AGS"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="flex flex-col justify-center">
+              <span className="font-['Oswald'] text-amber-400 font-bold tracking-wider uppercase leading-none text-sm sm:text-base">AGS</span>
+              <span className="font-['Oswald'] text-amber-400/70 font-medium tracking-wider uppercase leading-none text-[8px] sm:text-[10px] mt-0.5 hidden sm:block">Ст. техобслуживания</span>
+            </div>
+          </div>
+
+          <span className="font-['Oswald'] text-xs sm:text-sm font-bold tracking-widest text-amber-400">
             ◈ ДИАГНОСТИКА ИЗНОСА
           </span>
-          <button
-            onClick={() => setContactOpen(true)}
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-400 text-background font-['Oswald'] font-semibold text-xs uppercase tracking-wider hover:bg-amber-300 transition-colors"
-          >
-            <Icon name="Phone" size={12} />
-            <span className="hidden sm:inline">Записаться</span>
-          </button>
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => navigate("/")}
+              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 border border-border/60 text-muted-foreground hover:text-amber-400 hover:border-amber-400/40 transition-colors font-mono text-[10px] tracking-widest"
+            >
+              <Icon name="ArrowLeft" size={12} />
+              НАЗАД
+            </button>
+            <button
+              onClick={() => setContactOpen(true)}
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-400 text-background font-['Oswald'] font-semibold text-xs uppercase tracking-wider hover:bg-amber-300 transition-colors"
+            >
+              <Icon name="Phone" size={12} />
+              <span className="hidden sm:inline">Записаться</span>
+            </button>
+          </div>
         </div>
       </div>
 
-      <div className="pt-[48px] sm:pt-[56px]">
+      <div className="pt-[60px]">
 
         {/* ── MINI HERO TOP ── */}
         <div className="px-4 sm:px-6 lg:px-12 py-6 sm:py-8 max-w-[1920px] mx-auto border-b border-border/40">

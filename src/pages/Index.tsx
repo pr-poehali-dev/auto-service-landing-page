@@ -117,28 +117,64 @@ export default function Index() {
       <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
 
       {/* ── TOP STATUS BAR ── */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur border-b border-border">
-        <div className="flex items-center justify-between px-3 sm:px-6 py-1.5 sm:py-2 text-[10px] sm:text-xs font-mono text-muted-foreground">
-          <div className="flex items-center gap-3 sm:gap-6">
-            <span className="text-amber-400 font-medium tracking-widest text-xs sm:text-sm">◈ АВТОСЕРВИС</span>
-            <span className="hidden lg:block opacity-60">SYS.STATUS: <span className="text-green-400">ONLINE</span></span>
-            <span className="hidden xl:block opacity-60">UNITS: 4-ACTIVE</span>
+      <div className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur border-b border-border">
+        <div className="flex items-center justify-between px-3 sm:px-4 lg:px-6 text-[10px] sm:text-xs font-mono text-muted-foreground" style={{ minHeight: '56px' }}>
+
+          {/* LEFT: логотип AGS — увеличенный блок */}
+          <div className="flex items-center gap-3 sm:gap-4 flex-none py-1">
+            {/* Картинка логотипа */}
+            <div className="flex-none w-[48px] h-[48px] sm:w-[52px] sm:h-[52px] lg:w-[56px] lg:h-[56px] flex items-center justify-center overflow-hidden">
+              <img
+                src="https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/4e9d725c-17d8-4e4d-b482-8ed26c0d71f8.png"
+                alt="AGS Автосервис"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            {/* Текст рядом */}
+            <div className="flex flex-col justify-center">
+              <span className="font-['Oswald'] text-amber-400 font-bold tracking-[0.12em] uppercase leading-none text-base sm:text-lg lg:text-xl">
+                AGS
+              </span>
+              <span className="font-['Oswald'] text-amber-400/80 font-medium tracking-[0.06em] uppercase leading-none text-[9px] sm:text-[10px] lg:text-xs mt-0.5 whitespace-nowrap">
+                Станция техобслуживания
+              </span>
+            </div>
+
+            {/* Системные метки — только на широких экранах */}
+            <div className="hidden xl:flex items-center gap-4 ml-4 border-l border-border/40 pl-4">
+              <span className="opacity-60">SYS.STATUS: <span className="text-green-400">ONLINE</span></span>
+              <span className="opacity-60">UNITS: 4-ACTIVE</span>
+            </div>
           </div>
-          <div className="flex items-center gap-3 sm:gap-6">
-            <span className="hidden sm:block">
-              <span className="opacity-40">TIME: </span>
-              <span className="text-amber-400">{formatTime(time)}</span>
-              <span className="animate-blink text-amber-400 ml-0.5">_</span>
-            </span>
-            <a href="tel:+7XXXXXXXXXX" className="text-amber-400 hover:text-amber-300 transition-colors font-medium tracking-wider text-[10px] sm:text-xs">
-              +7 (XXX) XXX-XX-XX
-            </a>
+
+          {/* CENTER: время — только на md+ */}
+          <div className="hidden md:flex items-center gap-2">
+            <span className="opacity-40">TIME: </span>
+            <span className="text-amber-400">{formatTime(time)}</span>
+            <span className="animate-blink text-amber-400">_</span>
+          </div>
+
+          {/* RIGHT: два телефона */}
+          <div className="flex flex-col sm:flex-row items-end sm:items-center gap-1 sm:gap-4 flex-none py-1">
+            <div className="flex flex-col items-end sm:items-center gap-0.5">
+              <span className="font-mono text-[8px] sm:text-[9px] text-muted-foreground/50 tracking-widest hidden sm:block">МАС. РАЗВАЛЬЩИК</span>
+              <a href="tel:+79117478057" className="text-amber-400 hover:text-amber-300 transition-colors font-medium tracking-wider text-[10px] sm:text-xs whitespace-nowrap">
+                +7 (911) 747-80-57
+              </a>
+            </div>
+            <div className="hidden sm:block w-[1px] h-6 bg-border/40" />
+            <div className="flex flex-col items-end sm:items-center gap-0.5">
+              <span className="font-mono text-[8px] sm:text-[9px] text-muted-foreground/50 tracking-widest hidden sm:block">МАС. СМЕНЫ</span>
+              <a href="tel:+79218770797" className="text-amber-400 hover:text-amber-300 transition-colors font-medium tracking-wider text-[10px] sm:text-xs whitespace-nowrap">
+                +7 (921) 877-07-97
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
       {/* ── HORIZONTAL SERVICES BAR ── */}
-      <div className="fixed top-[33px] sm:top-[37px] left-0 right-0 z-40 bg-background/95 backdrop-blur border-b border-border/60">
+      <div className="fixed top-[58px] left-0 right-0 z-40 bg-background/95 backdrop-blur border-b border-border/60">
         <div className="flex overflow-x-auto" style={{ scrollbarWidth: 'none' }}>
           {SERVICES.map((s, i) => (
             <button
@@ -169,7 +205,7 @@ export default function Index() {
       </div>
 
       {/* ── HERO SECTION ── */}
-      <section className="relative min-h-screen flex items-center pt-[68px] sm:pt-[80px]">
+      <section className="relative min-h-screen flex items-center pt-[100px] sm:pt-[108px]">
         {/* Background image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
