@@ -3,33 +3,39 @@ import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import ContactModal from "@/components/ContactModal";
 
-const TIRE_WEAR = [
+const TIRE_SLIDES = [
   {
-    img: "https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/files/f9e29c0a-e0ad-4b0c-9e7c-755506705454.jpg",
-    title: "Износ внутренней части",
+    img: "https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/files/60e35b21-e621-468b-8174-0a89189a9fba.jpg",
     code: "TWR-01",
-    cause: "Отрицательный развал — колесо «завалено» внутрь. Требуется регулировка геометрии.",
+    label: "Износ внутренней части",
+    diagnosis: "Неправильное схождение — увеличенный положительный угол",
     status: "КРИТИЧНО",
     statusColor: "text-red-400",
-    borderColor: "border-red-400/30",
+    accentColor: "border-red-500/50",
+    barBg: "bg-red-500",
+    wearSide: "inner",
   },
   {
-    img: "https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/files/57ba25e0-aec3-42f4-98ea-0f89338d2256.jpg",
-    title: "Нормальный износ",
+    img: "https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/files/466ef476-8230-4387-9691-20a9cd5b3d25.jpg",
     code: "TWR-02",
-    cause: "Равномерный износ по всей ширине протектора. Геометрия в норме.",
+    label: "Нормальный износ",
+    diagnosis: "Геометрия подвески в норме — равномерный контакт с дорогой",
     status: "НОРМА",
     statusColor: "text-green-400",
-    borderColor: "border-green-400/30",
+    accentColor: "border-green-500/50",
+    barBg: "bg-green-500",
+    wearSide: "none",
   },
   {
-    img: "https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/files/0db71407-7694-40d3-9772-53161a6aa51c.jpg",
-    title: "Износ наружной части",
+    img: "https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/files/b52ece48-f92d-46a6-a02a-d638f9bea3fb.jpg",
     code: "TWR-03",
-    cause: "Положительный развал — колесо «завалено» наружу. Нужна настройка схождения.",
+    label: "Износ наружной части",
+    diagnosis: "Неправильное схождение — большой отрицательный угол",
     status: "КРИТИЧНО",
     statusColor: "text-red-400",
-    borderColor: "border-red-400/30",
+    accentColor: "border-red-500/50",
+    barBg: "bg-red-500",
+    wearSide: "outer",
   },
 ];
 
@@ -83,7 +89,20 @@ export default function Index() {
   const [activeService, setActiveService] = useState(0);
   const [time, setTime] = useState(new Date());
   const [contactOpen, setContactOpen] = useState(false);
+  const [tireSlide, setTireSlide] = useState(0);
+  const [tireFade, setTireFade] = useState(true);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTireFade(false);
+      setTimeout(() => {
+        setTireSlide((prev) => (prev + 1) % TIRE_SLIDES.length);
+        setTireFade(true);
+      }, 300);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const t = setInterval(() => setTime(new Date()), 1000);
@@ -173,10 +192,10 @@ export default function Index() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-20 py-12 sm:py-16 lg:py-20 flex flex-col lg:flex-row gap-8 lg:gap-12 xl:gap-20 items-center min-h-[calc(100vh-80px)]">
+        <div className="relative z-10 w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-20 py-12 sm:py-16 lg:py-20 flex flex-col lg:flex-row gap-6 lg:gap-8 xl:gap-12 items-stretch min-h-[calc(100vh-80px)]">
 
           {/* LEFT: Развал-Схождение крупным заголовком */}
-          <div className="flex-1 flex flex-col justify-center order-2 lg:order-1">
+          <div className="flex-1 flex flex-col justify-center order-1 lg:order-1">
             {/* Breadcrumb */}
             <div className="animate-fade-in-up flex items-center gap-3 mb-6 lg:mb-8">
               <span className="font-mono text-[10px] sm:text-xs text-amber-400 tracking-[0.2em] sm:tracking-[0.3em] uppercase">
@@ -237,61 +256,119 @@ export default function Index() {
             </div>
           </div>
 
-          {/* CENTER: блок износа шин */}
-          <div className="w-full lg:w-auto lg:flex-none order-1 lg:order-2">
-            {/* Шапка блока */}
-            <div className="flex items-center gap-3 mb-4">
+          {/* CENTER: слайдер износа протектора */}
+          <div className="w-full lg:w-[300px] xl:w-[360px] 2xl:w-[420px] lg:flex-none order-2 lg:order-2 flex flex-col self-stretch">
+            {/* Шапка */}
+            <div className="flex items-center justify-between gap-3 mb-3">
               <span className="font-mono text-[9px] sm:text-[10px] text-amber-400 tracking-[0.2em] uppercase">◈ Диагностика износа</span>
-              <span className="flex-1 h-[1px] bg-border/60 hidden sm:block" />
+              <span className="font-mono text-[9px] text-muted-foreground/50 tracking-widest">
+                {tireSlide + 1} / {TIRE_SLIDES.length}
+              </span>
             </div>
 
-            {/* 3 колеса */}
-            <div className="flex flex-row gap-2 sm:gap-3 mb-4">
-              {TIRE_WEAR.map((t) => (
-                <div key={t.code} className={`flex-1 border ${t.borderColor} bg-card/60 backdrop-blur overflow-hidden group hover:bg-card/80 transition-colors duration-200`}>
-                  {/* Картинка колеса */}
-                  <div className="relative overflow-hidden aspect-square">
-                    <img
-                      src={t.img}
-                      alt={t.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
-                    <div className={`absolute top-2 right-2 font-mono text-[8px] sm:text-[9px] px-1.5 py-0.5 bg-background/80 ${t.statusColor} tracking-wider border border-current/30`}>
-                      {t.status}
-                    </div>
-                  </div>
-                  {/* Описание */}
-                  <div className="p-2 sm:p-3">
-                    <div className="font-mono text-[8px] text-muted-foreground/50 tracking-widest mb-1">{t.code}</div>
-                    <h4 className="font-['Oswald'] text-[11px] sm:text-xs font-bold uppercase tracking-wider leading-tight mb-1.5">
-                      {t.title}
-                    </h4>
-                    <p className="text-muted-foreground text-[9px] sm:text-[10px] leading-relaxed hidden sm:block">
-                      {t.cause}
-                    </p>
-                  </div>
+            {/* Главный слайдер — занимает всё пространство по высоте */}
+            <div
+              className={`flex-1 relative border ${TIRE_SLIDES[tireSlide].accentColor} bg-card/70 backdrop-blur overflow-hidden flex flex-col min-h-[300px] lg:min-h-0`}
+              style={{ transition: "border-color 0.4s" }}
+            >
+              {/* Фото протектора — переходы fade */}
+              <div className="flex-1 relative overflow-hidden">
+                <img
+                  key={tireSlide}
+                  src={TIRE_SLIDES[tireSlide].img}
+                  alt={TIRE_SLIDES[tireSlide].label}
+                  className="absolute inset-0 w-full h-full object-cover object-center"
+                  style={{
+                    opacity: tireFade ? 1 : 0,
+                    transition: "opacity 0.3s ease",
+                  }}
+                />
+
+                {/* Тёмный градиент снизу */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+
+                {/* Статус badge */}
+                <div
+                  className={`absolute top-3 right-3 font-mono text-[9px] sm:text-[10px] px-2 py-1 bg-background/90 ${TIRE_SLIDES[tireSlide].statusColor} tracking-wider border border-current/40`}
+                  style={{ opacity: tireFade ? 1 : 0, transition: "opacity 0.3s ease" }}
+                >
+                  {TIRE_SLIDES[tireSlide].status}
                 </div>
-              ))}
+
+                {/* Код слайда */}
+                <div className="absolute top-3 left-3 font-mono text-[8px] text-muted-foreground/50 tracking-widest bg-background/60 px-1.5 py-0.5">
+                  {TIRE_SLIDES[tireSlide].code}
+                </div>
+
+                {/* Индикаторы износа по бокам */}
+                <div className="absolute left-0 top-0 bottom-0 w-1 flex flex-col">
+                  <div
+                    className={`flex-1 transition-colors duration-500 ${
+                      TIRE_SLIDES[tireSlide].wearSide === "inner" ? "bg-red-500/70" : "bg-transparent"
+                    }`}
+                  />
+                </div>
+                <div className="absolute right-0 top-0 bottom-0 w-1 flex flex-col">
+                  <div
+                    className={`flex-1 transition-colors duration-500 ${
+                      TIRE_SLIDES[tireSlide].wearSide === "outer" ? "bg-red-500/70" : "bg-transparent"
+                    }`}
+                  />
+                </div>
+              </div>
+
+              {/* Нижняя информационная панель */}
+              <div
+                className="p-3 sm:p-4 border-t border-border/40 bg-background/80 backdrop-blur"
+                style={{ opacity: tireFade ? 1 : 0, transition: "opacity 0.3s ease" }}
+              >
+                {/* Название */}
+                <h4 className="font-['Oswald'] text-sm sm:text-base lg:text-lg font-bold uppercase tracking-wider mb-1 leading-tight">
+                  {TIRE_SLIDES[tireSlide].label}
+                </h4>
+                {/* Диагноз */}
+                <p className={`font-mono text-[10px] sm:text-[11px] leading-relaxed ${TIRE_SLIDES[tireSlide].statusColor}`}>
+                  {TIRE_SLIDES[tireSlide].diagnosis}
+                </p>
+
+                {/* Прогресс-бар + точки */}
+                <div className="flex items-center gap-2 mt-3">
+                  <div className="flex gap-1.5 flex-none">
+                    {TIRE_SLIDES.map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => { setTireFade(false); setTimeout(() => { setTireSlide(i); setTireFade(true); }, 200); }}
+                        className={`h-[3px] transition-all duration-300 ${
+                          i === tireSlide
+                            ? `w-6 ${TIRE_SLIDES[tireSlide].barBg}`
+                            : "w-3 bg-border hover:bg-muted-foreground"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  <div className="flex-1 h-[1px] bg-border/40" />
+                  <span className="font-mono text-[8px] text-muted-foreground/40 tracking-widest">AUTO</span>
+                </div>
+              </div>
             </div>
 
-            {/* Кнопка перехода на страницу */}
+            {/* Кнопка перехода */}
             <button
               onClick={() => navigate("/tire-wear")}
-              className="w-full flex items-center justify-between px-4 py-3 border border-amber-400/30 bg-amber-400/5 hover:bg-amber-400/10 hover:border-amber-400/60 transition-all duration-200 group"
+              className="mt-3 w-full flex items-center justify-between px-3 sm:px-4 py-2.5 border border-amber-400/30 bg-amber-400/5 hover:bg-amber-400/10 hover:border-amber-400/60 transition-all duration-200 group"
             >
-              <div>
-                <div className="font-mono text-[9px] text-amber-400/60 tracking-widest mb-0.5">ПОДРОБНЕЕ</div>
-                <span className="font-['Oswald'] text-xs sm:text-sm font-bold uppercase tracking-wider text-amber-400">
-                  Виды износа и неисправности подвески →
+              <div className="text-left">
+                <div className="font-mono text-[8px] sm:text-[9px] text-amber-400/60 tracking-widest mb-0.5">ПОДРОБНЕЕ</div>
+                <span className="font-['Oswald'] text-[11px] sm:text-xs font-bold uppercase tracking-wider text-amber-400">
+                  Виды износа и неисправности →
                 </span>
               </div>
-              <Icon name="ExternalLink" size={14} className="text-amber-400 flex-none group-hover:translate-x-1 transition-transform" />
+              <Icon name="ExternalLink" size={13} className="text-amber-400 flex-none group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
 
           {/* RIGHT: слоган + панель услуг */}
-          <div className="flex-1 flex flex-col gap-6 order-1 lg:order-3 w-full lg:max-w-[400px] xl:max-w-[480px] 2xl:max-w-[560px]">
+          <div className="flex-1 flex flex-col justify-center gap-6 order-3 lg:order-3 w-full lg:max-w-[400px] xl:max-w-[480px] 2xl:max-w-[560px]">
 
             {/* Слоган "Точность на каждом миллиметре" — меньше, чем было слева */}
             <div className="animate-fade-in-up">

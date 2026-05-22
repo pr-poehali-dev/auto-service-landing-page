@@ -106,6 +106,20 @@
   border-width: 0 2px 2px 0;
 }
 
+/* Tire slider wear indicator pulse */
+@keyframes wearPulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.animate-wear-pulse {
+  animation: wearPulse 1s ease-in-out infinite;
+}
+
 /* Scan line animation */
 @keyframes scanline {
   0% {
