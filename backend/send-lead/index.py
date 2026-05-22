@@ -33,15 +33,18 @@ def handler(event: dict, context) -> dict:
             "body": json.dumps({"error": "Все поля обязательны"}),
         }
 
+    smtp_host = "smtp.timeweb.ru"
+    smtp_port = 465
+    smtp_user = "zakaz@777.spb0.ru"
     smtp_password = os.environ.get("SMTP_PASSWORD", "")
-    sender = "55indidi55@gmail.com"
+    sender = "zakaz@777.spb0.ru"
     recipient = "55indidi55@gmail.com"
 
     html_body = f"""
     <html>
     <body style="font-family: Arial, sans-serif; background: #f5f5f5; padding: 20px;">
       <div style="max-width: 480px; background: #fff; border: 1px solid #ddd; padding: 24px; border-radius: 6px;">
-        <h2 style="color: #f59e0b; margin: 0 0 16px;">🔧 Новая заявка — AGS Автосервис</h2>
+        <h2 style="color: #f59e0b; margin: 0 0 16px;">Новая заявка — AGS Автосервис</h2>
         <table style="width:100%; border-collapse: collapse;">
           <tr style="border-bottom: 1px solid #eee;">
             <td style="padding: 8px 0; color: #888; width: 40%;">Имя</td>
@@ -74,8 +77,8 @@ def handler(event: dict, context) -> dict:
     msg["To"] = recipient
     msg.attach(MIMEText(html_body, "html", "utf-8"))
 
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-        server.login(sender, smtp_password)
+    with smtplib.SMTP_SSL(smtp_host, smtp_port) as server:
+        server.login(smtp_user, smtp_password)
         server.sendmail(sender, recipient, msg.as_string())
 
     return {
