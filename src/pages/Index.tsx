@@ -1,5 +1,37 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
+import ContactModal from "@/components/ContactModal";
+
+const TIRE_WEAR = [
+  {
+    img: "https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/files/f9e29c0a-e0ad-4b0c-9e7c-755506705454.jpg",
+    title: "Износ внутренней части",
+    code: "TWR-01",
+    cause: "Отрицательный развал — колесо «завалено» внутрь. Требуется регулировка геометрии.",
+    status: "КРИТИЧНО",
+    statusColor: "text-red-400",
+    borderColor: "border-red-400/30",
+  },
+  {
+    img: "https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/files/57ba25e0-aec3-42f4-98ea-0f89338d2256.jpg",
+    title: "Нормальный износ",
+    code: "TWR-02",
+    cause: "Равномерный износ по всей ширине протектора. Геометрия в норме.",
+    status: "НОРМА",
+    statusColor: "text-green-400",
+    borderColor: "border-green-400/30",
+  },
+  {
+    img: "https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/files/0db71407-7694-40d3-9772-53161a6aa51c.jpg",
+    title: "Износ наружной части",
+    code: "TWR-03",
+    cause: "Положительный развал — колесо «завалено» наружу. Нужна настройка схождения.",
+    status: "КРИТИЧНО",
+    statusColor: "text-red-400",
+    borderColor: "border-red-400/30",
+  },
+];
 
 const SERVICES = [
   {
@@ -50,6 +82,8 @@ const STATS = [
 export default function Index() {
   const [activeService, setActiveService] = useState(0);
   const [time, setTime] = useState(new Date());
+  const [contactOpen, setContactOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const t = setInterval(() => setTime(new Date()), 1000);
@@ -61,6 +95,7 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
 
       {/* ── TOP STATUS BAR ── */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur border-b border-border">
@@ -176,7 +211,10 @@ export default function Index() {
 
             {/* CTA buttons */}
             <div className="animate-fade-in-up delay-400 flex flex-col xs:flex-row gap-3 sm:gap-4">
-              <button className="animate-pulse-glow relative px-6 sm:px-8 py-3 sm:py-4 bg-amber-400 text-background font-['Oswald'] font-semibold text-base sm:text-lg uppercase tracking-widest hover:bg-amber-300 transition-colors duration-200 corner-bracket">
+              <button
+                onClick={() => setContactOpen(true)}
+                className="animate-pulse-glow relative px-6 sm:px-8 py-3 sm:py-4 bg-amber-400 text-background font-['Oswald'] font-semibold text-base sm:text-lg uppercase tracking-widest hover:bg-amber-300 transition-colors duration-200 corner-bracket"
+              >
                 <span className="relative z-10 flex items-center justify-center gap-2">
                   <Icon name="Phone" size={16} />
                   Записаться
@@ -199,8 +237,61 @@ export default function Index() {
             </div>
           </div>
 
+          {/* CENTER: блок износа шин */}
+          <div className="w-full lg:w-auto lg:flex-none order-1 lg:order-2">
+            {/* Шапка блока */}
+            <div className="flex items-center gap-3 mb-4">
+              <span className="font-mono text-[9px] sm:text-[10px] text-amber-400 tracking-[0.2em] uppercase">◈ Диагностика износа</span>
+              <span className="flex-1 h-[1px] bg-border/60 hidden sm:block" />
+            </div>
+
+            {/* 3 колеса */}
+            <div className="flex flex-row gap-2 sm:gap-3 mb-4">
+              {TIRE_WEAR.map((t) => (
+                <div key={t.code} className={`flex-1 border ${t.borderColor} bg-card/60 backdrop-blur overflow-hidden group hover:bg-card/80 transition-colors duration-200`}>
+                  {/* Картинка колеса */}
+                  <div className="relative overflow-hidden aspect-square">
+                    <img
+                      src={t.img}
+                      alt={t.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+                    <div className={`absolute top-2 right-2 font-mono text-[8px] sm:text-[9px] px-1.5 py-0.5 bg-background/80 ${t.statusColor} tracking-wider border border-current/30`}>
+                      {t.status}
+                    </div>
+                  </div>
+                  {/* Описание */}
+                  <div className="p-2 sm:p-3">
+                    <div className="font-mono text-[8px] text-muted-foreground/50 tracking-widest mb-1">{t.code}</div>
+                    <h4 className="font-['Oswald'] text-[11px] sm:text-xs font-bold uppercase tracking-wider leading-tight mb-1.5">
+                      {t.title}
+                    </h4>
+                    <p className="text-muted-foreground text-[9px] sm:text-[10px] leading-relaxed hidden sm:block">
+                      {t.cause}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Кнопка перехода на страницу */}
+            <button
+              onClick={() => navigate("/tire-wear")}
+              className="w-full flex items-center justify-between px-4 py-3 border border-amber-400/30 bg-amber-400/5 hover:bg-amber-400/10 hover:border-amber-400/60 transition-all duration-200 group"
+            >
+              <div>
+                <div className="font-mono text-[9px] text-amber-400/60 tracking-widest mb-0.5">ПОДРОБНЕЕ</div>
+                <span className="font-['Oswald'] text-xs sm:text-sm font-bold uppercase tracking-wider text-amber-400">
+                  Виды износа и неисправности подвески →
+                </span>
+              </div>
+              <Icon name="ExternalLink" size={14} className="text-amber-400 flex-none group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+
           {/* RIGHT: слоган + панель услуг */}
-          <div className="flex-1 flex flex-col gap-6 order-1 lg:order-2 w-full lg:max-w-[480px] xl:max-w-[560px] 2xl:max-w-[640px]">
+          <div className="flex-1 flex flex-col gap-6 order-1 lg:order-3 w-full lg:max-w-[400px] xl:max-w-[480px] 2xl:max-w-[560px]">
 
             {/* Слоган "Точность на каждом миллиметре" — меньше, чем было слева */}
             <div className="animate-fade-in-up">
@@ -396,11 +487,17 @@ export default function Index() {
           </p>
 
           <div className="flex flex-col xs:flex-row gap-3 sm:gap-4 justify-center">
-            <button className="animate-pulse-glow px-8 sm:px-10 py-4 sm:py-5 bg-amber-400 text-background font-['Oswald'] font-bold text-lg sm:text-xl uppercase tracking-widest hover:bg-amber-300 transition-colors duration-200 flex items-center justify-center gap-2 sm:gap-3 w-full xs:w-auto">
+            <button
+              onClick={() => setContactOpen(true)}
+              className="animate-pulse-glow px-8 sm:px-10 py-4 sm:py-5 bg-amber-400 text-background font-['Oswald'] font-bold text-lg sm:text-xl uppercase tracking-widest hover:bg-amber-300 transition-colors duration-200 flex items-center justify-center gap-2 sm:gap-3 w-full xs:w-auto"
+            >
               <Icon name="Phone" size={18} />
               Позвонить нам
             </button>
-            <button className="px-8 sm:px-10 py-4 sm:py-5 border border-border/60 text-foreground font-['Oswald'] font-medium text-lg sm:text-xl uppercase tracking-widest hover:border-amber-400/50 hover:text-amber-400 transition-all duration-200 flex items-center justify-center gap-2 sm:gap-3 w-full xs:w-auto">
+            <button
+              onClick={() => setContactOpen(true)}
+              className="px-8 sm:px-10 py-4 sm:py-5 border border-border/60 text-foreground font-['Oswald'] font-medium text-lg sm:text-xl uppercase tracking-widest hover:border-amber-400/50 hover:text-amber-400 transition-all duration-200 flex items-center justify-center gap-2 sm:gap-3 w-full xs:w-auto"
+            >
               <Icon name="MessageSquare" size={18} />
               В мессенджер
             </button>
