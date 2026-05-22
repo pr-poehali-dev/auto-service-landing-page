@@ -145,11 +145,7 @@ export default function Index() {
               </span>
             </div>
 
-            {/* Системные метки — только на широких экранах */}
-            <div className="hidden xl:flex items-center gap-4 ml-4 border-l border-border/40 pl-4">
-              <span className="opacity-60">SYS.STATUS: <span className="text-green-400">ONLINE</span></span>
-              <span className="opacity-60">UNITS: 4-ACTIVE</span>
-            </div>
+
           </div>
 
           {/* CENTER: время — только на md+ */}
@@ -195,7 +191,7 @@ export default function Index() {
               {activeService === i && (
                 <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-amber-400" />
               )}
-              <span className="hidden sm:block font-mono text-[9px] sm:text-[10px] opacity-40">{s.code}</span>
+
               <Icon name={s.icon} size={12} />
               <span className="font-['Oswald'] text-[11px] sm:text-sm font-medium tracking-wider whitespace-nowrap uppercase">
                 {s.title}
@@ -513,7 +509,7 @@ export default function Index() {
           <div className="flex items-center gap-4 mb-3 sm:mb-4">
             <span className="font-mono text-[10px] sm:text-xs text-amber-400 tracking-[0.2em] sm:tracking-[0.3em]">/ УСЛУГИ /</span>
             <span className="flex-1 h-[1px] bg-border" />
-            <span className="font-mono text-[10px] sm:text-xs text-muted-foreground tracking-widest">04 MODULE</span>
+
           </div>
           <h2 className="font-['Oswald'] text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold uppercase tracking-tight">
             Что мы делаем
@@ -529,7 +525,7 @@ export default function Index() {
               onMouseEnter={() => setActiveService(i)}
             >
               <div className="flex items-center justify-between mb-4 sm:mb-6">
-                <span className="font-mono text-[9px] sm:text-[10px] text-muted-foreground/50 tracking-widest">{s.code}</span>
+  
                 {s.tag && (
                   <span className="font-mono text-[8px] sm:text-[9px] bg-amber-400/20 text-amber-400 px-1.5 sm:px-2 py-0.5 sm:py-1 tracking-widest">
                     {s.tag}
@@ -640,7 +636,7 @@ export default function Index() {
                 onClick={() => navigate("/tire-wear")}
                 className="w-full text-left border border-border/50 hover:border-amber-400/40 bg-background/50 hover:bg-amber-400/5 transition-all duration-300 p-4 sm:p-5"
               >
-                <div className="font-mono text-[9px] text-muted-foreground/40 tracking-widest mb-2">ДИАГНОСТИКА ШИНЫ</div>
+
                 <h2 className="font-['Oswald'] text-base sm:text-lg font-bold uppercase tracking-wider mb-2 group-hover:text-amber-400 transition-colors">
                   Виды износа резины
                 </h2>
@@ -656,7 +652,7 @@ export default function Index() {
             {/* Блок 2 — Развал-Схождение */}
             <article className="group">
               <div className="border border-border/50 bg-background/50 p-4 sm:p-5 h-full">
-                <div className="font-mono text-[9px] text-muted-foreground/40 tracking-widest mb-2">SRV-01</div>
+
                 <h2 className="font-['Oswald'] text-base sm:text-lg font-bold uppercase tracking-wider mb-2">
                   Развал-Схождение в СПб
                 </h2>
@@ -675,7 +671,7 @@ export default function Index() {
             {/* Блок 3 — Ремонт ходовой */}
             <article className="group">
               <div className="border border-border/50 bg-background/50 p-4 sm:p-5 h-full">
-                <div className="font-mono text-[9px] text-muted-foreground/40 tracking-widest mb-2">SRV-02</div>
+
                 <h2 className="font-['Oswald'] text-base sm:text-lg font-bold uppercase tracking-wider mb-2">
                   Ремонт Ходовой Части
                 </h2>
@@ -694,7 +690,7 @@ export default function Index() {
             {/* Блок 4 — Ремонт рулевых реек + кондиционер */}
             <article className="group">
               <div className="border border-border/50 bg-background/50 p-4 sm:p-5 h-full">
-                <div className="font-mono text-[9px] text-muted-foreground/40 tracking-widest mb-2">SRV-03 / SRV-04</div>
+
                 <h2 className="font-['Oswald'] text-base sm:text-lg font-bold uppercase tracking-wider mb-2">
                   Кондиционер и Рулевая Рейка
                 </h2>

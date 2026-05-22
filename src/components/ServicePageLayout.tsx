@@ -124,7 +124,7 @@ export default function ServicePageLayout({
                 }`}
               >
                 {isActive && <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-amber-400" />}
-                <span className="hidden sm:block font-mono text-[9px] opacity-40">{s.code}</span>
+
                 <Icon name={s.icon} size={12} />
                 <span className="font-['Oswald'] text-[11px] sm:text-sm font-medium tracking-wider whitespace-nowrap uppercase">
                   {s.title}

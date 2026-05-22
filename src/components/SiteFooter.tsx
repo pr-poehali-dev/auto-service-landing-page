@@ -143,7 +143,7 @@ export default function SiteFooter({ showBackButton = false, onBack, onLeadOpen 
               <div className="font-mono text-[9px] sm:text-[10px] text-muted-foreground">
                 © 2024 AGS. ВСЕ ПРАВА ЗАЩИЩЕНЫ.
               </div>
-              <div className="font-mono text-[9px] text-muted-foreground/40">SYS.VER 1.0.0</div>
+
             </div>
           </div>
 

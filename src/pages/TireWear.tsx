@@ -253,9 +253,7 @@ export default function TireWear() {
                   <div className={`absolute top-3 right-3 font-mono text-[9px] sm:text-[10px] px-2 py-1 bg-background/80 ${t.statusColor} tracking-wider border border-current/30`}>
                     {t.status}
                   </div>
-                  <div className="absolute top-3 left-3">
-                    <div className="font-mono text-[9px] text-muted-foreground/50 tracking-widest">{t.code}</div>
-                  </div>
+
                 </div>
                 <div className="px-4 sm:px-5 pt-3 pb-1 border-t border-border/40">
                   <h3 className="font-['Oswald'] text-lg sm:text-xl font-bold uppercase tracking-wider">{t.title}</h3>
