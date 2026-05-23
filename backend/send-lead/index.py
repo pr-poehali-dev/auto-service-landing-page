@@ -34,7 +34,7 @@ def handler(event: dict, context) -> dict:
         }
 
     smtp_host = "smtp.timeweb.ru"
-    smtp_port = 465
+    smtp_port = 25
     smtp_user = "zakaz@24razval.ru"
     smtp_password = os.environ.get("SMTP_PASSWORD", "")
     sender = "zakaz@24razval.ru"
