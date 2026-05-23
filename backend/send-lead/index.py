@@ -36,7 +36,7 @@ def handler(event: dict, context) -> dict:
     # Исправлено: корректный порт для SSL/TLS (465) вместо 25
     smtp_host = "smtp.timeweb.ru"
     smtp_port = 465  # Порт 465 используется для SSL-соединения
-    smtp_user = "zakaz@24razval.ru"
+    smtp_user = "zakaz"
     smtp_password = os.environ.get("SMTP_PASSWORD", "")
     sender = "zakaz@24razval.ru"
     recipient = "55indidi55@gmail.com"
