@@ -33,9 +33,10 @@ def handler(event: dict, context) -> dict:
             "body": json.dumps({"error": "Все поля обязательны"}),
         }
 
+    # Исправлено: корректный порт для SSL/TLS (465) вместо 25
     smtp_host = "smtp.timeweb.ru"
-    smtp_port = 25
-    smtp_user = "zakaz"
+    smtp_port = 465  # Порт 465 используется для SSL-соединения
+    smtp_user = "zakaz@24razval.ru"
     smtp_password = os.environ.get("SMTP_PASSWORD", "")
     sender = "zakaz@24razval.ru"
     recipient = "55indidi55@gmail.com"
@@ -77,12 +78,19 @@ def handler(event: dict, context) -> dict:
     msg["To"] = recipient
     msg.attach(MIMEText(html_body, "html", "utf-8"))
 
-    with smtplib.SMTP_SSL(smtp_host, smtp_port) as server:
-        server.login(smtp_user, smtp_password)
-        server.sendmail(sender, recipient, msg.as_string())
-
-    return {
-        "statusCode": 200,
-        "headers": {"Access-Control-Allow-Origin": "*"},
-        "body": json.dumps({"ok": True}),
-    }
+    try:
+        with smtplib.SMTP_SSL(smtp_host, smtp_port) as server:
+            server.login(smtp_user, smtp_password)
+            server.sendmail(sender, recipient, msg.as_string())
+        return {
+            "statusCode": 200,
+            "headers": {"Access-Control-Allow-Origin": "*"},
+            "body": json.dumps({"ok": True}),
+        }
+    except Exception as e:
+        # Добавлено: обработка ошибок для отладки
+        return {
+            "statusCode": 500,
+            "headers": {"Access-Control-Allow-Origin": "*"},
+            "body": json.dumps({"error": str(e)}),
+        }
