@@ -37,7 +37,7 @@ def handler(event: dict, context) -> dict:
     smtp_host = "smtp.timeweb.ru"
     smtp_port = 465  # Порт 465 используется для SSL-соединения
     smtp_user = "zakaz"
-    smtp_password = os.environ.get("SMTP_PASSWORD", "")
+    smtp_password = "00000000rrr"
     sender = "zakaz@24razval.ru"
     recipient = "55indidi55@gmail.com"
 
