@@ -1,6 +1,8 @@
 import Icon from "@/components/ui/icon";
 import { SERVICES } from "./homeData";
 
+const MAP_URL = "https://yandex.ru/maps/2/saint-petersburg/?ll=30.330822%2C60.062673&mode=routes&rtext=60.064812%2C30.320827~60.062631%2C30.330231&rtt=auto&ruri=~ymapsbm1%3A%2F%2Forg%3Foid%3D17091308374&z=17.4";
+
 interface HomeTopBarProps {
   activeService: number;
   time: Date;
@@ -25,7 +27,7 @@ export default function HomeTopBar({ activeService, time, onServiceHover, onServ
           >
             <div className="flex-none w-[68px] h-[68px] sm:w-[74px] sm:h-[74px] lg:w-[80px] lg:h-[80px] flex items-center justify-center overflow-hidden rounded-full transition-all duration-300 group-hover/logo:drop-shadow-[0_0_12px_rgba(251,191,36,0.7)]">
               <img
-                src="https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/4e9d725c-17d8-4e4d-b482-8ed26c0d71f8.png"
+                src="/media78/img/logo.png"
                 alt="AGS Автосервис — на главную"
                 className="w-full h-full object-contain transition-transform duration-300 group-hover/logo:scale-105"
               />
@@ -47,8 +49,8 @@ export default function HomeTopBar({ activeService, time, onServiceHover, onServ
             <span className="animate-blink text-amber-400">_</span>
           </div>
 
-          {/* RIGHT: два телефона */}
-          <div className="flex flex-col sm:flex-row items-end sm:items-center gap-1 sm:gap-4 flex-none py-1">
+          {/* RIGHT: телефоны + кнопка карты */}
+          <div className="flex flex-col sm:flex-row items-end sm:items-center gap-1 sm:gap-3 flex-none py-1">
             <div className="flex flex-col items-end sm:items-center gap-0.5">
               <span className="font-mono text-[8px] sm:text-[9px] text-muted-foreground/50 tracking-widest hidden sm:block">МАС. РАЗВАЛЬЩИК</span>
               <a href="tel:+79117478057" className="text-amber-400 hover:text-amber-300 transition-colors font-medium tracking-wider text-base sm:text-xl whitespace-nowrap">
@@ -62,6 +64,16 @@ export default function HomeTopBar({ activeService, time, onServiceHover, onServ
                 +7 (921) 877-07-97
               </a>
             </div>
+            <div className="hidden sm:block w-[1px] h-6 bg-border/40" />
+            <a
+              href={MAP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-green-600/90 hover:bg-green-500 text-white font-mono text-[9px] sm:text-[10px] tracking-widest transition-colors rounded-sm whitespace-nowrap"
+            >
+              <Icon name="Navigation" size={10} />
+              <span className="hidden sm:inline">КАК ПРОЕХАТЬ</span>
+            </a>
           </div>
         </div>
       </div>

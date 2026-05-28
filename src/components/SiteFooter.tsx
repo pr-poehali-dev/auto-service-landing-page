@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
 
+const MAP_URL = "https://yandex.ru/maps/2/saint-petersburg/?ll=30.330822%2C60.062673&mode=routes&rtext=60.064812%2C30.320827~60.062631%2C30.330231&rtt=auto&ruri=~ymapsbm1%3A%2F%2Forg%3Foid%3D17091308374&z=17.4";
+
 interface SiteFooterProps {
   showBackButton?: boolean;
   onBack?: () => void;
@@ -36,14 +38,14 @@ export default function SiteFooter({ showBackButton = false, onBack }: SiteFoote
               </button>
             </div>
             <img
-              src="https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/483b430d-b535-44ab-9ea8-93cfcd600a4c.jpg"
+              src="/media78/img/map.jpg"
               alt="Карта проезда AGS Автосервис — ул. Симонова 15, Санкт-Петербург"
               className="w-full h-auto block"
             />
             <div className="px-4 py-3 border-t border-border/60 flex items-center justify-between">
               <span className="font-mono text-[10px] text-muted-foreground">Санкт-Петербург, ул. Симонова, 15</span>
               <a
-                href="https://yandex.ru/maps/?text=Санкт-Петербург+улица+Симонова+15"
+                href={MAP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 font-mono text-[10px] text-amber-400 hover:text-amber-300 transition-colors tracking-wider"
@@ -68,7 +70,7 @@ export default function SiteFooter({ showBackButton = false, onBack }: SiteFoote
               <a href="/" className="flex items-center gap-3 flex-none hover:opacity-90 transition-all duration-300 group/logo">
                 <div className="w-[72px] h-[72px] sm:w-[84px] sm:h-[84px] flex-none overflow-hidden rounded-full transition-all duration-300 group-hover/logo:drop-shadow-[0_0_16px_rgba(251,191,36,0.65)]">
                   <img
-                    src="https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/bc9dfc6d-cbbe-4f15-aee8-2576f24256d7.png"
+                    src="/media78/img/logo-footer.png"
                     alt="AGS Автосервис — на главную"
                     className="w-full h-full object-contain transition-transform duration-300 group-hover/logo:scale-105"
                   />
@@ -101,12 +103,21 @@ export default function SiteFooter({ showBackButton = false, onBack }: SiteFoote
                 </div>
                 {/* Кнопки под адресом */}
                 <div className="flex flex-wrap gap-2">
-                  <button
-                    onClick={() => setMapOpen(true)}
+                  <a
+                    href={MAP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-green-600/90 hover:bg-green-500 text-white font-mono text-[9px] sm:text-[10px] tracking-widest transition-colors rounded-sm"
                   >
                     <Icon name="Navigation" size={10} />
                     КАК ПРОЕХАТЬ
+                  </a>
+                  <button
+                    onClick={() => setMapOpen(true)}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-border/60 text-muted-foreground hover:text-amber-400 hover:border-amber-400/40 font-mono text-[9px] sm:text-[10px] tracking-widest transition-colors rounded-sm"
+                  >
+                    <Icon name="Map" size={10} />
+                    СХЕМА ПРОЕЗДА
                   </button>
                 </div>
               </div>

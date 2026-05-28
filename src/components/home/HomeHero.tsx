@@ -27,7 +27,7 @@ export default function HomeHero({
       {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url(https://cdn.poehali.dev/files/f8dd42f9-4eba-45d2-bf61-2a5ce8e51ca3.jpg)" }}
+        style={{ backgroundImage: "url(/media78/img/bg.jpg)" }}
       />
 
       {/* Dark overlay layers */}
@@ -83,7 +83,7 @@ export default function HomeHero({
           </p>
 
           {/* CTA buttons */}
-          <div className="animate-fade-in-up delay-400 flex flex-col xs:flex-row gap-3 sm:gap-4">
+          <div className="animate-fade-in-up delay-400 flex flex-col xs:flex-row flex-wrap gap-3 sm:gap-4">
             <button
               onClick={onContactOpen}
               className="animate-pulse-glow relative px-6 sm:px-8 py-3 sm:py-4 bg-amber-400 text-background font-['Oswald'] font-semibold text-base sm:text-lg uppercase tracking-widest hover:bg-amber-300 transition-colors duration-200 corner-bracket"
@@ -93,6 +93,17 @@ export default function HomeHero({
                 Записаться
               </span>
             </button>
+            <a
+              href="https://yandex.ru/maps/2/saint-petersburg/?ll=30.330822%2C60.062673&mode=routes&rtext=60.064812%2C30.320827~60.062631%2C30.330231&rtt=auto&ruri=~ymapsbm1%3A%2F%2Forg%3Foid%3D17091308374&z=17.4"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 sm:px-8 py-3 sm:py-4 bg-green-600/90 hover:bg-green-500 text-white font-['Oswald'] font-medium text-base sm:text-lg uppercase tracking-widest transition-colors duration-200"
+            >
+              <span className="flex items-center justify-center gap-2">
+                <Icon name="Navigation" size={16} />
+                Как проехать
+              </span>
+            </a>
             <button
               onClick={() => onNavigate("/vse-uslugi")}
               className="px-6 sm:px-8 py-3 sm:py-4 border border-border/60 text-foreground font-['Oswald'] font-medium text-base sm:text-lg uppercase tracking-widest hover:border-amber-400/50 hover:text-amber-400 transition-all duration-200"
