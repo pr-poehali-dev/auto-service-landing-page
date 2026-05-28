@@ -13,6 +13,7 @@ export interface ServiceLink {
 }
 
 export const ALL_SERVICES: ServiceLink[] = [
+  { title: "Все услуги", path: "/vse-uslugi", icon: "ClipboardList", code: "ALL" },
   { title: "Развал-Схождение", path: "/razvalskhozhdenie", icon: "CircleDot", code: "SRV-01", tag: "ПОПУЛЯРНОЕ" },
   { title: "Ремонт Ходовой", path: "/remont-hodovoy", icon: "Settings2", code: "SRV-02" },
   { title: "Заправка Кондиционеров", path: "/zapravka-kondicionera", icon: "Thermometer", code: "SRV-03", tag: "СЕЗОН" },
