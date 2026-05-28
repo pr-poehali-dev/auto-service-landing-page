@@ -183,12 +183,12 @@ export default function HomeContent({
                 <p className="text-muted-foreground text-xs leading-relaxed mb-3">
                   3D-стенд Technovector с точностью измерения до 0.01°. Неправильные углы ускоряют износ шин, увеличивают расход топлива и снижают управляемость. Рекомендуем проверку каждые 15 000 км.
                 </p>
-                <button
-                  onClick={onContactOpen}
+                <a
+                  href="tel:+79117478057"
                   className="font-mono text-[10px] text-amber-400 tracking-wider hover:underline"
                 >
-                  Записаться от 2 500 ₽ →
-                </button>
+                  Позвонить: +7 (911) 747-80-57 →
+                </a>
               </div>
             </article>
 
@@ -201,12 +201,12 @@ export default function HomeContent({
                 <p className="text-muted-foreground text-xs leading-relaxed mb-3">
                   Диагностика подвески, замена амортизаторов, шаровых опор, рычагов, сайлентблоков и ступичных подшипников. Работаем со всеми марками. Стук, крен, вибрация руля — диагностика бесплатно при заказе ремонта.
                 </p>
-                <button
-                  onClick={onContactOpen}
+                <a
+                  href="tel:+79117478057"
                   className="font-mono text-[10px] text-amber-400 tracking-wider hover:underline"
                 >
-                  Узнать стоимость →
-                </button>
+                  Позвонить: +7 (911) 747-80-57 →
+                </a>
               </div>
             </article>
 
@@ -219,12 +219,12 @@ export default function HomeContent({
                 <p className="text-muted-foreground text-xs leading-relaxed mb-3">
                   Заправка кондиционера фреоном R134a и R1234yf с проверкой герметичности. Ремонт и восстановление рулевых реек без замены с гарантией 12 месяцев — от 5 000 ₽.
                 </p>
-                <button
-                  onClick={onContactOpen}
+                <a
+                  href="tel:+79218770797"
                   className="font-mono text-[10px] text-amber-400 tracking-wider hover:underline"
                 >
-                  Записаться на сервис →
-                </button>
+                  Позвонить: +7 (921) 877-07-97 →
+                </a>
               </div>
             </article>
           </div>
@@ -240,7 +240,7 @@ export default function HomeContent({
         </div>
       </section>
 
-      <SiteFooter onLeadOpen={onContactOpen} />
+      <SiteFooter />
     </>
   );
 }
