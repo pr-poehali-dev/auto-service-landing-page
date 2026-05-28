@@ -4,10 +4,9 @@ import Icon from "@/components/ui/icon";
 interface SiteFooterProps {
   showBackButton?: boolean;
   onBack?: () => void;
-  onLeadOpen?: () => void;
 }
 
-export default function SiteFooter({ showBackButton = false, onBack, onLeadOpen }: SiteFooterProps) {
+export default function SiteFooter({ showBackButton = false, onBack }: SiteFooterProps) {
   const [mapOpen, setMapOpen] = useState(false);
 
   return (
@@ -109,15 +108,6 @@ export default function SiteFooter({ showBackButton = false, onBack, onLeadOpen 
                     <Icon name="Navigation" size={10} />
                     КАК ПРОЕХАТЬ
                   </button>
-                  {onLeadOpen && (
-                    <button
-                      onClick={onLeadOpen}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-400/90 hover:bg-amber-400 text-background font-mono text-[9px] sm:text-[10px] tracking-widest transition-colors rounded-sm"
-                    >
-                      <Icon name="FileText" size={10} />
-                      ОСТАВИТЬ ЗАЯВКУ
-                    </button>
-                  )}
                 </div>
               </div>
             </div>

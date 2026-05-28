@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import ContactModal from "@/components/ContactModal";
 import TireIllustration from "@/components/TireIllustration";
-import LeadModal from "@/components/LeadModal";
 import SiteFooter from "@/components/SiteFooter";
 
 const TIRE_WEAR = [
@@ -129,7 +128,7 @@ function AgsLogo() {
   );
 }
 
-function MiniHero({ onContact, onLead }: { onContact: () => void; onLead: () => void }) {
+function MiniHero({ onContact }: { onContact: () => void }) {
   return (
     <div className="border border-border/60 bg-card/60 backdrop-blur p-4 sm:p-6">
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -155,13 +154,6 @@ function MiniHero({ onContact, onLead }: { onContact: () => void; onLead: () => 
             <Icon name="Phone" size={14} />
             Записаться
           </button>
-          <button
-            onClick={onLead}
-            className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-2.5 border border-amber-400/40 text-amber-400 font-['Oswald'] font-medium text-sm uppercase tracking-widest hover:bg-amber-400/10 transition-colors"
-          >
-            <Icon name="FileText" size={14} />
-            Оставить заявку
-          </button>
         </div>
       </div>
     </div>
@@ -171,12 +163,10 @@ function MiniHero({ onContact, onLead }: { onContact: () => void; onLead: () => 
 export default function TireWear() {
   const navigate = useNavigate();
   const [contactOpen, setContactOpen] = useState(false);
-  const [leadOpen, setLeadOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
-      <LeadModal open={leadOpen} onClose={() => setLeadOpen(false)} />
 
       {/* ── TOP BAR ── */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur border-b border-border">
@@ -224,7 +214,7 @@ export default function TireWear() {
         {/* ── MINI HERO TOP ── */}
         <div className="px-4 sm:px-6 lg:px-12 py-6 sm:py-8 max-w-[1920px] mx-auto border-b border-border/40">
 
-          <MiniHero onContact={() => setContactOpen(true)} onLead={() => setLeadOpen(true)} />
+          <MiniHero onContact={() => setContactOpen(true)} />
         </div>
 
         {/* ── PAGE HEADER ── */}
@@ -362,7 +352,7 @@ export default function TireWear() {
 
         {/* ── MINI HERO BOTTOM ── */}
         <div className="px-4 sm:px-6 lg:px-12 py-8 sm:py-10 max-w-[1920px] mx-auto border-t border-border/40">
-          <MiniHero onContact={() => setContactOpen(true)} onLead={() => setLeadOpen(true)} />
+          <MiniHero onContact={() => setContactOpen(true)} />
         </div>
 
         {/* ── SEO ПЕРЕЛИНКОВКА ── */}
@@ -390,7 +380,7 @@ export default function TireWear() {
           </div>
         </section>
 
-        <SiteFooter showBackButton onBack={() => navigate("/")} onLeadOpen={() => setLeadOpen(true)} />
+        <SiteFooter showBackButton onBack={() => navigate("/")} />
       </div>
     </div>
   );

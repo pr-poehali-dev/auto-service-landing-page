@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import ContactModal from "@/components/ContactModal";
-import LeadModal from "@/components/LeadModal";
 import SiteFooter from "@/components/SiteFooter";
 
 export interface ServiceLink {
@@ -40,7 +39,6 @@ export default function ServicePageLayout({
   const navigate = useNavigate();
   const [time, setTime] = useState(new Date());
   const [contactOpen, setContactOpen] = useState(false);
-  const [leadOpen, setLeadOpen] = useState(false);
 
   useEffect(() => {
     const t = setInterval(() => setTime(new Date()), 1000);
@@ -62,7 +60,6 @@ export default function ServicePageLayout({
 
       <div className="relative z-10">
       <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
-      <LeadModal open={leadOpen} onClose={() => setLeadOpen(false)} />
 
       {/* ── TOP BAR ── */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur border-b border-border">
@@ -166,15 +163,8 @@ export default function ServicePageLayout({
             <div className="flex flex-wrap items-center gap-3">
               <div className="font-['Oswald'] text-2xl sm:text-3xl font-bold text-amber-400">{price}</div>
               <button
-                onClick={() => setLeadOpen(true)}
-                className="flex items-center gap-2 px-5 py-2.5 bg-amber-400 text-background font-['Oswald'] font-semibold text-sm uppercase tracking-widest hover:bg-amber-300 transition-colors"
-              >
-                <Icon name="FileText" size={14} />
-                Оставить заявку
-              </button>
-              <button
                 onClick={() => setContactOpen(true)}
-                className="flex items-center gap-2 px-5 py-2.5 border border-amber-400/40 text-amber-400 font-['Oswald'] font-medium text-sm uppercase tracking-widest hover:bg-amber-400/10 transition-colors"
+                className="flex items-center gap-2 px-5 py-2.5 bg-amber-400 text-background font-['Oswald'] font-semibold text-sm uppercase tracking-widest hover:bg-amber-300 transition-colors"
               >
                 <Icon name="Phone" size={14} />
                 Позвонить

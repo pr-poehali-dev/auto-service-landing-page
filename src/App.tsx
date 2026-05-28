@@ -10,6 +10,7 @@ import RazvalSkhozhdenie from "./pages/RazvalSkhozhdenie";
 import RemontHodovoy from "./pages/RemontHodovoy";
 import ZapravkaKondicionera from "./pages/ZapravkaKondicionera";
 import RemontRulevyhReek from "./pages/RemontRulevyhReek";
+import VseUslugi from "./pages/VseUslugi";
 import NotFound from "./pages/NotFound";
 import SubliminalFlash from "./components/SubliminalFlash";
 
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/remont-hodovoy" element={<RemontHodovoy />} />
           <Route path="/zapravka-kondicionera" element={<ZapravkaKondicionera />} />
           <Route path="/remont-rulevyh-reek" element={<RemontRulevyhReek />} />
+          <Route path="/vse-uslugi" element={<VseUslugi />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

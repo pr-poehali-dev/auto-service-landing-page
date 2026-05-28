@@ -93,7 +93,10 @@ export default function HomeHero({
                 Записаться
               </span>
             </button>
-            <button className="px-6 sm:px-8 py-3 sm:py-4 border border-border/60 text-foreground font-['Oswald'] font-medium text-base sm:text-lg uppercase tracking-widest hover:border-amber-400/50 hover:text-amber-400 transition-all duration-200">
+            <button
+              onClick={() => onNavigate("/vse-uslugi")}
+              className="px-6 sm:px-8 py-3 sm:py-4 border border-border/60 text-foreground font-['Oswald'] font-medium text-base sm:text-lg uppercase tracking-widest hover:border-amber-400/50 hover:text-amber-400 transition-all duration-200"
+            >
               <span className="flex items-center justify-center gap-2">
                 <Icon name="ClipboardList" size={16} />
                 Все услуги
@@ -271,7 +274,10 @@ export default function HomeHero({
                   {SERVICES[activeService].price}
                 </div>
               </div>
-              <button className="px-4 sm:px-6 py-2 sm:py-3 bg-amber-400/10 border border-amber-400/40 text-amber-400 font-['Oswald'] text-xs sm:text-sm uppercase tracking-widest hover:bg-amber-400/20 transition-colors">
+              <button
+                onClick={() => onNavigate(SERVICES[activeService].path)}
+                className="px-4 sm:px-6 py-2 sm:py-3 bg-amber-400/10 border border-amber-400/40 text-amber-400 font-['Oswald'] text-xs sm:text-sm uppercase tracking-widest hover:bg-amber-400/20 transition-colors"
+              >
                 Подробнее →
               </button>
             </div>
