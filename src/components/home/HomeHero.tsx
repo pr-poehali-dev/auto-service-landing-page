@@ -27,7 +27,7 @@ export default function HomeHero({
       {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url(https://cdn.poehali.dev/files/f8dd42f9-4eba-45d2-bf61-2a5ce8e51ca3.jpg)" }}
+        style={{ backgroundImage: "url(/media78/img/bg.jpg)" }}
       />
 
       {/* Dark overlay layers */}

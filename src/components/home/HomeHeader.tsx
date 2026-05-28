@@ -42,7 +42,7 @@ export default function HomeHeader({
           >
             <div className="flex-none w-[68px] h-[68px] sm:w-[74px] sm:h-[74px] lg:w-[80px] lg:h-[80px] flex items-center justify-center overflow-hidden rounded-full transition-all duration-300 group-hover/logo:drop-shadow-[0_0_12px_rgba(251,191,36,0.7)]">
               <img
-                src="https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/4e9d725c-17d8-4e4d-b482-8ed26c0d71f8.png"
+                src="/media78/img/logo.png"
                 alt="AGS Автосервис — на главную"
                 className="w-full h-full object-contain transition-transform duration-300 group-hover/logo:scale-105"
               />
