@@ -5,7 +5,6 @@ interface HomeHeroProps {
   activeService: number;
   tireSlide: number;
   tireFade: boolean;
-  onContactOpen: () => void;
   onNavigate: (path: string) => void;
   onSetActiveService: (i: number) => void;
   onSetTireSlide: (i: number) => void;
@@ -16,7 +15,6 @@ export default function HomeHero({
   activeService,
   tireSlide,
   tireFade,
-  onContactOpen,
   onNavigate,
   onSetActiveService,
   onSetTireSlide,
@@ -84,15 +82,15 @@ export default function HomeHero({
 
           {/* CTA buttons */}
           <div className="animate-fade-in-up delay-400 flex flex-col xs:flex-row flex-wrap gap-3 sm:gap-4">
-            <button
-              onClick={onContactOpen}
+            <a
+              href="tel:+79117478057"
               className="animate-pulse-glow relative px-6 sm:px-8 py-3 sm:py-4 bg-amber-400 text-background font-['Oswald'] font-semibold text-base sm:text-lg uppercase tracking-widest hover:bg-amber-300 transition-colors duration-200 corner-bracket"
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
                 <Icon name="Phone" size={16} />
-                Записаться
+                Позвонить
               </span>
-            </button>
+            </a>
             <a
               href="https://yandex.ru/maps/2/saint-petersburg/?ll=30.330822%2C60.062673&mode=routes&rtext=60.064812%2C30.320827~60.062631%2C30.330231&rtt=auto&ruri=~ymapsbm1%3A%2F%2Forg%3Foid%3D17091308374&z=17.4"
               target="_blank"

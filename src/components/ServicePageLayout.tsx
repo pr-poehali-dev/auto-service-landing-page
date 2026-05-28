@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
-import ContactModal from "@/components/ContactModal";
 import SiteFooter from "@/components/SiteFooter";
 
 export interface ServiceLink {
@@ -39,7 +38,6 @@ export default function ServicePageLayout({
 }: ServicePageLayoutProps) {
   const navigate = useNavigate();
   const [time, setTime] = useState(new Date());
-  const [contactOpen, setContactOpen] = useState(false);
 
   useEffect(() => {
     const t = setInterval(() => setTime(new Date()), 1000);
@@ -60,8 +58,6 @@ export default function ServicePageLayout({
       <div className="fixed inset-0 z-0 grid-bg opacity-30" />
 
       <div className="relative z-10">
-      <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
-
       {/* ── TOP BAR ── */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur border-b border-border">
         <div className="flex items-center justify-between px-3 sm:px-4 lg:px-6" style={{ minHeight: "76px" }}>
@@ -90,17 +86,10 @@ export default function ServicePageLayout({
           <div className="flex items-center gap-2">
             <button
               onClick={() => navigate("/")}
-              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 border border-border/60 text-muted-foreground hover:text-amber-400 hover:border-amber-400/40 transition-colors font-mono text-[10px] tracking-widest"
+              className="flex items-center gap-1.5 px-3 py-1.5 border border-border/60 text-muted-foreground hover:text-amber-400 hover:border-amber-400/40 transition-colors font-mono text-[10px] tracking-widest"
             >
               <Icon name="ArrowLeft" size={11} />
-              ГЛАВНАЯ
-            </button>
-            <button
-              onClick={() => setContactOpen(true)}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-400 text-background font-['Oswald'] font-semibold text-xs uppercase tracking-wider hover:bg-amber-300 transition-colors"
-            >
-              <Icon name="Phone" size={11} />
-              <span className="hidden sm:inline">Записаться</span>
+              <span className="hidden sm:inline">ГЛАВНАЯ</span>
             </button>
           </div>
         </div>

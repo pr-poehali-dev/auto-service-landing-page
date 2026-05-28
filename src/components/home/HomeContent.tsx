@@ -13,7 +13,6 @@ interface HomeContentProps {
   activeService: number;
   onServiceHover: (i: number) => void;
   onServiceClick: (path: string) => void;
-  onContactOpen: () => void;
   onNavigate: (path: string) => void;
 }
 
@@ -21,7 +20,6 @@ export default function HomeContent({
   activeService,
   onServiceHover,
   onServiceClick,
-  onContactOpen,
   onNavigate,
 }: HomeContentProps) {
   return (
@@ -122,30 +120,29 @@ export default function HomeContent({
       <section className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-12 relative overflow-hidden bg-background/20 backdrop-blur-sm">
         <div className="absolute inset-0 grid-bg opacity-20" />
         <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <div className="font-mono text-[10px] sm:text-xs text-amber-400 tracking-[0.2em] sm:tracking-[0.3em] mb-4 sm:mb-6">◈ ЗАПИСЬ ◈</div>
+          <div className="font-mono text-[10px] sm:text-xs text-amber-400 tracking-[0.2em] sm:tracking-[0.3em] mb-4 sm:mb-6">◈ КОНТАКТЫ ◈</div>
           <h2 className="font-['Oswald'] text-3xl sm:text-4xl lg:text-6xl 2xl:text-7xl font-bold uppercase tracking-tight mb-4 sm:mb-6">
-            Записаться<br />
-            <span className="text-amber-400">на сервис</span>
+            Позвоните<br />
+            <span className="text-amber-400">нам сейчас</span>
           </h2>
           <p className="text-muted-foreground mb-8 sm:mb-10 text-sm sm:text-base lg:text-lg max-w-lg mx-auto">
-            Оставьте заявку — мы перезвоним в течение 10 минут и подберём удобное время.
+            Подберём удобное время без очереди и ответим на все вопросы.
           </p>
-
           <div className="flex flex-col xs:flex-row gap-3 sm:gap-4 justify-center">
-            <button
-              onClick={onContactOpen}
+            <a
+              href="tel:+79117478057"
               className="animate-pulse-glow px-8 sm:px-10 py-4 sm:py-5 bg-amber-400 text-background font-['Oswald'] font-bold text-lg sm:text-xl uppercase tracking-widest hover:bg-amber-300 transition-colors duration-200 flex items-center justify-center gap-2 sm:gap-3 w-full xs:w-auto"
             >
               <Icon name="Phone" size={18} />
-              Позвонить нам
-            </button>
-            <button
-              onClick={onContactOpen}
+              +7 (911) 747-80-57
+            </a>
+            <a
+              href="tel:+79218770797"
               className="px-8 sm:px-10 py-4 sm:py-5 border border-border/60 text-foreground font-['Oswald'] font-medium text-lg sm:text-xl uppercase tracking-widest hover:border-amber-400/50 hover:text-amber-400 transition-all duration-200 flex items-center justify-center gap-2 sm:gap-3 w-full xs:w-auto"
             >
-              <Icon name="MessageSquare" size={18} />
-              В мессенджер
-            </button>
+              <Icon name="Phone" size={18} />
+              +7 (921) 877-07-97
+            </a>
           </div>
         </div>
       </section>

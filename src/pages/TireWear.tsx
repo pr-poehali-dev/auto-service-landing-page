@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
-import ContactModal from "@/components/ContactModal";
 import TireIllustration from "@/components/TireIllustration";
 import SiteFooter from "@/components/SiteFooter";
 
@@ -128,7 +126,7 @@ function AgsLogo() {
   );
 }
 
-function MiniHero({ onContact }: { onContact: () => void }) {
+function MiniHero() {
   return (
     <div className="border border-border/60 bg-card/60 backdrop-blur p-4 sm:p-6">
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -136,7 +134,7 @@ function MiniHero({ onContact }: { onContact: () => void }) {
           <AgsLogo />
           <div className="w-px h-10 bg-border/60 hidden sm:block" />
           <div>
-            <div className="font-mono text-[9px] sm:text-[10px] text-amber-400 tracking-[0.2em] mb-1">◈ ЗАПИСАТЬСЯ НА СЕРВИС</div>
+            <div className="font-mono text-[9px] sm:text-[10px] text-amber-400 tracking-[0.2em] mb-1">◈ ДИАГНОСТИКА ИЗНОСА ШИН</div>
             <h3 className="font-['Oswald'] text-xl sm:text-2xl lg:text-3xl font-bold uppercase tracking-wider leading-tight">
               <span className="text-foreground">Развал-</span>
               <span className="text-amber-400">Схождение</span>
@@ -146,15 +144,6 @@ function MiniHero({ onContact }: { onContact: () => void }) {
             </p>
           </div>
         </div>
-        <div className="flex flex-row sm:flex-col lg:flex-row gap-2 w-full sm:w-auto">
-          <button
-            onClick={onContact}
-            className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-5 py-2.5 bg-amber-400 text-background font-['Oswald'] font-semibold text-sm uppercase tracking-widest hover:bg-amber-300 transition-colors"
-          >
-            <Icon name="Phone" size={14} />
-            Записаться
-          </button>
-        </div>
       </div>
     </div>
   );
@@ -162,11 +151,9 @@ function MiniHero({ onContact }: { onContact: () => void }) {
 
 export default function TireWear() {
   const navigate = useNavigate();
-  const [contactOpen, setContactOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
 
       {/* ── TOP BAR ── */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur border-b border-border">
@@ -193,17 +180,10 @@ export default function TireWear() {
           <div className="flex items-center gap-2">
             <button
               onClick={() => navigate("/")}
-              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 border border-border/60 text-muted-foreground hover:text-amber-400 hover:border-amber-400/40 transition-colors font-mono text-[10px] tracking-widest"
+              className="flex items-center gap-1.5 px-3 py-1.5 border border-border/60 text-muted-foreground hover:text-amber-400 hover:border-amber-400/40 transition-colors font-mono text-[10px] tracking-widest"
             >
               <Icon name="ArrowLeft" size={12} />
-              НАЗАД
-            </button>
-            <button
-              onClick={() => setContactOpen(true)}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-400 text-background font-['Oswald'] font-semibold text-xs uppercase tracking-wider hover:bg-amber-300 transition-colors"
-            >
-              <Icon name="Phone" size={12} />
-              <span className="hidden sm:inline">Записаться</span>
+              <span className="hidden sm:inline">НАЗАД</span>
             </button>
           </div>
         </div>
@@ -214,7 +194,7 @@ export default function TireWear() {
         {/* ── MINI HERO TOP ── */}
         <div className="px-4 sm:px-6 lg:px-12 py-6 sm:py-8 max-w-[1920px] mx-auto border-b border-border/40">
 
-          <MiniHero onContact={() => setContactOpen(true)} />
+          <MiniHero />
         </div>
 
         {/* ── PAGE HEADER ── */}
@@ -352,7 +332,7 @@ export default function TireWear() {
 
         {/* ── MINI HERO BOTTOM ── */}
         <div className="px-4 sm:px-6 lg:px-12 py-8 sm:py-10 max-w-[1920px] mx-auto border-t border-border/40">
-          <MiniHero onContact={() => setContactOpen(true)} />
+          <MiniHero />
         </div>
 
         {/* ── SEO ПЕРЕЛИНКОВКА ── */}

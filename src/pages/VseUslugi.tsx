@@ -1,8 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
-import ContactModal from "@/components/ContactModal";
 import SiteFooter from "@/components/SiteFooter";
-import { useState } from "react";
 
 const SERVICES = [
   {
@@ -56,7 +54,6 @@ const WHY = [
 
 export default function VseUslugi() {
   const navigate = useNavigate();
-  const [contactOpen, setContactOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background text-foreground relative">
@@ -66,8 +63,6 @@ export default function VseUslugi() {
       <div className="fixed inset-0 z-0 grid-bg opacity-30" />
 
       <div className="relative z-10">
-        <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
-
         {/* TOP BAR */}
         <div className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur border-b border-border">
           <div className="flex items-center justify-between px-3 sm:px-4 lg:px-6" style={{ minHeight: "76px" }}>
@@ -92,17 +87,10 @@ export default function VseUslugi() {
             <div className="flex items-center gap-2">
               <button
                 onClick={() => navigate("/")}
-                className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 border border-border/60 text-muted-foreground hover:text-amber-400 hover:border-amber-400/40 transition-colors font-mono text-[10px] tracking-widest"
+                className="flex items-center gap-1.5 px-3 py-1.5 border border-border/60 text-muted-foreground hover:text-amber-400 hover:border-amber-400/40 transition-colors font-mono text-[10px] tracking-widest"
               >
                 <Icon name="ArrowLeft" size={11} />
-                ГЛАВНАЯ
-              </button>
-              <button
-                onClick={() => setContactOpen(true)}
-                className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-400 text-background font-['Oswald'] font-semibold text-xs uppercase tracking-wider hover:bg-amber-300 transition-colors"
-              >
-                <Icon name="Phone" size={11} />
-                <span className="hidden sm:inline">Записаться</span>
+                <span className="hidden sm:inline">ГЛАВНАЯ</span>
               </button>
             </div>
           </div>
@@ -200,26 +188,6 @@ export default function VseUslugi() {
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-
-          {/* CTA */}
-          <div className="px-4 sm:px-6 lg:px-12 py-12 sm:py-16 text-center">
-            <div className="max-w-xl mx-auto">
-              <div className="font-mono text-[10px] text-amber-400 tracking-[0.3em] mb-4">◈ ЗАПИСЬ ◈</div>
-              <h2 className="font-['Oswald'] text-3xl sm:text-4xl font-bold uppercase tracking-tight mb-4">
-                Готовы помочь<br /><span className="text-amber-400">прямо сейчас</span>
-              </h2>
-              <p className="text-muted-foreground text-sm mb-8">
-                Позвоните или напишите — подберём удобное время без очереди.
-              </p>
-              <button
-                onClick={() => setContactOpen(true)}
-                className="animate-pulse-glow inline-flex items-center gap-2 px-8 py-4 bg-amber-400 text-background font-['Oswald'] font-bold text-lg uppercase tracking-widest hover:bg-amber-300 transition-colors"
-              >
-                <Icon name="Phone" size={18} />
-                Записаться
-              </button>
             </div>
           </div>
 
