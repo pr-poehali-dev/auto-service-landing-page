@@ -1,6 +1,6 @@
 export const TIRE_SLIDES = [
   {
-    img: "https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/files/60e35b21-e621-468b-8174-0a89189a9fba.jpg",
+    img: "/media78/img/tire-inner.jpg",
     code: "TWR-01",
     label: "Износ внутренней части",
     diagnosis: "Неправильное схождение — увеличенный положительный угол",
@@ -11,7 +11,7 @@ export const TIRE_SLIDES = [
     wearSide: "inner",
   },
   {
-    img: "https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/files/466ef476-8230-4387-9691-20a9cd5b3d25.jpg",
+    img: "/media78/img/tire-normal.jpg",
     code: "TWR-02",
     label: "Нормальный износ",
     diagnosis: "Геометрия подвески в норме — равномерный контакт с дорогой",
@@ -22,7 +22,7 @@ export const TIRE_SLIDES = [
     wearSide: "none",
   },
   {
-    img: "https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/files/b52ece48-f92d-46a6-a02a-d638f9bea3fb.jpg",
+    img: "/media78/img/tire-outer.jpg",
     code: "TWR-03",
     label: "Износ наружной части",
     diagnosis: "Неправильное схождение — большой отрицательный угол",

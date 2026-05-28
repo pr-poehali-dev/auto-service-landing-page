@@ -61,7 +61,7 @@ export default function VseUslugi() {
   return (
     <div className="min-h-screen bg-background text-foreground relative">
       <div className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url(https://cdn.poehali.dev/files/f8dd42f9-4eba-45d2-bf61-2a5ce8e51ca3.jpg)" }} />
+        style={{ backgroundImage: "url(/media78/img/bg.jpg)" }} />
       <div className="fixed inset-0 z-0 bg-background/85" />
       <div className="fixed inset-0 z-0 grid-bg opacity-30" />
 
@@ -74,7 +74,7 @@ export default function VseUslugi() {
             <button onClick={() => navigate("/")} className="flex items-center gap-2 sm:gap-3 flex-none py-1 hover:opacity-90 transition-all duration-300 group/logo">
               <div className="flex-none w-[62px] h-[62px] sm:w-[68px] sm:h-[68px] flex items-center justify-center overflow-hidden rounded-full transition-all duration-300 group-hover/logo:drop-shadow-[0_0_12px_rgba(251,191,36,0.7)]">
                 <img
-                  src="https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/4e9d725c-17d8-4e4d-b482-8ed26c0d71f8.png"
+                  src="/media78/img/logo.png"
                   alt="AGS Автосервис — на главную"
                   className="w-full h-full object-contain transition-transform duration-300 group-hover/logo:scale-105"
                 />

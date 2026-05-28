@@ -36,7 +36,7 @@ export default function SiteFooter({ showBackButton = false, onBack }: SiteFoote
               </button>
             </div>
             <img
-              src="https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/483b430d-b535-44ab-9ea8-93cfcd600a4c.jpg"
+              src="/media78/img/map.jpg"
               alt="Карта проезда AGS Автосервис — ул. Симонова 15, Санкт-Петербург"
               className="w-full h-auto block"
             />
@@ -68,7 +68,7 @@ export default function SiteFooter({ showBackButton = false, onBack }: SiteFoote
               <a href="/" className="flex items-center gap-3 flex-none hover:opacity-90 transition-all duration-300 group/logo">
                 <div className="w-[72px] h-[72px] sm:w-[84px] sm:h-[84px] flex-none overflow-hidden rounded-full transition-all duration-300 group-hover/logo:drop-shadow-[0_0_16px_rgba(251,191,36,0.65)]">
                   <img
-                    src="https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/bc9dfc6d-cbbe-4f15-aee8-2576f24256d7.png"
+                    src="/media78/img/logo-footer.png"
                     alt="AGS Автосервис — на главную"
                     className="w-full h-full object-contain transition-transform duration-300 group-hover/logo:scale-105"
                   />
