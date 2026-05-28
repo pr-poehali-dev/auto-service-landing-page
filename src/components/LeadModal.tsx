@@ -93,7 +93,7 @@ export default function LeadModal({ open, onClose }: LeadModalProps) {
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 flex-none overflow-hidden">
               <img
-                src="/media78/img/logo.png"
+                src="https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/4e9d725c-17d8-4e4d-b482-8ed26c0d71f8.png"
                 alt="AGS"
                 className="w-full h-full object-contain"
               />

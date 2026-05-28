@@ -95,22 +95,27 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
 
               {/* Mobile: call button | Desktop: phone display + whatsapp */}
               {isMobile ? (
-                <div className="flex gap-2">
-                  <a
-                    href={`tel:${m.phone}`}
-                    className="flex-1 flex items-center justify-center gap-2 py-2.5 bg-amber-400 text-background font-['Oswald'] font-semibold text-sm uppercase tracking-widest hover:bg-amber-300 transition-colors"
-                  >
-                    <Icon name="Phone" size={14} />
-                    Позвонить
-                  </a>
-                  <a
-                    href={`https://wa.me/${m.phone.replace(/\D/g, "")}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 px-3 py-2.5 border border-green-500/40 text-green-400 hover:bg-green-500/10 transition-colors"
-                  >
-                    <Icon name="MessageCircle" size={14} />
-                  </a>
+                <div className="flex flex-col gap-2">
+                  <div className="text-center font-['Oswald'] text-xl font-bold text-amber-400 tracking-wider">
+                    {m.phoneDisplay}
+                  </div>
+                  <div className="flex gap-2">
+                    <a
+                      href={`tel:${m.phone}`}
+                      className="flex-1 flex items-center justify-center gap-2 py-2.5 bg-amber-400 text-background font-['Oswald'] font-semibold text-sm uppercase tracking-widest hover:bg-amber-300 transition-colors"
+                    >
+                      <Icon name="Phone" size={14} />
+                      Позвонить
+                    </a>
+                    <a
+                      href={`https://wa.me/${m.phone.replace(/\D/g, "")}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 px-3 py-2.5 border border-green-500/40 text-green-400 hover:bg-green-500/10 transition-colors"
+                    >
+                      <Icon name="MessageCircle" size={14} />
+                    </a>
+                  </div>
                 </div>
               ) : (
                 <div className="flex items-center justify-between">
