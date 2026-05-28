@@ -51,14 +51,14 @@ export default function HomeTopBar({ activeService, time, onServiceHover, onServ
           <div className="flex flex-col sm:flex-row items-end sm:items-center gap-1 sm:gap-4 flex-none py-1">
             <div className="flex flex-col items-end sm:items-center gap-0.5">
               <span className="font-mono text-[8px] sm:text-[9px] text-muted-foreground/50 tracking-widest hidden sm:block">МАС. РАЗВАЛЬЩИК</span>
-              <a href="tel:+79117478057" className="text-amber-400 hover:text-amber-300 transition-colors font-medium tracking-wider text-[10px] sm:text-xs whitespace-nowrap">
+              <a href="tel:+79117478057" className="text-amber-400 hover:text-amber-300 transition-colors font-medium tracking-wider text-base sm:text-xl whitespace-nowrap">
                 +7 (911) 747-80-57
               </a>
             </div>
             <div className="hidden sm:block w-[1px] h-6 bg-border/40" />
             <div className="flex flex-col items-end sm:items-center gap-0.5">
               <span className="font-mono text-[8px] sm:text-[9px] text-muted-foreground/50 tracking-widest hidden sm:block">МАС. СМЕНЫ</span>
-              <a href="tel:+79218770797" className="text-amber-400 hover:text-amber-300 transition-colors font-medium tracking-wider text-[10px] sm:text-xs whitespace-nowrap">
+              <a href="tel:+79218770797" className="text-amber-400 hover:text-amber-300 transition-colors font-medium tracking-wider text-base sm:text-xl whitespace-nowrap">
                 +7 (921) 877-07-97
               </a>
             </div>
