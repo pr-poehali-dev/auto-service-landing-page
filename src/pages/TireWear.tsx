@@ -3,7 +3,7 @@ import Icon from "@/components/ui/icon";
 import TireIllustration from "@/components/TireIllustration";
 import SiteFooter from "@/components/SiteFooter";
 
-const LOGO_URL = "https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/efa2803e-3b6d-4ed9-bf7e-c246a1fd06dd.jpg";
+const LOGO_URL = "/media78/img/logo-azimut.png";
 
 const TIRE_WEAR = [
   {

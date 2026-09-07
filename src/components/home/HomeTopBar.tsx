@@ -2,7 +2,7 @@ import Icon from "@/components/ui/icon";
 import { SERVICES } from "./homeData";
 
 const MAP_URL = "https://yandex.ru/maps/2/saint-petersburg/?ll=30.477239%2C59.964755&mode=routes&routes%5BactiveComparisonMode%5D=auto&rtext=60.064812%2C30.320827~59.964795%2C30.477207&rtt=comparison&ruri=~&z=17.39";
-const LOGO_URL = "https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/efa2803e-3b6d-4ed9-bf7e-c246a1fd06dd.jpg";
+const LOGO_URL = "/media78/img/logo-azimut.png";
 
 interface HomeTopBarProps {
   activeService: number;
