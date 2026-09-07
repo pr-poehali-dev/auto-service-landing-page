@@ -54,7 +54,7 @@ export default function ServicePageLayout({
       {/* Фоновое изображение — единое для всего сайта */}
       <div
         className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url(/media78/img/bg.jpg)" }}
+        style={{ backgroundImage: "url(https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/794df628-917a-44ed-ae2f-a692359b7f22.jpg)" }}
       />
       <div className="fixed inset-0 z-0 bg-background/80" />
       <div className="fixed inset-0 z-0 grid-bg opacity-30" />
