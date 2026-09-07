@@ -1,3 +1,4 @@
+import SEOHead from "@/components/SEOHead";
 import ServicePageLayout from "@/components/ServicePageLayout";
 
 const WORKS = [
@@ -11,6 +12,13 @@ const WORKS = [
 
 export default function RemontHodovoy() {
   return (
+    <>
+    <SEOHead
+      title="Ремонт Ходовой Части СПб — Диагностика Бесплатно"
+      description="Амортизаторы, шаровые, сайлентблоки, рычаги. Диагностика подвески бесплатно при заказе ремонта. Гарантия на все работы. Звоните!"
+      path="/remont-hodovoy"
+      service={{ serviceType: "Ремонт ходовой части", price: "1500" }}
+    />
     <ServicePageLayout
       currentPath="/remont-hodovoy"
       title="Ремонт Ходовой Части в Санкт-Петербурге"
@@ -102,5 +110,6 @@ export default function RemontHodovoy() {
         </ul>
       </section>
     </ServicePageLayout>
+    </>
   );
 }

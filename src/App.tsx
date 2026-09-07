@@ -1,4 +1,5 @@
 
+import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -17,26 +18,28 @@ import SubliminalFlash from "./components/SubliminalFlash";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <SubliminalFlash />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/tire-wear" element={<TireWear />} />
-          <Route path="/razvalskhozhdenie" element={<RazvalSkhozhdenie />} />
-          <Route path="/remont-hodovoy" element={<RemontHodovoy />} />
-          <Route path="/zapravka-kondicionera" element={<ZapravkaKondicionera />} />
-          <Route path="/remont-rulevyh-reek" element={<RemontRulevyhReek />} />
-          <Route path="/vse-uslugi" element={<VseUslugi />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <SubliminalFlash />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/tire-wear" element={<TireWear />} />
+            <Route path="/razvalskhozhdenie" element={<RazvalSkhozhdenie />} />
+            <Route path="/remont-hodovoy" element={<RemontHodovoy />} />
+            <Route path="/zapravka-kondicionera" element={<ZapravkaKondicionera />} />
+            <Route path="/remont-rulevyh-reek" element={<RemontRulevyhReek />} />
+            <Route path="/vse-uslugi" element={<VseUslugi />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;

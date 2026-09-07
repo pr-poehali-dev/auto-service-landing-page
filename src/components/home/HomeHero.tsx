@@ -51,7 +51,7 @@ export default function HomeHero({
           {/* Breadcrumb */}
           <div className="animate-fade-in-up flex items-center gap-3 mb-6 lg:mb-8">
             <span className="font-mono text-[10px] sm:text-xs text-amber-400 tracking-[0.2em] sm:tracking-[0.3em] uppercase">
-              ◈ Профессиональный автосервис
+              ◈ Машину тянет в сторону? Резина стирается неровно?
             </span>
             <span className="h-[1px] bg-amber-400/30 w-8 sm:w-[60px]" />
           </div>
@@ -67,6 +67,10 @@ export default function HomeHero({
             <span className="text-amber-400">Схождение</span>
           </h1>
 
+          <p className="animate-fade-in-up delay-150 font-['Oswald'] text-muted-foreground/80 text-sm sm:text-base lg:text-lg uppercase tracking-wider mb-4 lg:mb-0">
+            за 40 минут, без записи
+          </p>
+
           {/* Service meta */}
           <div className="animate-fade-in-up delay-200 flex flex-wrap items-center gap-3 sm:gap-4 mb-6 lg:mb-8">
             <span className="font-mono text-[10px] sm:text-xs text-muted-foreground/60 tracking-widest">SRV-01</span>
@@ -77,7 +81,7 @@ export default function HomeHero({
           </div>
 
           <p className="animate-fade-in-up delay-300 text-muted-foreground text-sm sm:text-base lg:text-lg leading-relaxed mb-8 lg:mb-10 max-w-sm sm:max-w-md font-light">
-            3D-стенд Technovector. Точность до 0.01°. Все марки и модели автомобилей. Выдаём распечатку до и после.
+            3D-стенд Technovector с точностью 0.01°. Приезжайте — покажем углы на экране и распечатаем результат до и после.
           </p>
 
           {/* CTA buttons */}
@@ -88,7 +92,7 @@ export default function HomeHero({
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
                 <Icon name="Phone" size={16} />
-                Позвонить
+                Записаться за 1 звонок
               </span>
             </a>
             <a

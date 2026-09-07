@@ -1,7 +1,15 @@
+import SEOHead from "@/components/SEOHead";
 import ServicePageLayout from "@/components/ServicePageLayout";
 
 export default function RemontRulevyhReek() {
   return (
+    <>
+    <SEOHead
+      title="Ремонт Рулевой Рейки СПб от 5000₽ — Экономия до 70%"
+      description="Восстановление рейки без замены агрегата. Гарантия 12 месяцев. Срок ремонта 1–3 дня. Механика, ГУР, ЭУР. Звоните — рассчитаем стоимость."
+      path="/remont-rulevyh-reek"
+      service={{ serviceType: "Ремонт рулевой рейки", price: "5000" }}
+    />
     <ServicePageLayout
       currentPath="/remont-rulevyh-reek"
       title="Ремонт Рулевых Реек в Санкт-Петербурге"
@@ -95,5 +103,6 @@ export default function RemontRulevyhReek() {
         </ul>
       </section>
     </ServicePageLayout>
+    </>
   );
 }

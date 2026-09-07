@@ -1,7 +1,15 @@
+import SEOHead from "@/components/SEOHead";
 import ServicePageLayout from "@/components/ServicePageLayout";
 
 export default function ZapravkaKondicionera() {
   return (
+    <>
+    <SEOHead
+      title="Заправка Кондиционера Авто в СПб от 3000₽ — Без Записи"
+      description="Фреон R134a и R1234yf. Проверка герметичности системы. Все марки авто. Приезжайте на шоссе Революции, 83 — работаем без записи ежедневно."
+      path="/zapravka-kondicionera"
+      service={{ serviceType: "Заправка автокондиционера", price: "3000" }}
+    />
     <ServicePageLayout
       currentPath="/zapravka-kondicionera"
       title="Заправка Кондиционера Автомобиля в СПб"
@@ -94,5 +102,6 @@ export default function ZapravkaKondicionera() {
         </ul>
       </section>
     </ServicePageLayout>
+    </>
   );
 }

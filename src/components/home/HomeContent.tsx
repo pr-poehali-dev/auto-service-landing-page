@@ -3,10 +3,10 @@ import SiteFooter from "@/components/SiteFooter";
 import { SERVICES, STATS } from "./homeData";
 
 const WHY_US = [
-  { icon: "Shield", title: "Гарантия и качество", desc: "Всех видов работ и запчастей" },
-  { icon: "Gauge", title: "Диагностика за 30 мин", desc: "Без записи и очередей" },
-  { icon: "Award", title: "Сертифицированные мастера", desc: "Опыт от 5 лет каждого специалиста" },
-  { icon: "BadgeCheck", title: "Оригинальные запчасти", desc: "Только сертифицированные поставщики" },
+  { icon: "Shield", title: "Гарантия без «звёздочек»", desc: "Что-то пошло не так после ремонта — переделаем бесплатно в гарантийный период" },
+  { icon: "Gauge", title: "Диагностика за 30 минут", desc: "Приезжайте без записи: покажем проблему на экране стенда, а не на словах" },
+  { icon: "Award", title: "10+ лет за рулём подъёмника", desc: "Мастера-развальщики знают подвеску ВАЗ и BMW одинаково хорошо" },
+  { icon: "BadgeCheck", title: "Только сертифицированные запчасти", desc: "Никаких аналогов «на глаз» — ставим то, что реально прослужит" },
 ];
 
 interface HomeContentProps {
@@ -122,11 +122,11 @@ export default function HomeContent({
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <div className="font-mono text-[10px] sm:text-xs text-amber-400 tracking-[0.2em] sm:tracking-[0.3em] mb-4 sm:mb-6">◈ КОНТАКТЫ ◈</div>
           <h2 className="font-['Oswald'] text-3xl sm:text-4xl lg:text-6xl 2xl:text-7xl font-bold uppercase tracking-tight mb-4 sm:mb-6">
-            Позвоните<br />
-            <span className="text-amber-400">нам сейчас</span>
+            Уже пора<br />
+            <span className="text-amber-400">на развал-схождение?</span>
           </h2>
           <p className="text-muted-foreground mb-8 sm:mb-10 text-sm sm:text-base lg:text-lg max-w-lg mx-auto">
-            Подберём удобное время без очереди и ответим на все вопросы.
+            Позвоните сейчас — мастер посмотрит машину в течение часа, без предварительной записи.
           </p>
           <div className="flex flex-col xs:flex-row gap-3 sm:gap-4 justify-center">
             <a

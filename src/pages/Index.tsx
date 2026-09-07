@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import SEOHead from "@/components/SEOHead";
 import HomeTopBar from "@/components/home/HomeTopBar";
 import HomeHero from "@/components/home/HomeHero";
 import HomeContent from "@/components/home/HomeContent";
@@ -30,6 +31,11 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SEOHead
+        title="Развал-Схождение СПб от 2500₽ — Азимут, шоссе Революции 83"
+        description="3D-стенд Technovector, точность 0.01°. Развал-схождение, ремонт ходовой, рулевых реек. Без записи. Ежедневно 10:00–20:00. ☎ +7 (911) 747-80-57"
+        path="/"
+      />
       <HomeTopBar
         activeService={activeService}
         time={time}

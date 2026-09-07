@@ -200,6 +200,16 @@ export default function ServicePageLayout({
         <SiteFooter showBackButton onBack={() => navigate("/")} />
       </div>
       </div>
+
+      {/* Sticky кнопка звонка — только мобильные */}
+      <a
+        href="tel:+79117478057"
+        className="sm:hidden fixed bottom-0 left-0 right-0 z-50 flex items-center justify-center gap-2 py-4 bg-amber-400 text-background font-['Oswald'] font-semibold text-base uppercase tracking-widest shadow-[0_-4px_20px_rgba(0,0,0,0.3)]"
+      >
+        <Icon name="Phone" size={16} />
+        Позвонить сейчас
+      </a>
+      <div className="sm:hidden h-16" />
     </div>
   );
 }

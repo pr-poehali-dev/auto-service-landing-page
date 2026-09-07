@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
+import SEOHead from "@/components/SEOHead";
 import ServicePageLayout from "@/components/ServicePageLayout";
 
 const STEPS = [
@@ -36,6 +37,13 @@ export default function RazvalSkhozhdenie() {
   const navigate = useNavigate();
 
   return (
+    <>
+    <SEOHead
+      title="Развал-Схождение 3D в СПб от 2500₽ — точность 0.01°"
+      description="Поверенный стенд Технo Вектор. Все марки — от Lada до BMW. Распечатка до/после. Гарантия. Приезжайте на шоссе Революции, 83 без записи."
+      path="/razvalskhozhdenie"
+      service={{ serviceType: "Развал-схождение", price: "2500" }}
+    />
     <ServicePageLayout
       currentPath="/razvalskhozhdenie"
       title="Развал-Схождение 3D в Санкт-Петербурге — Азимут Автосервис"
@@ -216,5 +224,6 @@ export default function RazvalSkhozhdenie() {
         </div>
       </section>
     </ServicePageLayout>
+    </>
   );
 }
