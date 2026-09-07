@@ -3,6 +3,7 @@ import Icon from "@/components/ui/icon";
 
 const MAP_URL = "https://yandex.ru/maps/2/saint-petersburg/?ll=30.477239%2C59.964755&mode=routes&routes%5BactiveComparisonMode%5D=auto&rtext=60.064812%2C30.320827~59.964795%2C30.477207&rtt=comparison&ruri=~&z=17.39";
 const LOGO_URL = "https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/efa2803e-3b6d-4ed9-bf7e-c246a1fd06dd.jpg";
+const SCHEME_URL = "https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/2ed12400-eb0d-463c-b9ab-f0f4041bf611.jpg";
 
 interface SiteFooterProps {
   showBackButton?: boolean;
@@ -28,7 +29,7 @@ export default function SiteFooter({ showBackButton = false, onBack }: SiteFoote
               <div>
                 <div className="font-mono text-[9px] text-amber-400 tracking-widest mb-0.5">◈ МАРШРУТ</div>
                 <h3 className="font-['Oswald'] text-base font-bold uppercase tracking-wider">
-                  ул. Симонова, 15 — заезд с Суздальского проспекта
+                  шоссе Революции, 83
                 </h3>
               </div>
               <button
@@ -39,12 +40,12 @@ export default function SiteFooter({ showBackButton = false, onBack }: SiteFoote
               </button>
             </div>
             <img
-              src="/media78/img/map.jpg"
-              alt="Карта проезда Азимут Автосервис — ул. Симонова 15, Санкт-Петербург"
+              src={SCHEME_URL}
+              alt="Карта проезда Азимут Автосервис — шоссе Революции, 83, Санкт-Петербург"
               className="w-full h-auto block"
             />
             <div className="px-4 py-3 border-t border-border/60 flex items-center justify-between">
-              <span className="font-mono text-[10px] text-muted-foreground">Санкт-Петербург, ул. Симонова, 15</span>
+              <span className="font-mono text-[10px] text-muted-foreground">Санкт-Петербург, шоссе Революции, 83</span>
               <a
                 href={MAP_URL}
                 target="_blank"
@@ -95,10 +96,7 @@ export default function SiteFooter({ showBackButton = false, onBack }: SiteFoote
                   <Icon name="MapPin" size={13} className="text-amber-400 flex-none mt-0.5" />
                   <div>
                     <div className="font-mono text-[10px] sm:text-xs text-foreground/80 leading-snug">
-                      Санкт-Петербург, ул. Симонова, 15
-                    </div>
-                    <div className="font-mono text-[9px] text-muted-foreground/60 leading-snug">
-                      заезд с Суздальского проспекта
+                      Санкт-Петербург, шоссе Революции, 83
                     </div>
                   </div>
                 </div>
@@ -127,8 +125,7 @@ export default function SiteFooter({ showBackButton = false, onBack }: SiteFoote
             {/* ЦЕНТРАЛЬНЫЙ блок — режим работы */}
             <div className="flex flex-col items-start md:items-center gap-1 md:flex-1">
               <div className="font-mono text-[8px] text-muted-foreground/40 tracking-widest">РЕЖИМ РАБОТЫ</div>
-              <div className="font-mono text-[10px] sm:text-xs text-muted-foreground">ПН–СБ 8:00–20:00</div>
-              <div className="font-mono text-[10px] sm:text-xs text-muted-foreground">ВС 9:00–18:00</div>
+              <div className="font-mono text-[10px] sm:text-xs text-muted-foreground">ЕЖЕДНЕВНО 10:00–20:00</div>
             </div>
 
             {/* ПРАВЫЙ блок */}

@@ -356,7 +356,7 @@ export default function TireWear() {
             </article>
             <article className="border border-border/40 bg-card/30 p-4 hover:border-amber-400/30 transition-colors">
               <h3 className="font-['Oswald'] text-sm font-bold uppercase tracking-wider mb-1.5">Ремонт Рулевых Реек</h3>
-              <p className="text-muted-foreground text-xs leading-relaxed mb-3">Восстановление рулевой рейки без замены. Гарантия 12 месяцев. AGS — ул. Симонова 15, Санкт-Петербург.</p>
+              <p className="text-muted-foreground text-xs leading-relaxed mb-3">Восстановление рулевой рейки без замены. Гарантия 12 месяцев. Азимут — шоссе Революции, 83, Санкт-Петербург.</p>
               <button onClick={() => navigate("/")} className="font-mono text-[10px] text-amber-400 tracking-wider hover:underline">Записаться →</button>
             </article>
           </div>
