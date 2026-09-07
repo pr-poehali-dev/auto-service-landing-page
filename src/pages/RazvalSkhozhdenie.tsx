@@ -38,7 +38,7 @@ export default function RazvalSkhozhdenie() {
   return (
     <ServicePageLayout
       currentPath="/razvalskhozhdenie"
-      title="Развал-Схождение 3D в Санкт-Петербурге — AGS Автосервис"
+      title="Развал-Схождение 3D в Санкт-Петербурге — Азимут Автосервис"
       subtitle="Поверенный и калиброванный стенд Техно Вектор. Точность до 0.01°. Кастер, развал и схождение передней и задней оси. Недорого."
       price="от 2 500 ₽"
       relatedLinks={[

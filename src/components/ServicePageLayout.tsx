@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import SiteFooter from "@/components/SiteFooter";
 
+const LOGO_URL = "https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/efa2803e-3b6d-4ed9-bf7e-c246a1fd06dd.jpg";
+
 export interface ServiceLink {
   title: string;
   path: string;
@@ -60,24 +62,24 @@ export default function ServicePageLayout({
       <div className="relative z-10">
       {/* ── TOP BAR ── */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur border-b border-border">
-        <div className="flex items-center justify-between px-3 sm:px-4 lg:px-6" style={{ minHeight: "76px" }}>
+        <div className="flex items-center justify-between px-3 sm:px-4 lg:px-6" style={{ minHeight: "95px" }}>
           {/* Логотип — ссылка на главную */}
-          <button onClick={() => navigate("/")} className="flex items-center gap-2 sm:gap-3 flex-none py-1 hover:opacity-90 transition-all duration-300 group/logo">
-            <div className="flex-none w-[62px] h-[62px] sm:w-[68px] sm:h-[68px] lg:w-[74px] lg:h-[74px] flex items-center justify-center overflow-hidden rounded-full transition-all duration-300 group-hover/logo:drop-shadow-[0_0_12px_rgba(251,191,36,0.7)]">
+          <button onClick={() => navigate("/")} className="flex items-center gap-2.5 sm:gap-4 flex-none py-1 hover:opacity-90 transition-all duration-300 group/logo">
+            <div className="flex-none w-[78px] h-[78px] sm:w-[85px] sm:h-[85px] lg:w-[93px] lg:h-[93px] flex items-center justify-center overflow-hidden rounded-full transition-all duration-300 group-hover/logo:drop-shadow-[0_0_12px_rgba(251,191,36,0.7)]">
               <img
-                src="/media78/img/logo.png"
-                alt="AGS Автосервис — на главную"
-                className="w-full h-full object-contain transition-transform duration-300 group-hover/logo:scale-105"
+                src={LOGO_URL}
+                alt="Азимут — Станция техобслуживания — на главную"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover/logo:scale-105"
               />
             </div>
             <div className="flex flex-col justify-center">
-              <span className="font-['Oswald'] text-amber-400 font-bold tracking-wider uppercase leading-none text-lg sm:text-xl lg:text-2xl">AGS</span>
-              <span className="font-['Oswald'] text-amber-400/70 font-medium tracking-wider uppercase leading-none text-[9px] sm:text-[11px] lg:text-xs mt-0.5 whitespace-nowrap">Станция техобслуживания</span>
+              <span className="font-['Oswald'] text-amber-400 font-bold tracking-wider uppercase leading-none text-xl sm:text-2xl lg:text-3xl">Азимут</span>
+              <span className="font-['Oswald'] text-amber-400/70 font-medium tracking-wider uppercase leading-none text-[11px] sm:text-sm lg:text-base mt-0.5 whitespace-nowrap">Станция техобслуживания</span>
             </div>
           </button>
 
           {/* Время */}
-          <div className="hidden md:flex items-center gap-2 font-mono text-xs text-muted-foreground">
+          <div className="hidden md:flex items-center gap-2 font-mono text-sm text-muted-foreground">
             <span className="opacity-40">TIME:</span>
             <span className="text-amber-400">{formatTime(time)}</span>
           </div>
@@ -96,7 +98,7 @@ export default function ServicePageLayout({
       </div>
 
       {/* ── SERVICES NAV BAR ── */}
-      <div className="fixed top-[76px] left-0 right-0 z-40 bg-background/95 backdrop-blur border-b border-border/60">
+      <div className="fixed top-[95px] left-0 right-0 z-40 bg-background/95 backdrop-blur border-b border-border/60">
         <div className="flex overflow-x-auto" style={{ scrollbarWidth: "none" }}>
           {ALL_SERVICES.map((s) => {
             const isActive = currentPath === s.path;
@@ -128,7 +130,7 @@ export default function ServicePageLayout({
       </div>
 
       {/* ── MAIN CONTENT ── */}
-      <div className="pt-[128px] sm:pt-[132px]">
+      <div className="pt-[147px] sm:pt-[151px]">
 
         {/* Хлебные крошки */}
         <div className="px-4 sm:px-6 lg:px-12 py-3 border-b border-border/30 bg-card/20">
@@ -143,7 +145,7 @@ export default function ServicePageLayout({
         <div className="px-4 sm:px-6 lg:px-12 py-8 sm:py-12 border-b border-border/40 bg-gradient-to-br from-card/40 to-background">
           <div className="max-w-[1200px] mx-auto">
             <div className="flex items-center gap-4 mb-3">
-              <span className="font-mono text-[10px] text-amber-400 tracking-[0.2em]">/ AGS АВТОСЕРВИС /</span>
+              <span className="font-mono text-[10px] text-amber-400 tracking-[0.2em]">/ АЗИМУТ АВТОСЕРВИС /</span>
               <span className="flex-1 h-px bg-border" />
             </div>
             <h1 className="font-['Oswald'] text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight mb-3">
@@ -195,7 +197,7 @@ export default function ServicePageLayout({
           </section>
         )}
 
-        <SiteFooter showBackButton onBack={() => navigate("/")} onLeadOpen={() => setLeadOpen(true)} />
+        <SiteFooter showBackButton onBack={() => navigate("/")} />
       </div>
       </div>
     </div>

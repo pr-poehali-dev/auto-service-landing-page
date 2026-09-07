@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import SiteFooter from "@/components/SiteFooter";
 
+const LOGO_URL = "https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/efa2803e-3b6d-4ed9-bf7e-c246a1fd06dd.jpg";
+
 const SERVICES = [
   {
     icon: "CircleDot",
@@ -65,18 +67,18 @@ export default function VseUslugi() {
       <div className="relative z-10">
         {/* TOP BAR */}
         <div className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur border-b border-border">
-          <div className="flex items-center justify-between px-3 sm:px-4 lg:px-6" style={{ minHeight: "76px" }}>
-            <button onClick={() => navigate("/")} className="flex items-center gap-2 sm:gap-3 flex-none py-1 hover:opacity-90 transition-all duration-300 group/logo">
-              <div className="flex-none w-[62px] h-[62px] sm:w-[68px] sm:h-[68px] flex items-center justify-center overflow-hidden rounded-full transition-all duration-300 group-hover/logo:drop-shadow-[0_0_12px_rgba(251,191,36,0.7)]">
+          <div className="flex items-center justify-between px-3 sm:px-4 lg:px-6" style={{ minHeight: "95px" }}>
+            <button onClick={() => navigate("/")} className="flex items-center gap-2.5 sm:gap-4 flex-none py-1 hover:opacity-90 transition-all duration-300 group/logo">
+              <div className="flex-none w-[78px] h-[78px] sm:w-[85px] sm:h-[85px] flex items-center justify-center overflow-hidden rounded-full transition-all duration-300 group-hover/logo:drop-shadow-[0_0_12px_rgba(251,191,36,0.7)]">
                 <img
-                  src="/media78/img/logo.png"
-                  alt="AGS Автосервис — на главную"
-                  className="w-full h-full object-contain transition-transform duration-300 group-hover/logo:scale-105"
+                  src={LOGO_URL}
+                  alt="Азимут — Станция техобслуживания — на главную"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover/logo:scale-105"
                 />
               </div>
               <div className="flex flex-col justify-center">
-                <span className="font-['Oswald'] text-amber-400 font-bold tracking-wider uppercase leading-none text-lg sm:text-xl lg:text-2xl">AGS</span>
-                <span className="font-['Oswald'] text-amber-400/70 font-medium tracking-wider uppercase leading-none text-[9px] sm:text-[11px] lg:text-xs mt-0.5 whitespace-nowrap">Станция техобслуживания</span>
+                <span className="font-['Oswald'] text-amber-400 font-bold tracking-wider uppercase leading-none text-xl sm:text-2xl lg:text-3xl">Азимут</span>
+                <span className="font-['Oswald'] text-amber-400/70 font-medium tracking-wider uppercase leading-none text-[11px] sm:text-sm lg:text-base mt-0.5 whitespace-nowrap">Станция техобслуживания</span>
               </div>
             </button>
 
@@ -96,13 +98,13 @@ export default function VseUslugi() {
           </div>
         </div>
 
-        <div className="pt-[76px]">
+        <div className="pt-[95px]">
 
           {/* HERO */}
           <div className="px-4 sm:px-6 lg:px-12 py-10 sm:py-16 border-b border-border/40 bg-gradient-to-br from-card/40 to-background">
             <div className="max-w-[1200px] mx-auto">
               <div className="flex items-center gap-4 mb-3">
-                <span className="font-mono text-[10px] text-amber-400 tracking-[0.2em]">/ AGS АВТОСЕРВИС /</span>
+                <span className="font-mono text-[10px] text-amber-400 tracking-[0.2em]">/ АЗИМУТ АВТОСЕРВИС /</span>
                 <span className="flex-1 h-px bg-border" />
               </div>
               <h1 className="font-['Oswald'] text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-tight mb-3">

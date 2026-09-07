@@ -342,7 +342,7 @@ export default function HomeContent({
           {/* Адрес — SEO-текст */}
           <div className="mt-8 pt-6 border-t border-border/40">
             <p className="text-muted-foreground/60 text-[10px] sm:text-xs leading-relaxed font-mono max-w-4xl">
-              <strong className="text-muted-foreground/80">AGS Автосервис</strong> — Санкт-Петербург, ул. Симонова, 15, заезд с Суздальского проспекта.
+              <strong className="text-muted-foreground/80">Азимут Автосервис</strong> — Санкт-Петербург, ул. Симонова, 15, заезд с Суздальского проспекта.
               Работаем с легковыми автомобилями всех марок: отечественные, японские, европейские, корейские.
               Гарантия на все виды работ 12 месяцев. ПН–СБ 8:00–20:00 · ВС 9:00–18:00.
             </p>

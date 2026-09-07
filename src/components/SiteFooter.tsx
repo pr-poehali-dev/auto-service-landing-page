@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
 
-const MAP_URL = "https://yandex.ru/maps/2/saint-petersburg/?ll=30.330822%2C60.062673&mode=routes&rtext=60.064812%2C30.320827~60.062631%2C30.330231&rtt=auto&ruri=~ymapsbm1%3A%2F%2Forg%3Foid%3D17091308374&z=17.4";
+const MAP_URL = "https://yandex.ru/maps/2/saint-petersburg/?ll=30.477239%2C59.964755&mode=routes&routes%5BactiveComparisonMode%5D=auto&rtext=60.064812%2C30.320827~59.964795%2C30.477207&rtt=comparison&ruri=~&z=17.39";
+const LOGO_URL = "https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/efa2803e-3b6d-4ed9-bf7e-c246a1fd06dd.jpg";
 
 interface SiteFooterProps {
   showBackButton?: boolean;
@@ -39,7 +40,7 @@ export default function SiteFooter({ showBackButton = false, onBack }: SiteFoote
             </div>
             <img
               src="/media78/img/map.jpg"
-              alt="Карта проезда AGS Автосервис — ул. Симонова 15, Санкт-Петербург"
+              alt="Карта проезда Азимут Автосервис — ул. Симонова 15, Санкт-Петербург"
               className="w-full h-auto block"
             />
             <div className="px-4 py-3 border-t border-border/60 flex items-center justify-between">
@@ -70,14 +71,14 @@ export default function SiteFooter({ showBackButton = false, onBack }: SiteFoote
               <a href="/" className="flex items-center gap-3 flex-none hover:opacity-90 transition-all duration-300 group/logo">
                 <div className="w-[72px] h-[72px] sm:w-[84px] sm:h-[84px] flex-none overflow-hidden rounded-full transition-all duration-300 group-hover/logo:drop-shadow-[0_0_16px_rgba(251,191,36,0.65)]">
                   <img
-                    src="/media78/img/logo-footer.png"
-                    alt="AGS Автосервис — на главную"
-                    className="w-full h-full object-contain transition-transform duration-300 group-hover/logo:scale-105"
+                    src={LOGO_URL}
+                    alt="Азимут — Станция техобслуживания — на главную"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover/logo:scale-105"
                   />
                 </div>
                 <div>
                   <div className="font-['Oswald'] text-amber-400 font-bold tracking-wider uppercase text-xl sm:text-2xl leading-none">
-                    AGS
+                    Азимут
                   </div>
                   <div className="font-['Oswald'] text-amber-400/70 font-medium tracking-wider uppercase text-[10px] sm:text-xs mt-0.5 leading-none">
                     Станция техобслуживания
@@ -142,7 +143,7 @@ export default function SiteFooter({ showBackButton = false, onBack }: SiteFoote
                 </button>
               )}
               <div className="font-mono text-[9px] sm:text-[10px] text-muted-foreground">
-                © 2024 AGS. ВСЕ ПРАВА ЗАЩИЩЕНЫ.
+                © 2024 АЗИМУТ. ВСЕ ПРАВА ЗАЩИЩЕНЫ.
               </div>
 
             </div>

@@ -21,7 +21,7 @@ export default function HomeHero({
   onSetTireFade,
 }: HomeHeroProps) {
   return (
-    <section className="relative min-h-screen flex items-center pt-[120px] sm:pt-[128px]">
+    <section className="relative min-h-screen flex items-center pt-[140px] sm:pt-[148px]">
       {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -92,7 +92,7 @@ export default function HomeHero({
               </span>
             </a>
             <a
-              href="https://yandex.ru/maps/2/saint-petersburg/?ll=30.330822%2C60.062673&mode=routes&rtext=60.064812%2C30.320827~60.062631%2C30.330231&rtt=auto&ruri=~ymapsbm1%3A%2F%2Forg%3Foid%3D17091308374&z=17.4"
+              href="https://yandex.ru/maps/2/saint-petersburg/?ll=30.477239%2C59.964755&mode=routes&routes%5BactiveComparisonMode%5D=auto&rtext=60.064812%2C30.320827~59.964795%2C30.477207&rtt=comparison&ruri=~&z=17.39"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 sm:px-8 py-3 sm:py-4 bg-green-600/90 hover:bg-green-500 text-white font-['Oswald'] font-medium text-base sm:text-lg uppercase tracking-widest transition-colors duration-200"

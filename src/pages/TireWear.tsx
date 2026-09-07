@@ -3,6 +3,8 @@ import Icon from "@/components/ui/icon";
 import TireIllustration from "@/components/TireIllustration";
 import SiteFooter from "@/components/SiteFooter";
 
+const LOGO_URL = "https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/efa2803e-3b6d-4ed9-bf7e-c246a1fd06dd.jpg";
+
 const TIRE_WEAR = [
   {
     illustration: "inner" as const,
@@ -111,15 +113,15 @@ const SUSPENSION_TYPES = [
 function AgsLogo() {
   return (
     <div className="flex items-center gap-2 flex-none">
-      <div className="flex-none w-[36px] h-[36px] sm:w-[40px] sm:h-[40px] flex items-center justify-center overflow-hidden">
+      <div className="flex-none w-[36px] h-[36px] sm:w-[40px] sm:h-[40px] flex items-center justify-center overflow-hidden rounded-full">
         <img
-          src="/media78/img/logo.png"
-          alt="AGS"
-          className="w-full h-full object-contain"
+          src={LOGO_URL}
+          alt="Азимут"
+          className="w-full h-full object-cover"
         />
       </div>
       <div className="flex flex-col justify-center">
-        <span className="font-['Oswald'] text-amber-400 font-bold tracking-wider uppercase leading-none text-sm sm:text-base">AGS</span>
+        <span className="font-['Oswald'] text-amber-400 font-bold tracking-wider uppercase leading-none text-sm sm:text-base">Азимут</span>
         <span className="font-['Oswald'] text-amber-400/70 font-medium tracking-wider uppercase leading-none text-[8px] sm:text-[9px] mt-0.5">Ст. техобслуживания</span>
       </div>
     </div>
@@ -157,19 +159,19 @@ export default function TireWear() {
 
       {/* ── TOP BAR ── */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur border-b border-border">
-        <div className="flex items-center justify-between px-3 sm:px-6" style={{ minHeight: '76px' }}>
+        <div className="flex items-center justify-between px-3 sm:px-6" style={{ minHeight: '95px' }}>
           {/* Логотип — ссылка на главную */}
-          <button onClick={() => navigate("/")} className="flex items-center gap-2 sm:gap-3 hover:opacity-90 transition-all duration-300 group/logo">
-            <div className="flex-none w-[62px] h-[62px] sm:w-[68px] sm:h-[68px] flex items-center justify-center overflow-hidden rounded-full transition-all duration-300 group-hover/logo:drop-shadow-[0_0_12px_rgba(251,191,36,0.7)]">
+          <button onClick={() => navigate("/")} className="flex items-center gap-2.5 sm:gap-4 hover:opacity-90 transition-all duration-300 group/logo">
+            <div className="flex-none w-[78px] h-[78px] sm:w-[85px] sm:h-[85px] flex items-center justify-center overflow-hidden rounded-full transition-all duration-300 group-hover/logo:drop-shadow-[0_0_12px_rgba(251,191,36,0.7)]">
               <img
-                src="/media78/img/logo.png"
-                alt="AGS Автосервис — на главную"
-                className="w-full h-full object-contain transition-transform duration-300 group-hover/logo:scale-105"
+                src={LOGO_URL}
+                alt="Азимут — Станция техобслуживания — на главную"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover/logo:scale-105"
               />
             </div>
             <div className="flex flex-col justify-center">
-              <span className="font-['Oswald'] text-amber-400 font-bold tracking-wider uppercase leading-none text-lg sm:text-xl">AGS</span>
-              <span className="font-['Oswald'] text-amber-400/70 font-medium tracking-wider uppercase leading-none text-[9px] sm:text-xs mt-0.5">Станция техобслуживания</span>
+              <span className="font-['Oswald'] text-amber-400 font-bold tracking-wider uppercase leading-none text-xl sm:text-2xl">Азимут</span>
+              <span className="font-['Oswald'] text-amber-400/70 font-medium tracking-wider uppercase leading-none text-[11px] sm:text-sm mt-0.5">Станция техобслуживания</span>
             </div>
           </button>
 
@@ -189,7 +191,7 @@ export default function TireWear() {
         </div>
       </div>
 
-      <div className="pt-[76px]">
+      <div className="pt-[95px]">
 
         {/* ── MINI HERO TOP ── */}
         <div className="px-4 sm:px-6 lg:px-12 py-6 sm:py-8 max-w-[1920px] mx-auto border-b border-border/40">
