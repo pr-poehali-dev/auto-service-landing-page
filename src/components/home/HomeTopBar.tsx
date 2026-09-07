@@ -52,10 +52,10 @@ export default function HomeTopBar({ activeService, time, onServiceHover, onServ
               </span>
             </a>
             <div className="w-px h-5 bg-border/40 hidden xs:block" />
-            <a href="tel:+79218770797" className="flex flex-col items-center gap-0 sm:gap-0.5 hover:opacity-80 transition-opacity">
+            <a href="tel:+79675378404" className="flex flex-col items-center gap-0 sm:gap-0.5 hover:opacity-80 transition-opacity">
               <span className="font-mono text-[6px] xs:text-[7px] sm:text-[9px] text-muted-foreground/50 tracking-widest hidden xs:block">МАС. СМЕНЫ</span>
               <span className="font-['Oswald'] text-amber-400 font-semibold leading-none text-[11px] xs:text-xs sm:text-lg lg:text-xl tracking-wide whitespace-nowrap">
-                +7 (921) 877-07-97
+                +7 (967) 537-84-04
               </span>
             </a>
             {/* Время — только md+ */}

@@ -83,10 +83,10 @@ export default function HomeHeader({
                 МАС. СМЕНЫ
               </span>
               <a
-                href="tel:+79218770797"
+                href="tel:+79675378404"
                 className="text-amber-400 hover:text-amber-300 transition-colors font-medium tracking-wider text-[10px] sm:text-xs whitespace-nowrap"
               >
-                +7 (921) 877-07-97
+                +7 (967) 537-84-04
               </a>
             </div>
           </div>

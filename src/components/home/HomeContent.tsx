@@ -137,12 +137,122 @@ export default function HomeContent({
               +7 (911) 747-80-57
             </a>
             <a
-              href="tel:+79218770797"
+              href="tel:+79675378404"
               className="px-8 sm:px-10 py-4 sm:py-5 border border-border/60 text-foreground font-['Oswald'] font-medium text-lg sm:text-xl uppercase tracking-widest hover:border-amber-400/50 hover:text-amber-400 transition-all duration-200 flex items-center justify-center gap-2 sm:gap-3 w-full xs:w-auto"
             >
               <Icon name="Phone" size={18} />
-              +7 (921) 877-07-97
+              +7 (967) 537-84-04
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SEO ТЕКСТ ── */}
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-12 bg-background/30 backdrop-blur-sm border-t border-border/40">
+        <div className="max-w-[900px] mx-auto">
+          <div className="flex items-center gap-4 mb-6">
+            <span className="font-mono text-[10px] sm:text-xs text-amber-400 tracking-[0.2em]">/ О НАШИХ УСЛУГАХ /</span>
+            <span className="flex-1 h-[1px] bg-border" />
+          </div>
+
+          <h2 className="font-['Oswald'] text-2xl sm:text-3xl lg:text-4xl font-bold uppercase tracking-tight mb-6 leading-tight">
+            Развал-схождение в Санкт-Петербурге: профессиональная настройка углов
+            для <span className="text-amber-400">BMW, Lada, Mercedes</span> и других автомобилей
+          </h2>
+
+          <div className="text-muted-foreground text-sm sm:text-base leading-relaxed space-y-4">
+            <p>
+              Добро пожаловать в Санкт-Петербург! Если вы заметили, что ваш автомобиль ведёт себя не так, как раньше — кренит в сторону, расходуется больше топлива или шины изнашиваются неравномерно — то проблема, скорее всего, в неправильном угле установки колёс. Это не просто выравнивание, а комплексная настройка подвески для безопасной и комфортной езды.
+            </p>
+
+            <h3 className="font-['Oswald'] text-lg sm:text-xl font-bold uppercase tracking-wide text-foreground pt-2">
+              Почему важно делать развал-схождение?
+            </h3>
+            <ul className="space-y-2">
+              <li className="flex items-start gap-2">
+                <span className="text-amber-400 flex-none mt-1">◈</span>
+                <span><strong className="text-foreground">Улучшение управляемости</strong> — автомобиль ведёт себя стабильно на дороге.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-amber-400 flex-none mt-1">◈</span>
+                <span><strong className="text-foreground">Снижение расхода топлива</strong> — экономия до 10% на топливе.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-amber-400 flex-none mt-1">◈</span>
+                <span><strong className="text-foreground">Продление жизни шин</strong> — сокращается износ протектора, продлевается срок службы шин.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-amber-400 flex-none mt-1">◈</span>
+                <span><strong className="text-foreground">Повышение безопасности вождения</strong> — устраняет риски крена.</span>
+              </li>
+            </ul>
+
+            <h3 className="font-['Oswald'] text-lg sm:text-xl font-bold uppercase tracking-wide text-foreground pt-2">
+              Наши услуги
+            </h3>
+            <p>Мы предлагаем полный спектр услуг по развалу-схождению для всех типов автомобилей:</p>
+            <ul className="space-y-2">
+              <li className="flex items-start gap-2">
+                <span className="text-amber-400 flex-none mt-1">◈</span>
+                <span><strong className="text-foreground">Общий развал-схождение</strong> — для корректировки углов наклона, крена и кастера.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-amber-400 flex-none mt-1">◈</span>
+                <span><strong className="text-foreground">Развал-схождение BMW, Mercedes</strong> и других премиум-марок — профессиональная настройка подвески для сохранения характеристик автомобиля.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-amber-400 flex-none mt-1">◈</span>
+                <span><strong className="text-foreground">Развал-схождение ВАЗ/Lada</strong> с регулировкой кастера — коррекция углов для отечественных автомобилей.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-amber-400 flex-none mt-1">◈</span>
+                <span><strong className="text-foreground">Подвеска Лисян</strong> — точная настройка углов установки колёс для отечественных автомобилей.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-amber-400 flex-none mt-1">◈</span>
+                <span><strong className="text-foreground">Развал-схождение корейских автомобилей</strong> (Hyundai, Kia) — профессиональная настройка подвески для современных моделей.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-amber-400 flex-none mt-1">◈</span>
+                <span><strong className="text-foreground">Развал-схождение японских автомобилей</strong> (Toyota, Honda, Nissan) — точная корректировка углов установки колёс.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-amber-400 flex-none mt-1">◈</span>
+                <span><strong className="text-foreground">Развал-схождение европейских автомобилей</strong> (Audi, Volkswagen, Skoda) — профессиональная настройка подвески для моделей со сложной конструкцией.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-amber-400 flex-none mt-1">◈</span>
+                <span><strong className="text-foreground">Пневматическая подвеска Mercedes</strong> — точная настройка пневмоподвески, которая требует особой точности.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-amber-400 flex-none mt-1">◈</span>
+                <span><strong className="text-foreground">Спортивная/дрифт-подвеска</strong> — выравнивание для дрифта и соревнований с соблюдением всех технических требований.</span>
+              </li>
+            </ul>
+
+            <h3 className="font-['Oswald'] text-lg sm:text-xl font-bold uppercase tracking-wide text-foreground pt-2">
+              Техника и оборудование
+            </h3>
+            <p>
+              Мы используем современный 3D-сканер, который гарантирует максимальную точность до миллиметра. Наше оборудование калибровано и поверено, что подтверждает его высокую точность. Это позволяет нам работать с любыми типами подвесок: от простых отечественных моделей до сложных пневмоподвесок премиум-класса.
+            </p>
+
+            <h3 className="font-['Oswald'] text-lg sm:text-xl font-bold uppercase tracking-wide text-foreground pt-2">
+              Как мы работаем?
+            </h3>
+            <ol className="space-y-2 list-decimal list-inside">
+              <li>Вы привозите автомобиль в наш сервис.</li>
+              <li>Мы проводим полную диагностику углов установки колёс с помощью нового оборудования.</li>
+              <li>Специалисты корректируют все необходимые параметры.</li>
+              <li>После завершения работы вы получаете готовый к эксплуатации автомобиль.</li>
+            </ol>
+
+            <p className="pt-2">
+              Не откладывайте! Записаться на развал-схождение в Санкт-Петербурге можно прямо сейчас —{" "}
+              <a href="tel:+79117478057" className="text-amber-400 hover:underline">+7 (911) 747-80-57</a>{" "}
+              или{" "}
+              <a href="tel:+79675378404" className="text-amber-400 hover:underline">+7 (967) 537-84-04</a>.
+            </p>
           </div>
         </div>
       </section>
@@ -220,10 +330,10 @@ export default function HomeContent({
                   Заправка кондиционера фреоном R134a и R1234yf с проверкой герметичности. Ремонт и восстановление рулевых реек без замены с гарантией 12 месяцев — от 5 000 ₽.
                 </p>
                 <a
-                  href="tel:+79218770797"
+                  href="tel:+79675378404"
                   className="font-mono text-[10px] text-amber-400 tracking-wider hover:underline"
                 >
-                  Позвонить: +7 (921) 877-07-97 →
+                  Позвонить: +7 (967) 537-84-04 →
                 </a>
               </div>
             </article>

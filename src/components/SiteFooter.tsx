@@ -154,11 +154,11 @@ export default function SiteFooter({ showBackButton = false, onBack }: SiteFoote
               Информация на сайте не является публичной офертой. Для уточнения цен и условий звоните:
             </p>
             <a
-              href="tel:+79218770797"
+              href="tel:+79675378404"
               className="inline-flex items-center gap-2 px-4 py-2 bg-amber-400/10 border border-amber-400/40 text-amber-400 hover:bg-amber-400/20 transition-colors rounded-sm flex-none"
             >
               <Icon name="Phone" size={13} />
-              <span className="font-mono text-[10px] sm:text-xs tracking-wider">+7 (921) 877-07-97</span>
+              <span className="font-mono text-[10px] sm:text-xs tracking-wider">+7 (967) 537-84-04</span>
             </a>
           </div>
 

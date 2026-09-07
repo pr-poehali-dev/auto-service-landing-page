@@ -152,13 +152,13 @@ export default function ServicePageLayout({
             <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mb-5">{subtitle}</p>
             <div className="flex flex-wrap items-center gap-3">
               <div className="font-['Oswald'] text-2xl sm:text-3xl font-bold text-amber-400">{price}</div>
-              <button
-                onClick={() => setContactOpen(true)}
+              <a
+                href="tel:+79117478057"
                 className="flex items-center gap-2 px-5 py-2.5 bg-amber-400 text-background font-['Oswald'] font-semibold text-sm uppercase tracking-widest hover:bg-amber-300 transition-colors"
               >
                 <Icon name="Phone" size={14} />
                 Позвонить
-              </button>
+              </a>
             </div>
           </div>
         </div>
