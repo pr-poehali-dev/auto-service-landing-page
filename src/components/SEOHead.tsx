@@ -5,17 +5,23 @@ interface ServiceSchema {
   price: string;
 }
 
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
 interface SEOHeadProps {
   title: string;
   description: string;
   path: string;
   service?: ServiceSchema;
+  faq?: FAQItem[];
 }
 
 const SITE_URL = "https://24razval.ru";
 const OG_IMAGE = "https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/efa2803e-3b6d-4ed9-bf7e-c246a1fd06dd.jpg";
 
-export default function SEOHead({ title, description, path, service }: SEOHeadProps) {
+export default function SEOHead({ title, description, path, service, faq }: SEOHeadProps) {
   const url = `${SITE_URL}${path}`;
 
   return (
@@ -58,6 +64,23 @@ export default function SEOHead({ title, description, path, service }: SEOHeadPr
               price: service.price,
               priceCurrency: "RUB",
             },
+          })}
+        </script>
+      )}
+
+      {faq && faq.length > 0 && (
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faq.map((item) => ({
+              "@type": "Question",
+              name: item.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: item.answer,
+              },
+            })),
           })}
         </script>
       )}

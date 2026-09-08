@@ -148,6 +148,8 @@ export default function HomeHero({
                 src={TIRE_SLIDES[tireSlide].img}
                 alt={TIRE_SLIDES[tireSlide].label}
                 className="absolute inset-0 w-full h-full object-cover object-center"
+                loading="eager"
+                fetchPriority="high"
                 style={{ opacity: tireFade ? 1 : 0, transition: "opacity 0.3s ease" }}
               />
 

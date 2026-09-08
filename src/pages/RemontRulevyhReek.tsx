@@ -1,6 +1,29 @@
 import SEOHead from "@/components/SEOHead";
 import ServicePageLayout from "@/components/ServicePageLayout";
 
+const FAQ = [
+  {
+    q: "Можно ли отремонтировать рулевую рейку вместо замены?",
+    a: "В большинстве случаев да. Восстановительный ремонт позволяет сохранить оригинальный агрегат и обходится до 70% дешевле покупки новой или контрактной рейки.",
+  },
+  {
+    q: "Сколько занимает ремонт рулевой рейки?",
+    a: "Срок ремонта — 1–3 рабочих дня в зависимости от сложности и типа рейки (механическая, с ГУР или ЭУР).",
+  },
+  {
+    q: "Какие признаки говорят о неисправности рейки?",
+    a: "Стук при повороте руля или на неровностях, увеличенный люфт руля, подтёки масла в районе рейки, тугой или неравномерный ход руля. При любом из этих симптомов рекомендуем диагностику.",
+  },
+  {
+    q: "Даёте ли вы гарантию на ремонт рейки?",
+    a: "Да, гарантия 12 месяцев на все виды работ и запчастей. При повторном обращении в гарантийный период ремонт выполняется за наш счёт.",
+  },
+  {
+    q: "Нужно ли снимать рейку самостоятельно перед ремонтом?",
+    a: "Нет, принимаем автомобиль целиком или рейку в сборе с тягами — снятие и установку выполняют наши мастера.",
+  },
+];
+
 export default function RemontRulevyhReek() {
   return (
     <>
@@ -9,6 +32,7 @@ export default function RemontRulevyhReek() {
       description="Восстановление рейки без замены агрегата. Гарантия 12 месяцев. Срок ремонта 1–3 дня. Механика, ГУР, ЭУР. Звоните — рассчитаем стоимость."
       path="/remont-rulevyh-reek"
       service={{ serviceType: "Ремонт рулевой рейки", price: "5000" }}
+      faq={FAQ.map((item) => ({ question: item.q, answer: item.a }))}
     />
     <ServicePageLayout
       currentPath="/remont-rulevyh-reek"
@@ -101,6 +125,21 @@ export default function RemontRulevyhReek() {
             </li>
           ))}
         </ul>
+      </section>
+
+      {/* FAQ */}
+      <section className="mb-10">
+        <h2 className="font-['Oswald'] text-xl sm:text-2xl font-bold uppercase tracking-tight mb-5">
+          Частые вопросы о ремонте рулевой рейки
+        </h2>
+        <div className="space-y-3">
+          {FAQ.map((item, i) => (
+            <div key={i} className="border border-border/50 p-4 bg-card/20 backdrop-blur-sm">
+              <h3 className="font-['Oswald'] text-sm sm:text-base font-bold uppercase tracking-wide mb-2 text-amber-400">{item.q}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{item.a}</p>
+            </div>
+          ))}
+        </div>
       </section>
     </ServicePageLayout>
     </>

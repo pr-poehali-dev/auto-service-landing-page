@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
+import SEOHead from "@/components/SEOHead";
 import TireIllustration from "@/components/TireIllustration";
 import SiteFooter from "@/components/SiteFooter";
 
@@ -156,6 +157,11 @@ export default function TireWear() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SEOHead
+        title="Износ Шин: Причины и Диагностика — Азимут Автосервис СПб"
+        description="Неравномерный износ протектора — признак нарушенной геометрии подвески. Разбираем виды износа шин и что делать. Диагностика на 3D-стенде от 2500₽."
+        path="/tire-wear"
+      />
 
       {/* ── TOP BAR ── */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur border-b border-border">

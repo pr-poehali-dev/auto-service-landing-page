@@ -43,6 +43,7 @@ export default function RazvalSkhozhdenie() {
       description="Поверенный стенд Технo Вектор. Все марки — от Lada до BMW. Распечатка до/после. Гарантия. Приезжайте на шоссе Революции, 83 без записи."
       path="/razvalskhozhdenie"
       service={{ serviceType: "Развал-схождение", price: "2500" }}
+      faq={FAQ.map((item) => ({ question: item.q, answer: item.a }))}
     />
     <ServicePageLayout
       currentPath="/razvalskhozhdenie"

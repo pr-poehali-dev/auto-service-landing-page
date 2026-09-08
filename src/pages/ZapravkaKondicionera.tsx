@@ -1,6 +1,29 @@
 import SEOHead from "@/components/SEOHead";
 import ServicePageLayout from "@/components/ServicePageLayout";
 
+const FAQ = [
+  {
+    q: "Как часто нужно заправлять кондиционер автомобиля?",
+    a: "Рекомендуется проводить профилактическую заправку каждые 1–2 года. Кондиционер теряет до 15–20% фреона в год даже при исправной системе за счёт естественной диффузии через уплотнения.",
+  },
+  {
+    q: "Какой фреон нужен моему автомобилю — R134a или R1234yf?",
+    a: "R134a используется в большинстве автомобилей до 2017 года выпуска, R1234yf — в современных европейских моделях. Тип фреона указан на табличке под капотом; если сомневаетесь — определим на месте.",
+  },
+  {
+    q: "Что если кондиционер быстро перестаёт холодить после заправки?",
+    a: "Это признак утечки фреона. Перед повторной заправкой обязательно проверяем герметичность системы течеискателем и устраняем причину — иначе эффект будет временным.",
+  },
+  {
+    q: "Нужна ли запись на заправку кондиционера?",
+    a: "Нет, мы работаем без предварительной записи — приезжайте в удобное время с 10:00 до 20:00 ежедневно.",
+  },
+  {
+    q: "Сколько занимает заправка кондиционера по времени?",
+    a: "Стандартная заправка с проверкой герметичности занимает 40–60 минут. Если требуется устранение утечки — время согласуем отдельно.",
+  },
+];
+
 export default function ZapravkaKondicionera() {
   return (
     <>
@@ -9,6 +32,7 @@ export default function ZapravkaKondicionera() {
       description="Фреон R134a и R1234yf. Проверка герметичности системы. Все марки авто. Приезжайте на шоссе Революции, 83 — работаем без записи ежедневно."
       path="/zapravka-kondicionera"
       service={{ serviceType: "Заправка автокондиционера", price: "3000" }}
+      faq={FAQ.map((item) => ({ question: item.q, answer: item.a }))}
     />
     <ServicePageLayout
       currentPath="/zapravka-kondicionera"
@@ -100,6 +124,21 @@ export default function ZapravkaKondicionera() {
             </li>
           ))}
         </ul>
+      </section>
+
+      {/* FAQ */}
+      <section className="mb-10">
+        <h2 className="font-['Oswald'] text-xl sm:text-2xl font-bold uppercase tracking-tight mb-5">
+          Частые вопросы о заправке кондиционера
+        </h2>
+        <div className="space-y-3">
+          {FAQ.map((item, i) => (
+            <div key={i} className="border border-border/50 p-4 bg-card/20 backdrop-blur-sm">
+              <h3 className="font-['Oswald'] text-sm sm:text-base font-bold uppercase tracking-wide mb-2 text-amber-400">{item.q}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{item.a}</p>
+            </div>
+          ))}
+        </div>
       </section>
     </ServicePageLayout>
     </>

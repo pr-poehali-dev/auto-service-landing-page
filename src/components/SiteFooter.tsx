@@ -43,6 +43,7 @@ export default function SiteFooter({ showBackButton = false, onBack }: SiteFoote
               src={SCHEME_URL}
               alt="Карта проезда Азимут Автосервис — шоссе Революции, 83, Санкт-Петербург"
               className="w-full h-auto block"
+              loading="lazy"
             />
             <div className="px-4 py-3 border-t border-border/60 flex items-center justify-between">
               <span className="font-mono text-[10px] text-muted-foreground">Санкт-Петербург, шоссе Революции, 83</span>
@@ -75,6 +76,7 @@ export default function SiteFooter({ showBackButton = false, onBack }: SiteFoote
                     src={LOGO_URL}
                     alt="Азимут — Станция техобслуживания — на главную"
                     className="w-full h-full object-cover transition-transform duration-300 group-hover/logo:scale-105"
+                    loading="lazy"
                   />
                 </div>
                 <div>

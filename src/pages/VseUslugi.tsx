@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
+import SEOHead from "@/components/SEOHead";
 import SiteFooter from "@/components/SiteFooter";
 
 const LOGO_URL = "/media78/img/logo-azimut.png";
@@ -59,6 +60,11 @@ export default function VseUslugi() {
 
   return (
     <div className="min-h-screen bg-background text-foreground relative">
+      <SEOHead
+        title="Все Услуги Автосервиса Азимут — Цены СПб, шоссе Революции 83"
+        description="Развал-схождение от 2500₽, ремонт ходовой от 1500₽, заправка кондиционера от 3000₽, ремонт рулевых реек от 5000₽. Без записи, ежедневно 10:00–20:00."
+        path="/vse-uslugi"
+      />
       <div className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url(https://cdn.poehali.dev/projects/46745fea-3775-44bf-b9bf-65fdd59d5b7d/bucket/794df628-917a-44ed-ae2f-a692359b7f22.jpg)" }} />
       <div className="fixed inset-0 z-0 bg-background/85" />
