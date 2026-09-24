@@ -19,6 +19,7 @@ export const ALL_SERVICES: ServiceLink[] = [
   { title: "Ремонт Ходовой", path: "/remont-hodovoy", icon: "Settings2", code: "SRV-02" },
   { title: "Заправка Кондиционеров", path: "/zapravka-kondicionera", icon: "Thermometer", code: "SRV-03", tag: "СЕЗОН" },
   { title: "Ремонт Рулевых Реек", path: "/remont-rulevyh-reek", icon: "Wrench", code: "SRV-04" },
+  { title: "Статьи", path: "/stati", icon: "BookOpen", code: "INFO" },
 ];
 
 interface ServicePageLayoutProps {

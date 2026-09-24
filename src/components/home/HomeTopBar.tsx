@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import { SERVICES } from "./homeData";
 
@@ -12,6 +13,7 @@ interface HomeTopBarProps {
 }
 
 export default function HomeTopBar({ activeService, time, onServiceHover, onServiceClick }: HomeTopBarProps) {
+  const navigate = useNavigate();
   const formatTime = (d: Date) =>
     d.toLocaleTimeString("ru-RU", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
 
@@ -110,6 +112,15 @@ export default function HomeTopBar({ activeService, time, onServiceHover, onServ
               )}
             </button>
           ))}
+          <button
+            onClick={() => navigate("/stati")}
+            className="flex-none flex items-center gap-1.5 sm:gap-3 px-3 sm:px-5 lg:px-6 py-2 sm:py-3 border-r border-border/40 transition-all duration-200 hover:bg-white/5 text-muted-foreground hover:text-foreground"
+          >
+            <Icon name="BookOpen" size={12} />
+            <span className="font-['Oswald'] text-[11px] sm:text-sm font-medium tracking-wider whitespace-nowrap uppercase">
+              Статьи
+            </span>
+          </button>
         </div>
       </div>
     </>

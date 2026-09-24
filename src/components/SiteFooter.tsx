@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 
 const MAP_URL = "https://yandex.ru/maps/2/saint-petersburg/?ll=30.477239%2C59.964755&mode=routes&routes%5BactiveComparisonMode%5D=auto&rtext=60.064812%2C30.320827~59.964795%2C30.477207&rtt=comparison&ruri=~&z=17.39";
@@ -12,6 +13,7 @@ interface SiteFooterProps {
 
 export default function SiteFooter({ showBackButton = false, onBack }: SiteFooterProps) {
   const [mapOpen, setMapOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -132,6 +134,13 @@ export default function SiteFooter({ showBackButton = false, onBack }: SiteFoote
 
             {/* ПРАВЫЙ блок */}
             <div className="flex flex-col items-start md:items-end gap-2 md:flex-1">
+              <button
+                onClick={() => navigate("/stati")}
+                className="flex items-center gap-2 text-muted-foreground hover:text-amber-400 transition-colors"
+              >
+                <Icon name="BookOpen" size={13} />
+                <span className="font-mono text-[10px] tracking-widest">СТАТЬИ</span>
+              </button>
               {showBackButton && onBack && (
                 <button
                   onClick={onBack}
