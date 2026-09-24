@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import SEOHead from "@/components/SEOHead";
@@ -5,6 +6,7 @@ import SiteFooter from "@/components/SiteFooter";
 import NotFound from "@/pages/NotFound";
 import { ARTICLE_CATEGORIES, ARTICLES, getArticleBySlug, getArticlesByCategory } from "@/data/articles";
 import { ARTICLE_CONTENTS } from "@/data/articleContents";
+import { getArticleImages } from "@/data/articleImages";
 
 const LOGO_URL = "/media78/img/logo-azimut.png";
 
@@ -19,6 +21,7 @@ export default function StatiArticle() {
 
   const category = ARTICLE_CATEGORIES.find((c) => c.slug === article.category);
   const content = ARTICLE_CONTENTS[article.slug];
+  const images = content ? getArticleImages(article.title, article.id, 2) : [];
   const sameCategory = getArticlesByCategory(article.category).filter((a) => a.slug !== article.slug);
 
   // Соседние статьи той же категории — до 6 штук для быстрого перехода
@@ -42,6 +45,15 @@ export default function StatiArticle() {
             : `${article.title}. Статья из раздела «${category?.title ?? ""}» — база знаний автосервиса Азимут о ремонте и диагностике подвески.`
         }
         path={`/stati/${article.slug}`}
+        image={images[0]?.url}
+        keywords={`${article.title.toLowerCase()}, ${category?.title.toLowerCase() ?? ""}, автосервис Азимут, ремонт подвески СПб`}
+        breadcrumbs={[
+          { name: "Главная", path: "/" },
+          { name: "Статьи", path: "/stati" },
+          ...(category ? [{ name: category.title, path: `/stati#${category.slug}` }] : []),
+          { name: article.title, path: `/stati/${article.slug}` },
+        ]}
+        article={content ? { section: category?.title } : undefined}
       />
       <div
         className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
@@ -112,15 +124,32 @@ export default function StatiArticle() {
             </div>
           </div>
 
+          {/* Hero-изображение статьи */}
+          {images[0] && (
+            <div className="px-4 sm:px-6 lg:px-12 pt-8 sm:pt-10 max-w-[840px] mx-auto">
+              <img
+                src={images[0].url}
+                alt={images[0].alt}
+                loading="eager"
+                className="w-full aspect-video object-cover border border-border/40"
+              />
+            </div>
+          )}
+
           {/* Контент статьи */}
           <div className="px-4 sm:px-6 lg:px-12 py-10 sm:py-14 max-w-[840px] mx-auto">
             {content ? (
               <article className="space-y-4 text-muted-foreground text-sm sm:text-base leading-relaxed">
                 <p className="text-foreground/90 text-base sm:text-lg leading-relaxed">{content.intro}</p>
-                {content.blocks
-                  ? content.blocks.map((block, i) =>
-                      block.type === "table" ? (
-                        <div key={i} className="overflow-x-auto my-6 border border-border/50">
+                {(() => {
+                  const items = content.blocks
+                    ? content.blocks
+                    : (content.paragraphs ?? []).map((p) => ({ type: "text" as const, text: p }));
+                  const midIndex = images[1] ? Math.floor(items.length / 2) : -1;
+                  return items.map((block, i) => (
+                    <Fragment key={i}>
+                      {block.type === "table" ? (
+                        <div key={`b-${i}`} className="overflow-x-auto my-6 border border-border/50">
                           <table className="w-full text-xs sm:text-sm border-collapse">
                             <thead>
                               <tr className="bg-amber-400/10">
@@ -145,10 +174,21 @@ export default function StatiArticle() {
                           </table>
                         </div>
                       ) : (
-                        <p key={i}>{block.text}</p>
-                      )
-                    )
-                  : content.paragraphs?.map((p, i) => <p key={i}>{p}</p>)}
+                        <p key={`b-${i}`}>{block.text}</p>
+                      )}
+                      {i === midIndex && images[1] && (
+                        <figure key={`img-${i}`} className="my-6">
+                          <img
+                            src={images[1].url}
+                            alt={images[1].alt}
+                            loading="lazy"
+                            className="w-full aspect-video object-cover border border-border/40"
+                          />
+                        </figure>
+                      )}
+                    </Fragment>
+                  ));
+                })()}
               </article>
             ) : (
               <div className="p-6 sm:p-8 border border-amber-400/20 bg-amber-400/5 flex flex-col sm:flex-row items-start gap-5">

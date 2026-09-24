@@ -6,49 +6,49 @@
 
   <url>
     <loc>https://24razval.ru/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://24razval.ru/vse-uslugi</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://24razval.ru/razvalskhozhdenie</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://24razval.ru/remont-hodovoy</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://24razval.ru/zapravka-kondicionera</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://24razval.ru/remont-rulevyh-reek</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://24razval.ru/tire-wear</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -57,7 +57,430 @@
     <loc>https://24razval.ru/stati</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+  </url>
+
+
+  <!-- Статьи базы знаний -->
+
+  <url>
+    <loc>https://24razval.ru/stati/chto-takoe-razval-kaster-i-shozhdenie-prostoe-obyasnenie-dlya-novichkov</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/zachem-nuzhna-podveska-avtomobilya-kratkaya-istoriya-evolyutsii</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/zavisimaya-i-nezavisimaya-podveska-v-chem-printsipialnaya-raznitsa</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/kak-rabotaet-amortizator-gidravlika-gaz-i-printsip-dempfirovaniya</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/makferson-protiv-mnogorychazhki-plyusy-minusy-i-stoimost-remonta</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/torsionnaya-podveska-printsip-raboty-resurs-i-osobennosti-remonta</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/pnevmaticheskaya-podveska-ustroystvo-plyusy-i-glavnye-vragi-pnevmostoek</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/adaptivnaya-podveska-kak-elektronika-menyaet-zhestkost-na-hodu</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/ugly-ustanovki-koles-uuk-kak-oni-vliyayut-na-rashod-topliva</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/kak-dorozhnoe-polotno-i-kachestvo-asfalta-vliyayut-na-iznos-hodovoy-chasti</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/pochemu-zadnyuyu-os-tozhe-nuzhno-regulirovat-i-kogda-eto-nevozmozhno</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/ressory-v-sovremennyh-avto-gde-oni-ostalis-i-zachem-nuzhny</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/stabilizator-poperechnoy-ustoychivosti-zachem-nuzhny-stoyki-i-vtulki</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/sharovye-opory-konstruktsiya-rol-pylnika-i-sredniy-resurs</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/saylentbloki-rezina-protiv-poliuretana-vechnyy-spor</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/podramnik-zachem-on-nuzhen-kogda-menyat-i-kak-on-svyazan-s-kuzovom</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/povorotnyy-kulak-anatomiya-klyuchevogo-elementa-peredney-podveski</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/stupichnyy-podshipnik-kak-opredelit-iznos-bez-podemnika</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/shrusy-i-privody-kak-ugly-podveski-vliyayut-na-ih-resurs</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/kak-ves-avtomobilya-i-passazhirov-vliyaet-na-nastroyki-razvala</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/razval-na-sportivnyh-avto-zachem-nuzhen-otritsatelnyy-ugol-domikom</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/kaster-prodolnyy-naklon-kak-on-obespechivaet-vozvrat-rulya-v-nol</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/shozhdenie-toe-pochemu-ono-sedaet-rezinu-bystree-vsego</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/tyaga-panara-zachem-ona-nuzhna-v-mostovyh-i-poluzavisimyh-podveskah</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/reaktivnye-tyagi-ih-rol-v-geometrii-zadney-osi</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/otboyniki-i-pruzhiny-kak-oni-rabotayut-v-pare-pri-proboyah</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/elektronnaya-pnevmopodveska-bazovaya-diagnostika-utechek-vozduha</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/magnitoreologicheskaya-podveska-magneride-magiya-umnyh-zhidkostey</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/podveska-dlya-elektromobiley-osobennosti-iz-za-vesa-batarey</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/geometriya-akkermana-chto-eto-takoe-i-nuzhno-li-eto-obychnym-voditelyam</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/5-glavnyh-priznakov-togo-chto-vam-srochno-nuzhen-razval-shozhdenie</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/mashinu-tyanet-vpravo-top-10-prichin-spoyler-ne-tolko-razval</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/stuk-v-peredney-podveske-na-kochkah-algoritm-poiska-vinovnika</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/skrip-v-podveske-pri-povorote-rulya-reyka-opory-ili-shrus</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/vibratsiya-na-rule-na-skorosti-80-100-km-ch-balansirovka-ili-hodovaya</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/kak-proverit-amortizatory-samostoyatelno-klassicheskiy-test-na-raskachku</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/maslyanye-pyatna-na-stoykah-smertnyy-prigovor-ili-norma</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/neravnomernyy-iznos-shin-chitaem-protektor-kak-detektiv</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/iznos-vnutrenney-kromki-shiny-vinovat-razval-ili-ubityy-saylentblok</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/pilit-rezinu-ekstrennye-mery-do-poezdki-na-sto</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/uvelichennyy-tormoznoy-put-skrytaya-svyaz-s-sostoyaniem-podveski</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/klevki-pri-tormozhenii-i-prisedaniya-pri-razgone-diagnostika</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/rul-stoit-krivo-pri-pryamolineynom-dvizhenii-prichiny-i-resheniya</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/bienie-rulya-pri-tormozhenii-krivye-diski-ili-lyufty-v-rychagah</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/shum-i-gul-na-povorotah-kak-otlichit-stupitsu-ot-vneshnego-shrusa</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/hrust-pri-vyvernutom-rule-i-troganii-s-mesta</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/kak-otlichit-stuk-stoyki-stabilizatora-ot-rulevogo-nakonechnika</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/pochemu-podveska-stala-derevyannoy-i-zhestkoy-na-melkih-nerovnostyah</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/avtomobil-ryskaet-po-trasse-poshagovaya-diagnostika-lyuftov</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/provisanie-odnoy-storony-avtomobilya-pruzhina-ili-amortizator</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/tech-iz-pod-pylnika-shrusa-chem-grozit-i-kak-bystro-nuzhno-menyat</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/kak-proverit-rulevye-tyagi-i-nakonechniki-bez-montirovki</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/treschiny-na-saylentblokah-srochno-menyat-ili-mozhno-ezdit</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/metallicheskiy-lyazg-pri-proezde-lezhachih-politseyskih-kto-vinovat</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/zapotevanie-amortizatorov-norma-kondensat-ili-brak</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/kak-raspoznat-ustalost-metalla-pruzhin-do-togo-kak-oni-lopnut</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/stuk-v-zadney-poluzavisimoy-podveske-balka-i-ee-tipichnye-bolezni</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/plavayuschie-saylentbloki-kak-ih-proverit-i-zachem-oni-nuzhny</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/diagnostika-pnevmostoek-mylnym-rastvorom-v-garazhnyh-usloviyah</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://24razval.ru/stati/pochemu-posle-zameny-amortizatorov-mashina-stala-ehat-huzhe</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
 </urlset>
