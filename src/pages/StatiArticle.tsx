@@ -4,6 +4,7 @@ import SEOHead from "@/components/SEOHead";
 import SiteFooter from "@/components/SiteFooter";
 import NotFound from "@/pages/NotFound";
 import { ARTICLE_CATEGORIES, ARTICLES, getArticleBySlug, getArticlesByCategory } from "@/data/articles";
+import { ARTICLE_CONTENTS } from "@/data/articleContents";
 
 const LOGO_URL = "/media78/img/logo-azimut.png";
 
@@ -17,6 +18,7 @@ export default function StatiArticle() {
   }
 
   const category = ARTICLE_CATEGORIES.find((c) => c.slug === article.category);
+  const content = ARTICLE_CONTENTS[article.slug];
   const sameCategory = getArticlesByCategory(article.category).filter((a) => a.slug !== article.slug);
 
   // Соседние статьи той же категории — до 6 штук для быстрого перехода
@@ -34,7 +36,11 @@ export default function StatiArticle() {
     <div className="min-h-screen bg-background text-foreground relative">
       <SEOHead
         title={`${article.title} — Азимут Автосервис СПб`}
-        description={`${article.title}. Статья из раздела «${category?.title ?? ""}» — база знаний автосервиса Азимут о ремонте и диагностике подвески.`}
+        description={
+          content
+            ? content.intro.slice(0, 155)
+            : `${article.title}. Статья из раздела «${category?.title ?? ""}» — база знаний автосервиса Азимут о ремонте и диагностике подвески.`
+        }
         path={`/stati/${article.slug}`}
       />
       <div
@@ -106,28 +112,37 @@ export default function StatiArticle() {
             </div>
           </div>
 
-          {/* Заглушка контента */}
+          {/* Контент статьи */}
           <div className="px-4 sm:px-6 lg:px-12 py-10 sm:py-14 max-w-[840px] mx-auto">
-            <div className="p-6 sm:p-8 border border-amber-400/20 bg-amber-400/5 flex flex-col sm:flex-row items-start gap-5">
-              <div className="w-12 h-12 flex-none flex items-center justify-center border border-amber-400/30 bg-amber-400/10">
-                <Icon name="PenLine" size={20} className="text-amber-400" />
+            {content ? (
+              <article className="space-y-4 text-muted-foreground text-sm sm:text-base leading-relaxed">
+                <p className="text-foreground/90 text-base sm:text-lg leading-relaxed">{content.intro}</p>
+                {content.paragraphs.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </article>
+            ) : (
+              <div className="p-6 sm:p-8 border border-amber-400/20 bg-amber-400/5 flex flex-col sm:flex-row items-start gap-5">
+                <div className="w-12 h-12 flex-none flex items-center justify-center border border-amber-400/30 bg-amber-400/10">
+                  <Icon name="PenLine" size={20} className="text-amber-400" />
+                </div>
+                <div>
+                  <h2 className="font-['Oswald'] text-lg sm:text-xl font-bold uppercase tracking-wide mb-2 text-amber-400">
+                    Статья готовится
+                  </h2>
+                  <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                    Мы работаем над подробным материалом на тему «{article.title.replace(/\?$/, "")}». Скоро здесь появится развёрнутый разбор от мастеров автосервиса Азимут — с примерами из практики, фотографиями и рекомендациями.
+                  </p>
+                  <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mt-3">
+                    А если вопрос актуален прямо сейчас — не ждите публикации, позвоните нам: разберём вашу ситуацию бесплатно по телефону.
+                  </p>
+                </div>
               </div>
-              <div>
-                <h2 className="font-['Oswald'] text-lg sm:text-xl font-bold uppercase tracking-wide mb-2 text-amber-400">
-                  Статья готовится
-                </h2>
-                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                  Мы работаем над подробным материалом на тему «{article.title.replace(/\?$/, "")}». Скоро здесь появится развёрнутый разбор от мастеров автосервиса Азимут — с примерами из практики, фотографиями и рекомендациями.
-                </p>
-                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mt-3">
-                  А если вопрос актуален прямо сейчас — не ждите публикации, позвоните нам: разберём вашу ситуацию бесплатно по телефону.
-                </p>
-              </div>
-            </div>
+            )}
 
             <a
               href="tel:+79675378404"
-              className="mt-6 flex items-center justify-center gap-2 px-6 py-4 bg-amber-400 text-background font-['Oswald'] font-semibold text-base uppercase tracking-widest hover:bg-amber-300 transition-colors w-full sm:w-auto"
+              className="mt-8 flex items-center justify-center gap-2 px-6 py-4 bg-amber-400 text-background font-['Oswald'] font-semibold text-base uppercase tracking-widest hover:bg-amber-300 transition-colors w-full sm:w-auto"
             >
               <Icon name="Phone" size={16} />
               Записаться за 1 звонок

@@ -3,6 +3,7 @@ import Icon from "@/components/ui/icon";
 import SEOHead from "@/components/SEOHead";
 import SiteFooter from "@/components/SiteFooter";
 import { ARTICLE_CATEGORIES, getArticlesByCategory } from "@/data/articles";
+import { ARTICLE_CONTENTS } from "@/data/articleContents";
 
 const LOGO_URL = "/media78/img/logo-azimut.png";
 
@@ -102,21 +103,31 @@ export default function Stati() {
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-                    {articles.map((a) => (
-                      <button
-                        key={a.slug}
-                        onClick={() => navigate(`/stati/${a.slug}`)}
-                        className="group text-left border border-border/40 bg-card/30 hover:border-amber-400/40 hover:bg-card/50 transition-all duration-300 p-4 flex flex-col justify-between"
-                      >
-                        <h3 className="font-['Oswald'] text-sm font-semibold uppercase tracking-wide leading-snug mb-3 group-hover:text-amber-400 transition-colors">
-                          {a.title}
-                        </h3>
-                        <span className="font-mono text-[10px] text-amber-400/80 tracking-wider inline-flex items-center gap-1.5">
-                          Читать
-                          <Icon name="ArrowRight" size={11} />
-                        </span>
-                      </button>
-                    ))}
+                    {articles.map((a) => {
+                      const isReady = Boolean(ARTICLE_CONTENTS[a.slug]);
+                      return (
+                        <button
+                          key={a.slug}
+                          onClick={() => navigate(`/stati/${a.slug}`)}
+                          className="group text-left border border-border/40 bg-card/30 hover:border-amber-400/40 hover:bg-card/50 transition-all duration-300 p-4 flex flex-col justify-between"
+                        >
+                          <h3 className="font-['Oswald'] text-sm font-semibold uppercase tracking-wide leading-snug mb-3 group-hover:text-amber-400 transition-colors">
+                            {a.title}
+                          </h3>
+                          <div className="flex items-center justify-between">
+                            <span className="font-mono text-[10px] text-amber-400/80 tracking-wider inline-flex items-center gap-1.5">
+                              Читать
+                              <Icon name="ArrowRight" size={11} />
+                            </span>
+                            {isReady && (
+                              <span className="font-mono text-[8px] bg-green-500/15 text-green-400 px-1.5 py-0.5 tracking-widest">
+                                ГОТОВО
+                              </span>
+                            )}
+                          </div>
+                        </button>
+                      );
+                    })}
                   </div>
                 </section>
               );
