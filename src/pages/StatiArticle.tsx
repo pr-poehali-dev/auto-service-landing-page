@@ -117,9 +117,38 @@ export default function StatiArticle() {
             {content ? (
               <article className="space-y-4 text-muted-foreground text-sm sm:text-base leading-relaxed">
                 <p className="text-foreground/90 text-base sm:text-lg leading-relaxed">{content.intro}</p>
-                {content.paragraphs.map((p, i) => (
-                  <p key={i}>{p}</p>
-                ))}
+                {content.blocks
+                  ? content.blocks.map((block, i) =>
+                      block.type === "table" ? (
+                        <div key={i} className="overflow-x-auto my-6 border border-border/50">
+                          <table className="w-full text-xs sm:text-sm border-collapse">
+                            <thead>
+                              <tr className="bg-amber-400/10">
+                                <th className="text-left font-['Oswald'] uppercase tracking-wide text-amber-400 font-semibold px-3 py-2.5 border-b border-border/50 w-[28%]"></th>
+                                <th className="text-left font-['Oswald'] uppercase tracking-wide text-amber-400 font-semibold px-3 py-2.5 border-b border-border/50">
+                                  {block.headers[0]}
+                                </th>
+                                <th className="text-left font-['Oswald'] uppercase tracking-wide text-amber-400 font-semibold px-3 py-2.5 border-b border-border/50">
+                                  {block.headers[1]}
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {block.rows.map((row, ri) => (
+                                <tr key={ri} className={ri % 2 === 0 ? "bg-card/20" : ""}>
+                                  <td className="px-3 py-2.5 border-b border-border/30 font-medium text-foreground/90">{row[0]}</td>
+                                  <td className="px-3 py-2.5 border-b border-border/30">{row[1]}</td>
+                                  <td className="px-3 py-2.5 border-b border-border/30">{row[2]}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      ) : (
+                        <p key={i}>{block.text}</p>
+                      )
+                    )
+                  : content.paragraphs?.map((p, i) => <p key={i}>{p}</p>)}
               </article>
             ) : (
               <div className="p-6 sm:p-8 border border-amber-400/20 bg-amber-400/5 flex flex-col sm:flex-row items-start gap-5">
